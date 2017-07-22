@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop 
+ 		http://www.springframework.org/schema/aop/spring-aop.xsd
+ 		http://www.springframework.org/schema/util        
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd ">
+        
+    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->  
+    <context:component-scan base-package="com.dtk.platform.*">
+    	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>   
+	</context:component-scan>
+    <context:component-scan base-package="com.dtk.weixin.*">
+    	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>   
+	</context:component-scan>
+	<!-- 注解驱动 -->
+	<mvc:annotation-driven> 
+		<mvc:message-converters>   
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">   
+					<list>   
+						<value>text/plain;charset=UTF-8</value>   
+						<value>text/html;charset=UTF-8</value>   
+					</list>   
+				</property>   
+			</bean>
+			<ref bean="fastJsonHttpMessageConverter" />
+		</mvc:message-converters>   
+	</mvc:annotation-driven>
+	
+    <!--上传文件    -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize">
+            <value>104857600</value>
+        </property>
+        <property name="maxInMemorySize">
+            <value>1</value>
+        </property>
+    </bean>
+
+    <!-- 配置视图解析器 -->
+	<bean id="jstlViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="order" value="1" />
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- json转换器 -->
+	<bean id="fastJsonHttpMessageConverter"  
+        class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">  
+        <property name="supportedMediaTypes">  
+            <list>  
+                <value>application/json;charset=UTF-8</value>  
+                <value>text/html;charset=UTF-8</value>
+            </list>  
+        </property>  
+        <property name="features">  
+            <util:list>  
+                <!-- <value>WriteMapNullValue</value> -->  
+                <value>QuoteFieldNames</value>  
+                <value>WriteDateUseDateFormat</value>  
+            </util:list>  
+        </property>  
+    </bean> 
+    
+    
+	
+</beans>

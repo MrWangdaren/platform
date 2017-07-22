@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop 
+ 		http://www.springframework.org/schema/aop/spring-aop.xsd 
+ 		http://www.springframework.org/schema/data/mongo 
+ 		http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+ 		http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd ">
+
+	<!-- 自动扫描不含@Controller注解 -->
+	<context:component-scan base-package="com.dtk.platform.*">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<context:component-scan base-package="com.dtk.weixin.*">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!-- DispatcherServlet不会拦截以/resource开头的所有请求路径，并当作静态资源交由Servlet处理。 -->
+	<mvc:resources location="/resource/" mapping="/resource/**"></mvc:resources>
+	<!-- 加载properties文件 -->
+	<context:property-placeholder location="classpath*:others/*.properties" />
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 连接池最大数量 -->
+		<property name="maxActive" value="${jdbc.maxActive}" />
+		<!-- 初始化连接大小 -->
+		<property name="initialSize" value="${jdbc.initialSize}" />
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="${jdbc.minIdle}"></property>
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="${jdbc.maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${jdbc.tber}" />
+		<property name="filters" value="${jdbc.filters}" />
+		<!-- 是否在自动回收超时连接的时候打印连接的超时错误 -->
+		<property name="logAbandoned" value="true"></property>
+		<!-- 是否自动回收超时连接 -->
+		<property name="removeAbandoned" value="true"></property>
+		<!-- 超时时间(以秒数为单位) -->
+		<property name="removeAbandonedTimeout" value="180"></property>
+	</bean>
+	
+	<!-- 事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager" />
+	
+	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 --> 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 自动扫描mapper.xml文件 --> 
+		<property name="mapperLocations" value="classpath*:com/dtk/platform/dao/mapper/*.xml" />
+		<property name="configLocation" value="classpath:others/mybatis-config.xml" />
+	</bean>
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="basePackage" value="com.dtk.platform.dao" />  
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
+    </bean>  
+    
+    <!-- ContextHelper -->
+    <bean id="SpringApplicationContext" class="com.dtk.platform.tools.ApplicationContextHelper"></bean>
+
+	<!-- shiro start -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="myRealm" />
+		<property name="sessionManager" ref="shiroSessionManager" />
+	</bean>
+
+	<bean id="myRealm" class="com.dtk.platform.realm.MyRealm" />
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- Shiro的核心安全接口,这个属性是必须的 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 要求登录时的链接 -->
+		<property name="loginUrl" value="/sys/toLogin.do" />
+		<!-- 登陆成功后要跳转的连接 -->
+		<property name="successUrl" value="weixin/main/toMain.do" />
+		<!-- 未授权时要跳转的连接 -->
+		<property name="unauthorizedUrl" value="/sys/toLogin.do" />
+		<property name="filterChainDefinitions">
+			<value>
+				/resource/** = anon
+				/sys/toLogin.do = anon
+				/sys/login.do = anon
+				/weixin/** = anon
+				<!-- /** = authc -->
+				
+				/logout.do = logout
+			</value>
+		</property>
+	</bean>
+
+	<!-- shiro session管理配置 -->
+	<bean id="shiroSessionManager"
+		class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+		<!-- 设置全局会话超时时间，默认30分钟(1800000) -->
+		<property name="globalSessionTimeout" value="28800000" />
+		<!-- 是否在会话过期后会调用SessionDAO的delete方法删除会话 默认true -->
+		<property name="deleteInvalidSessions" value="false" />
+		<!-- 是否开启会话验证器任务 默认true -->
+		<property name="sessionValidationSchedulerEnabled" value="false" />
+		<!-- 会话验证器调度时间 -->
+		<property name="sessionValidationInterval" value="1800000" />
+		<!-- 默认JSESSIONID，同tomcat/jetty在cookie中缓存标识相同，修改用于防止访问404页面时，容器生成的标识把shiro的覆盖掉 -->
+		<property name="sessionIdCookie">
+			<bean class="org.apache.shiro.web.servlet.SimpleCookie">
+				<constructor-arg name="name" value="SHRIOSESSIONID" />
+        		<property name="httpOnly" value="true"/>
+        		<property name="maxAge" value="-1"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- AOP式方法级权限检查 -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	<!-- shiro end -->
+	
+</beans>

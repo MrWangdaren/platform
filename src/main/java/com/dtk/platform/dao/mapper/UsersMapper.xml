@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dtk.platform.dao.UsersMapper">
+
+	<resultMap id="UsersMap" type="com.dtk.platform.bean.Users">
+		<id column="ID" property="ID" jdbcType="INTEGER" />
+		<result column="Vip_SN" property="vipSN" jdbcType="VARCHAR" />
+		<result column="Vip_Name" property="vipName" jdbcType="VARCHAR" />
+		<result column="Vip_Contact" property="vipContact" jdbcType="VARCHAR" />
+		<result column="Vip_Header_Icon" property="vipHeaderIcon" jdbcType="VARCHAR" />
+		<result column="Vip_Gender" property="vipGender" jdbcType="INTEGER" />
+		<result column="Vip_Password" property="vipPassword" jdbcType="VARCHAR" />
+		<result column="OpeneId" property="openeId" jdbcType="VARCHAR" />
+		<result column="UnionUniqueId" property="unionUniqueId" jdbcType="VARCHAR" />
+		<result column="TPLUserId" property="tplUserId" jdbcType="VARCHAR" />
+		<result column="Token" property="token" jdbcType="VARCHAR" />
+		<result column="Vip_Level" property="vipLevel" jdbcType="INTEGER" />
+		<result column="Vip_State" property="vipState" jdbcType="INTEGER" />
+		<result column="State" property="state" jdbcType="INTEGER" />
+		<result column="Create_Time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="Operate_Time" property="operateTime" jdbcType="TIMESTAMP" />
+		<result column="Keep_Field" property="keepField" jdbcType="VARCHAR" />
+	</resultMap>
+
+</mapper>

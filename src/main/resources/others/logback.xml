@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+	 <property name="web_name" value="platform"/>
+	 <contextName>${web_name}</contextName>
+	
+	<!-- 异常信息日志记录   代码中 log.level 对应信息记录 -->
+   	<property name="MESSAGE_LOG" value="logs/message/" />
+	 
+	 <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> 
+		 <encoder>   
+	       <pattern>platform %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} %M -%msg%n</pattern>
+	     </encoder>   	
+  	 </appender>
+	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 按天来回滚  保存30天之内日志信息， -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${MESSAGE_LOG}/${web_name}.%d{yyyyMMdd}.%i.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<!-- 按时间回滚的同时，按文件大小新增文件，超过大小后则新建文件0,1,2,3递增-->
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100M</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<!-- 日志输出格式 -->
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{ip}] [%thread] %-5level
+				%logger{36} %M -%msg%n</Pattern>
+		</layout>
+	</appender>
+	<!--  
+     <root level="ERROR">
+     -->
+     <root level="DEBUG">
+     <appender-ref ref="STDOUT" />
+     <appender-ref ref="FILE"/>
+  </root> 
+</configuration>
