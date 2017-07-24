@@ -14,7 +14,7 @@ import org.dom4j.Element;
  */
 public class ParkConfig {
 
-	public static final String CONFIG_FILE = "ParkConfig.xml";
+	public static final String CONFIG_FILE = "others/ParkConfig.xml";
 	public static final String ROOT = "ParkConfig";
 	public static Element root = null;
 
@@ -51,7 +51,7 @@ public class ParkConfig {
 
 	public static void main(String[] args) {
 		try {
-			String value = ParkConfig.getConfigItem("MinaConfig", "MinaIp");
+			String value = ParkConfig.getConfigItem("a", "c");
 			System.out.println(value);
 		} catch (Exception e) {
 			e.printStackTrace();
