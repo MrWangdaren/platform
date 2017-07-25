@@ -22,7 +22,7 @@ import com.dtk.weixin.wxutils.WeixinUtil;
 
 @Controller
 @RequestMapping("/weixin/api")
-public class TokenContoller{
+public class TokenTestContoller{
 	
 	
 
