@@ -20,6 +20,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dtk.weixin.wxutils.WeixinUtil;
 
+
+/**
+ * 
+ * <p>Description: token测试 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:00:05
+ */
 @Controller
 @RequestMapping("/weixin/api")
 public class TokenTestContoller{

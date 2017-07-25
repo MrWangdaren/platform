@@ -34,7 +34,7 @@ import com.dtk.weixin.model.enums.ResultCode;
 
 /**
  * 
- * <p>Description: </p>
+ * <p>Description: 微信http网络请求工具 </p>
  * @author wy
  * @date 2017年7月24日 下午5:57:17
  */

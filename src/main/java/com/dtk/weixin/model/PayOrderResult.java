@@ -1,5 +1,11 @@
 package com.dtk.weixin.model;
 
+/**
+ * 
+ * <p>Description: 统一下单 返回结果 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:02:28
+ */
 public class PayOrderResult extends WeixinResult {
     private String appid; // 公众账号ID
     private String mchId; // 微信支付商户号

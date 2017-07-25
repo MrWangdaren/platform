@@ -9,6 +9,12 @@ import java.util.TreeMap;
 import com.dtk.weixin.model.PayOrderParam;
 import com.google.common.base.CaseFormat;
 
+/**
+ * 
+ * <p>Description: 类工具 类与Map相互转换 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:14:04
+ */
 public class BeanUtil {
 
     public static Map<String, Object> object2Map(Object object) {

@@ -20,7 +20,12 @@ import com.dtk.weixin.wxutils.BeanUtil;
 import com.dtk.weixin.wxutils.WeixinUtil;
 import com.dtk.weixin.wxutils.XmlUtil;
 
-
+/**
+ * 
+ * <p>Description: 微信主页与回调 </p>
+ * @author wy
+ * @date 2017年7月25日 下午3:59:12
+ */
 @Controller
 @RequestMapping("weixin/main")
 public class AppMainController {

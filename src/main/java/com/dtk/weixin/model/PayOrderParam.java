@@ -1,7 +1,10 @@
 package com.dtk.weixin.model;
 
 /**
- * 微信统一下单 接口参数
+ * 
+ * <p>Description: 微信统一下单 接口参数 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:03:51
  */
 public class PayOrderParam {
     private String appid; // 公众账号ID

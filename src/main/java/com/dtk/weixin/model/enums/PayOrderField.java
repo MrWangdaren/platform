@@ -4,7 +4,10 @@ package com.dtk.weixin.model.enums;
 import com.dtk.weixin.service.Validator;
 
 /**
- * payOrderParam 参数 必填信息
+ * 
+ * <p>Description: payOrderParam 参数 必填信息 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:03:07
  */
 public enum PayOrderField implements Validator {
     APP_ID("appid", true),
@@ -26,7 +29,7 @@ public enum PayOrderField implements Validator {
     TRADE_TYPE("trade_type", true),
     PRODUCT_ID("product_id", false),
     LIMIT_PAY("limit_pay", false),
-    OPEN_ID("openid", false),;
+    OPEN_ID("openid", true),;
 
     private String field;
     private boolean required;

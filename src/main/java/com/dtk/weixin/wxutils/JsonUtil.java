@@ -2,6 +2,12 @@ package com.dtk.weixin.wxutils;
 
 import com.alibaba.fastjson.JSONObject;
 
+/**
+ * 
+ * <p>Description: json工具 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:20:39
+ */
 public class JsonUtil {
 
     public static final int JSON_CODE_OK = 0;

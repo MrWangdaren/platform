@@ -15,7 +15,8 @@ public class LocalIPUtil {
     public LocalIPUtil() {
     }
 
-    public static String getLocalAddr() {
+    @SuppressWarnings("rawtypes")
+	public static String getLocalAddr() {
         Enumeration interfaces = null;
 
         try {

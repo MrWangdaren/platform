@@ -4,6 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 
+ * <p>Description: 时间工具类  </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:14:58
+ */
 public class DateUtil {
 
 	public static final String formatDefaultTimestamp = "yyyy-MM-dd HH:mm:ss.SSS";

@@ -18,6 +18,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 
+ * <p>Description: xml转换工具 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:24:42
+ */
 public class XmlUtil {
     private static final Log logger = LogFactory.getLog(XmlUtil.class);
 

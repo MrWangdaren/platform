@@ -2,11 +2,10 @@ package com.dtk.weixin.wxutils;
 
 import java.security.MessageDigest;
 import java.util.Random;
-import java.util.UUID;
 
 /**
  * 
- * <p>Description: 获得随机字符串 </p>
+ * <p>Description: 获得随机字符串及MD5加密 </p>
  * @author wy
  * @date 2017年7月24日 下午4:57:02
  */

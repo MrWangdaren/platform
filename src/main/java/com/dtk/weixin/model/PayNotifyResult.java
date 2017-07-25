@@ -1,5 +1,11 @@
 package com.dtk.weixin.model;
 
+/**
+ * 
+ * <p>Description: 支付完成回调信息 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:01:13
+ */
 public class PayNotifyResult extends WeixinResult {
     private String appid;
     private String mchId;

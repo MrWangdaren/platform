@@ -35,7 +35,7 @@ import com.dtk.weixin.wxutils.XmlUtil;
 
 /**
  * 
- * <p>Description: </p>
+ * <p>Description: H5支付 </p>
  * @author wy
  * @date 2017年7月25日 上午9:01:57
  */

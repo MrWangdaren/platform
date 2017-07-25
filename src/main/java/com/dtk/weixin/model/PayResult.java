@@ -2,7 +2,10 @@ package com.dtk.weixin.model;
 
 
 /**
- * 通用支付返回结果
+ * 
+ * <p>Description: 通用支付类  用于返回也页面 </p>
+ * @author wy
+ * @date 2017年7月25日 下午4:09:14
  */
 public class PayResult {
     private String resultCode; // ResultCode
