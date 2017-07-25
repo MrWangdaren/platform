@@ -36,7 +36,7 @@ public class WeixinPayTest {
 		String attach = "备用参数，先留着，后面会有用的";
 		String out_trade_no = "dtkparkfee20170721181900001";
 		int total_fee = 1;//单位是分，即是0.01元
-		String spbill_create_ip = "127.0.0.1";
+		String spbill_create_ip = "192.168.1.166";
 		String time_start = RandCharsUtils.timeStart();
 		System.out.println(time_start);
 		String time_expire = RandCharsUtils.timeExpire();

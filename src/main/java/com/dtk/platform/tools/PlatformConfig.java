@@ -12,15 +12,15 @@ import org.dom4j.Element;
  * @author DL
  * @date 2017年6月15日 下午2:45:13
  */
-public class ParkConfig {
+public class PlatformConfig {
 
-	public static final String CONFIG_FILE = "others/ParkConfig.xml";
-	public static final String ROOT = "ParkConfig";
+	public static final String CONFIG_FILE = "others/platformConfig.xml";
+	public static final String ROOT = "Config";
 	public static Element root = null;
 
 	public static void initConfig() throws Exception {
 		if (root == null)
-			synchronized (ParkConfig.class) {
+			synchronized (PlatformConfig.class) {
 				root = XmlReadTools.parseXmlFile(CONFIG_FILE);
 				if (!root.getName().equals(ROOT)) {
 					root = null;
@@ -44,14 +44,19 @@ public class ParkConfig {
 		return map;
 	}
 
-	public static String getConfigItem(String sConfKind, String pItemName) throws Exception {
-		Map<String, String> map = getConfigItemsByKind(sConfKind);
+	public static String getConfigItem(String sConfKind, String pItemName){
+		Map<String, String> map = new HashMap<String, String>();
+		try{
+			map = getConfigItemsByKind(sConfKind);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return (String) map.get(pItemName);
 	}
 
 	public static void main(String[] args) {
 		try {
-			String value = ParkConfig.getConfigItem("a", "c");
+			String value = PlatformConfig.getConfigItem("a", "c");
 			System.out.println(value);
 		} catch (Exception e) {
 			e.printStackTrace();

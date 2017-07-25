@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dtk.weixin.utils.WeixinUtil;
+import com.dtk.weixin.wxtools.WeixinUtil;
 
 @Controller
 @RequestMapping("/weixin/api")
-public class WeiXinTestContoller{
+public class TokenContoller{
+	
+	
 
 	@RequestMapping(value="/verify",method = RequestMethod.GET)
 	@ResponseBody

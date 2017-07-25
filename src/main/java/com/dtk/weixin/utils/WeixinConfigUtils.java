@@ -7,7 +7,7 @@ import java.util.Properties;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.dtk.platform.tools.ParkConfig;
+import com.dtk.platform.tools.PlatformConfig;
 
 /**
  * 微信的配置参数
@@ -26,9 +26,9 @@ public class WeixinConfigUtils {
 
 	static {
 		try{
-			appid = ParkConfig.getConfigItem("weixin", "appid");
-			mch_id = ParkConfig.getConfigItem("weixin", "mch_id");
-			notify_url = ParkConfig.getConfigItem("weixin", "notify_url");
+			appid = PlatformConfig.getConfigItem("weixin", "appid");
+			mch_id = PlatformConfig.getConfigItem("weixin", "mch_id");
+			notify_url = PlatformConfig.getConfigItem("weixin", "notify_url");
 		}catch(Exception ex){
 			log.debug("加载配置文件："+ex.getMessage());
 		}
@@ -38,7 +38,7 @@ public class WeixinConfigUtils {
 	public static void main(String[] args) throws IOException {
 		String appid = "";
 		try{
-			appid = ParkConfig.getConfigItem("weixin", "appid");
+			appid = PlatformConfig.getConfigItem("weixin", "appid");
 		}catch(Exception ex){
 			log.debug("加载配置文件："+ex.getMessage());
 		}

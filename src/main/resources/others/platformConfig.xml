@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<Config>
+	<ConfigKind name="a" desc="b">
+		<ConfigItem name="c" desc="d">123456</ConfigItem>
+	</ConfigKind>
+	
+	<ConfigKind name="weixin" desc="微信配置参数">
+		<ConfigItem name="appId" desc="商户appID">wxd610d0789b57e504</ConfigItem>
+		<ConfigItem name="appSecret" desc="app密码">6b9350c26d8ff86fffcdbc63f0f2daf3</ConfigItem>
+		<ConfigItem name="mchId" desc="商户号">1483688782</ConfigItem>
+		<ConfigItem name="apiKey" desc="商户后台配置的一个32位的key">ADtk20170721wx369asdeGqwefEdsafw</ConfigItem>
+		<ConfigItem name="tradeType" desc="交易类型">JSAPI</ConfigItem>
+		<ConfigItem name="token" desc="token">asfpofqfkjfpoiqwadsfpkojopeiopro</ConfigItem>
+		<ConfigItem name="encodingAESKey" desc="EncodingAESKey">IHRW2k0kY37S2MYMaosc6lkq7Zx9KDUMv9WRALgEc9Q</ConfigItem>
+		<ConfigItem name="unifiedOrder" desc="微信支付统一下单接口">https://api.mch.weixin.qq.com/pay/unifiedorder</ConfigItem>
+		<ConfigItem name="notifyUrl" desc="支付回调地址">http://wylsr.imwork.net/platform/weixin/main/pay/callback.do</ConfigItem>
+	</ConfigKind>
+</Config>
