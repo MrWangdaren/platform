@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dtk.weixin.wxtools.WeixinUtil;
+import com.dtk.weixin.wxutils.WeixinUtil;
 
 @Controller
 @RequestMapping("/weixin/api")

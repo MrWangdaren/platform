@@ -14,7 +14,7 @@
 	   	<script type="text/javascript" src="${PATH}/resource/weixin/js/common/jquery-1.12.3.min.js"></script>
 	</head>  
 	<body>  
-		<input type="hidden" id="openId" value="oTYlf1Ap7USBffF6z8rlwctWkgik"/>  
+		<input type="hidden" id="openId" value=""/>  
 		<%  
 			String code = request.getParameter("code");  
     	%>  

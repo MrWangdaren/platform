@@ -23,16 +23,15 @@ import com.dtk.weixin.model.PayOrderResult;
 import com.dtk.weixin.model.PayResult;
 import com.dtk.weixin.model.enums.PayOrderField;
 import com.dtk.weixin.model.enums.ResultCode;
-import com.dtk.weixin.utils.WeiChatUtil;
-import com.dtk.weixin.wxtools.BeanUtil;
-import com.dtk.weixin.wxtools.DateUtil;
-import com.dtk.weixin.wxtools.EncryptUtil;
-import com.dtk.weixin.wxtools.JsonUtil;
-import com.dtk.weixin.wxtools.LocalIPUtil;
-import com.dtk.weixin.wxtools.SignUtil;
-import com.dtk.weixin.wxtools.ValidateUtil;
-import com.dtk.weixin.wxtools.WeixinUtil;
-import com.dtk.weixin.wxtools.XmlUtil;
+import com.dtk.weixin.wxutils.BeanUtil;
+import com.dtk.weixin.wxutils.DateUtil;
+import com.dtk.weixin.wxutils.EncryptUtil;
+import com.dtk.weixin.wxutils.JsonUtil;
+import com.dtk.weixin.wxutils.LocalIPUtil;
+import com.dtk.weixin.wxutils.SignUtil;
+import com.dtk.weixin.wxutils.ValidateUtil;
+import com.dtk.weixin.wxutils.WeixinUtil;
+import com.dtk.weixin.wxutils.XmlUtil;
 
 /**
  * 
@@ -73,7 +72,7 @@ public class HtmlPayController {
 		}
 		String access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
 		String requestUrl = access_token_url.replace("APPID", appId).replace("SECRET", appSecret).replace("CODE", code);  
-        JSONObject jsonObject = WeiChatUtil.httpRequest(requestUrl, "GET", null);  
+        JSONObject jsonObject = WeixinUtil.httpRequest(requestUrl, "GET", null);  
         String openid = jsonObject.getString("openid");
 		System.out.println(openid);
 		if(openid == null || openid.equals("")){

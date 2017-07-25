@@ -1,4 +1,4 @@
-package com.dtk.weixin.wxtools;
+package com.dtk.weixin.wxutils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

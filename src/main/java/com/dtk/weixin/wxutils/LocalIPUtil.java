@@ -1,4 +1,4 @@
-package com.dtk.weixin.wxtools;
+package com.dtk.weixin.wxutils;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;

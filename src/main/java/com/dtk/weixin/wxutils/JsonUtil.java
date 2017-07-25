@@ -1,4 +1,4 @@
-package com.dtk.weixin.wxtools;
+package com.dtk.weixin.wxutils;
 
 import com.alibaba.fastjson.JSONObject;
 

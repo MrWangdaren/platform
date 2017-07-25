@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.dtk.weixin.model.PayNotifyResult;
 import com.dtk.weixin.model.enums.ResultCode;
-import com.dtk.weixin.wxtools.BeanUtil;
-import com.dtk.weixin.wxtools.WeixinUtil;
-import com.dtk.weixin.wxtools.XmlUtil;
+import com.dtk.weixin.wxutils.BeanUtil;
+import com.dtk.weixin.wxutils.WeixinUtil;
+import com.dtk.weixin.wxutils.XmlUtil;
 
 
 @Controller
