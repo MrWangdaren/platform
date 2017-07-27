@@ -33,7 +33,7 @@ html{width: 100%}
 .red{color:#ff5f59;}
 .bluelink{color: #64a5f6;text-decoration: underline;font-size: 1.5rem;}
 .orangebtn{display:block;width:100px;line-height:2.8rem;text-align:center;margin:0 auto;color:#450064;font-size:1.4rem;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#f4b373;}
-.littlebtn{display:block;width:60px;line-height:2.8rem;text-align:center;margin:0 auto;color:#450064;font-size:1.4rem;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#f4b373;}
+.littlebtn{display:block;width:60px;line-height:2rem;text-align:center;margin:0 auto;color:#450064;font-size:1.4rem;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#f4b373;}
 .greybtn{display:block;width:112px;line-height:2.8rem;text-align:center;margin:0 auto;color:#450064;font-size:1.5rem;border:2px solid #450064;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#d0d8e2;}
 .page{background: url(../img/main_bg.png) top center no-repeat;background-size: cover;box-sizing: border-box;}
 .opacitypage{background: url(/wx/img/MicroParking/white/bg1.jpg) top center no-repeat;background-size: cover;}

@@ -59,19 +59,19 @@
                <tbody>
                    <tr>
                        <td><span class="number">苏A6U068</span></td>
-                       <td>2017-07-18</td>
+                       <td>2017-07-18 14:12:00</td>
                        <td>3小时56分钟</td>
                        <td><a class="littlebtn" onclick="confirmPay('temp.id')">确定缴费</a></td>
                    </tr>
                    <tr>
                        <td><span class="number">苏AX0R22</span></td>
-                       <td>2017-07-18</td>
+                       <td>2017-07-18 14:12:00</td>
                        <td>3小时38分钟</td>
                        <td><a class="littlebtn" onclick="confirmPay(temp.id)">确定缴费</a></td>
                    </tr>
                    <tr>
                        <td><span class="number">苏ALM677</span></td>
-                       <td>2017-07-18</td>
+                       <td>2017-07-18 14:12:00</td>
                        <td>2小时49分钟</td>
                        <td><a class="littlebtn" onclick="confirmPay(temp.id)">确定缴费</a></td>
                    </tr>
