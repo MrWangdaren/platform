@@ -18,7 +18,7 @@
 <script src="${PATH}/resource/weixin/js/common/jquery-1.12.3.min.js" type="text/javascript"></script>
 <body>
 	<div class="page bind">
-	<input type="hidden" id="plateNoPrefixHidden" value="苏A">
+	<input type="hidden" id="plateNoPrefixHidden" value="苏">
    	<h2 class="h2-tit">请输入车牌号</h2>
    	<div class="brand"> 
 		<select id="licenceType" class="t_choosetxt">	    	
@@ -35,14 +35,16 @@
            	<input type="text" maxlength="1" value="" readonly="readonly">
            	<input type="text" maxlength="1" value="" readonly="readonly">
            	<input type="text" maxlength="1" value="" readonly="readonly">
+           	<!-- 
            	<input type="text" maxlength="1" value="" readonly="readonly">
+           	 -->
        	</div>
    	</div>
    
    <div class="btns clearfix">
        <a id="changeBrand" class="orangebtn fl" href="javascript:;">已绑定车牌</a>
        <a id="sureBrand" class="orangebtn fr" href="javascript:;">确定缴费</a>
-       <a id="rule" class="orangebtn" href="javascript:void(0);">缴费规则</a>
+       <a id="rule" class="orangebtn" href="javascript:;">缴费规则</a>
    </div> 
    <div class="paymentInfo">
        <div class="title"><span>场内停车记录</span></div>
@@ -104,9 +106,18 @@
                <span>选择车牌</span>
                <a href="javascript:;" class="close">×</a>
            </h2>
+        <ul class="chooseList">
+        	<li> <span>苏A12345</span>   </li>
+        	<li> <span>苏A12346</span>   </li>
+        	<li> <span>苏A12347</span>   </li>
+        </ul> 
       	<p class="chooseno">您尚未绑定车牌，请在“个人中心”中绑定车牌。</p>
        </div>
    </div> 
+   
+  
+   
+   
    
    <!-- 键盘 -->
 <div id="key-chinese" class="keybox">
@@ -283,9 +294,9 @@
  		   }
  	   	}
  	    $.promptDialog_wait("请稍后....")
- 	   	$.post("${PATH}/parking/parking/fee/isIn.json",{carNo:str},function(data) {
+ 	   	$.post("${PATH}/weixin/main/isInPark.do",{carNo:str},function(data) {
  	   		if(data.code == 200) {
- 	   			window.location.href = "${PATH}/parking/parking/fee/showBill.html?carNo=" + str;
+ 	   			window.location.href = "${PATH}/weixin/pay/init.do?carNo=" + str;
  	   		}
  	   		else {
  	   			close_waitpop();
@@ -298,18 +309,15 @@
     	
     });
 </script>
-
 		<div class="footerMenu">
-	   		<a class="active" href="/parking/parking/fee/index.html">停车缴费</a>
-	   		<a  href="/parking/parking/his/index.html">记录查询</a>
-	   		<a  href="/parking/parking/car/index.html">个人中心</a>
+	   		<a class="active" href="${PATH}/platform/weixin/main/init.do">停车缴费</a>
+	   		<a  href="${PATH}/platform/weixin/record/init.do">记录查询</a>
+	   		<a  href="${PATH}/platform/weixin/center/init.do">个人中心</a>
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
-	var $$c = {
-	    staticUrl : 'http://localhost:8080/vip',
-	};
+	//必须在页面所有Element之前加载脚本文件先实例化fastclick
 	$(function() {  
 	    FastClick.attach(document.body);
 	});

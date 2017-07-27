@@ -1,5 +1,6 @@
 package com.dtk.weixin.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,11 +33,32 @@ public class AppMainController {
 	
 	private static Log logger = LogFactory.getLog(AppMainController.class);
 
-	@RequestMapping("toMain")
+	@RequestMapping("init")
 	public String toMain(){
-		
 		return "weixin/park/main";
 	}
+	
+	
+	@RequestMapping("isInPark")
+	@ResponseBody
+	public Map<String, String> isInPark(String carNo){
+		
+		Map<String, String> res = new HashMap<String, String>();
+		
+		res.put("code", "200");
+		
+		
+		return res;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping("pay/toPay")
 	public String toPay(HttpServletRequest request, HttpServletResponse response){
