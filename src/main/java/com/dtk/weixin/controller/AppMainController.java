@@ -34,7 +34,7 @@ public class AppMainController {
 	private static Log logger = LogFactory.getLog(AppMainController.class);
 
 	@RequestMapping("init")
-	public String toMain(){
+	public String init(){
 		return "weixin/park/main";
 	}
 	
@@ -50,14 +50,6 @@ public class AppMainController {
 		
 		return res;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	@RequestMapping("pay/toPay")

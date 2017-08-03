@@ -43,7 +43,7 @@ $.promptDialog_wait = function(settings){
 			this.clickPop();
 		},
 		creatElementDiv:function(){
-			var creatDiv = $("<div class='fixcont1'><div class='sentdiv1'><p>" + settings +"</p><img src='" + $$c.staticUrl  + "/img/MicroParking/loading_big.gif'></div></div>");
+			var creatDiv = $("<div class='fixcont1'><div class='sentdiv1'><p>" + settings +"</p><img src='" + contextPath + "/resource/weixin/img/loading_big.gif'></div></div>");
 			return creatDiv;
 		},
 		//弹出层

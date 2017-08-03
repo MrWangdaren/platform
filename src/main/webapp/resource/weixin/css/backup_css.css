@@ -1,0 +1,94 @@
+@CHARSET "UTF-8";
+
+/************* css header *************/
+*{ margin:0px; padding:0px;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);box-sizing: border-box;-webkit-user-select: none;user-select: none;}
+body{ font-family: "Microsoft YaHei",sans-serif; color:#450064;-webkit-user-select: none; -webkit-text-size-adjust: none; width:100%; height:100%;overflow-x:hidden;}
+form,input,button,option,textarea,select,h3,h4,a{font-family: "Microsoft YaHei",sans-serif; outline:none}
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,img {display:block; border:0;}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+a{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title], dfn[title]{border-bottom:1px dotted #000;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #cccccc;margin:1em 0;padding:0}
+a{color:#000;text-decoration: none; cursor:pointer; border:0;outline:none;}
+textarea{resize:none;}
+input, select,textarea{-webkit-appearance: none;vertical-align:middle}
+li{ list-style-type:none;}
+em,i{ font-style:normal;}
+.clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
+.clearfix{display: inline-table;}
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}
+html,body{height: 100%;font-family: "Microsoft YaHei",sans-serif; font-size:62.5%; }
+html{width: 100%}
+.page{min-height: 100%;max-width:720px;min-width: 320px;margin: 0 auto; font-size:12px;}
+/*************** 通用样式  ***************/
+.fl{float: left;}
+.fc{float: left;}
+.fr{float: right;}
+.red{color:#ff5f59;}
+.bluelink{color: #64a5f6;text-decoration: underline;font-size: 1.5rem;}
+.orangebtn{display:block;width:100px;line-height:2.8rem;text-align:center;margin:0 auto;color:#450064;font-size:1.4rem;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#f4b373;}
+.littlebtn{display:block;width:60px;line-height:2rem;text-align:center;margin:0 auto;color:#450064;font-size:1.4rem;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#f4b373;}
+.greybtn{display:block;width:112px;line-height:2.8rem;text-align:center;margin:0 auto;color:#450064;font-size:1.5rem;border:2px solid #450064;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#d0d8e2;}
+.page{background: url(../img/main_bg.png) top center no-repeat;background-size: cover;box-sizing: border-box;}
+.opacitypage{background: url(/wx/img/MicroParking/white/bg1.jpg) top center no-repeat;background-size: cover;}
+.whitepage{background: url(/wx/img/MicroParking/white/bg1.jpg) top center no-repeat;background-size: cover;}
+.h2-tit{text-align: center;font-weight: normal;font-size: 1.8rem;padding:10px 0 15px;}
+
+.brand{display:inline-block;border:2px solid #64c4f6;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);padding:2px;background:#f9f9f9;}
+.t_choosetxt{width:150px;font-size: 1.5rem; color:#000000; border:1px solid #bababa; height:32px; background:url(../img/select_down.png) no-repeat right center;background-size: 15%;background-color: white;border-radius:5px; }
+.brand .inner{padding:6px 9px;border:1px solid #450064;border-radius: 5px;background:#64c4f6;color:#fff;font-family: "Microsoft Yahei",sans-serif;}
+.brand .inner span{letter-spacing: 4px; font-size: 2.6rem;font-weight: bold; 
+text-shadow:#450064 2px 0 0,#450064 0 2px 0,#450064 -2px 0 0,#450064 0 -2px 0;
+-webkit-text-shadow:#450064 2px 0 0,#450064 0 2px 0,#450064 -2px 0 0,#450064 0 -2px 0;
+-moz-text-shadow:#450064 2px 0 0,#450064 0 2px 0,#450064 -2px 0 0,#450064 0 -2px 0;
+*filter: Glow(color=#450064, strength=2);}
+
+.checkbox{display: inline-block;position: relative; width: 17px;height: 17px;border-radius: 10px;border: 1px solid #450064;background-color: #fff;vertical-align: middle;}
+.checkbox:after{position: absolute;left: 4px;top: 2px;display: table;width: 5px;height: 8px;border: 1px solid #450064;border-top: 0;border-left: 0;content: ' ';
+-webkit-transform: rotate(45deg) scale(0);
+transform: rotate(45deg) scale(0);
+-webkit-transition: all .1s cubic-bezier(.71,-.46,.88,.6);
+transition: all .1s cubic-bezier(.71,-.46,.88,.6);}
+.checked{background: #c2f473;}
+.checked:after{position: absolute;left: 5px;top: 1px;display: table;width: 5px;height: 9px;border: 1px solid #450064;border-top: 0;border-left: 0;content: ' ';
+-webkit-transform: rotate(45deg) scale(1);
+transform: rotate(45deg) scale(1);
+-webkit-transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;}
+
+/*************** 兼容样式 ***************/
+@media screen and (max-width: 320px) {
+	.recordList{padding:4% 4% 3%;}
+	.recordList a{background-size: 11px;}
+	.recordList dl dt{font-size: 1.6rem;margin-bottom: 6px;}
+	.recordList dl dd{font-size: 1.2rem;line-height: 1.8rem;}
+	.recordList .price{font-size: 1.2rem;}
+	.recordList .price strong{font-size: 2.4rem;}
+	.brandopen{max-height: 150px;padding-bottom: 0;overflow-y: scroll;}
+	.brandList .brand .inner span{font-size: 2.6rem;}
+	.brandList .status{width: 19%;}
+	.keybox ul li span.active{background-size: 92%;line-height: 9rem;}
+}
+@media screen and (min-width: 330px) {
+	.brandopen{max-height: 175px;padding-bottom: 0;overflow-y: scroll;}
+	.bind .brand .inner input{padding: 5.3% 0;}
+	.keybox ul li a,.keybox ul li span{font-size: 2.2rem;}
+	.keybox ul li span.active{background-size: 90%;}
+}
+@media screen and (min-width: 400px) {
+	.recordList a{background-size: 15px;}
+	.recordList dl dt{font-size: 2rem;margin-bottom: 1rem;}
+	.recordList dl dd{font-size: 1.5rem;line-height: 2.2rem;}
+	.recordList .price{padding-top: 10%;}
+	.bind .brand .inner input{padding: 5.3% 0;font-size: 2.2rem;}
+	.keybox ul li span.active{height: 12rem;}
+}
+@media screen and (min-width: 600px) {
+	.bind .brand .inner input{padding: 6.3% 0;}
+}

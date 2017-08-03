@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	 <title>停车缴费</title>
      <meta http-equiv="Expires" CONTENT="-1">
      <meta http-equiv="Pragma" CONTENT="no-cache">
      <meta http-equiv="Cache-Control" CONTENT="no-cache">
@@ -11,11 +12,10 @@
      <meta name="apple-mobile-web-app-capable" content="yes">
      <meta name="apple-mobile-web-app-status-bar-style" content="black">
      <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-     <title>停车缴费</title>
+     <link rel="stylesheet" href="${PATH}/resource/weixin/css/css.css">
+	 <script type="text/javascript" src="${PATH}/resource/common/js/jquery-1.12.3.min.js"></script>
+	 <script type="text/javascript" src="${PATH}/resource/common/js/content.js"></script>
 </head>
-<link rel="stylesheet" href="${PATH}/resource/weixin/css/css.css">
-<link rel="stylesheet" href="${PATH}/resource/weixin/css/main.css">
-<script src="${PATH}/resource/weixin/js/common/jquery-1.12.3.min.js" type="text/javascript"></script>
 <body>
 	<div class="page bind">
 	<input type="hidden" id="plateNoPrefixHidden" value="苏">
@@ -310,13 +310,14 @@
     });
 </script>
 		<div class="footerMenu">
-	   		<a class="active" href="${PATH}/platform/weixin/main/init.do">停车缴费</a>
-	   		<a  href="${PATH}/platform/weixin/record/init.do">记录查询</a>
-	   		<a  href="${PATH}/platform/weixin/center/init.do">个人中心</a>
+	   		<a class="active" href="${PATH}/weixin/main/init.do">停车缴费</a>
+	   		<a  href="${PATH}/weixin/record/init.do">记录查询</a>
+	   		<a  href="${PATH}/weixin/center/init.do">个人中心</a>
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
+	var contextPath = platform_URL + platform_basePath;
 	//必须在页面所有Element之前加载脚本文件先实例化fastclick
 	$(function() {  
 	    FastClick.attach(document.body);
@@ -325,5 +326,5 @@
 
 <script src="${PATH}/resource/weixin/js/main/dialog.js" type="text/javascript"></script>
 <script src="${PATH}/resource/weixin/js/main/main.js" type="text/javascript"></script>
-<script src="${PATH}/resource/weixin/js/common/fastclick.js" type="text/javascript"></script>
+<script src="${PATH}/resource/common/js/fastclick.js" type="text/javascript"></script>
 </html>

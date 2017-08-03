@@ -1,5 +1,7 @@
 package com.dtk.weixin.controller;
 
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -8,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -20,6 +23,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.dtk.platform.tools.PlatformConfig;
 import com.dtk.weixin.model.PayOrderParam;
 import com.dtk.weixin.model.PayOrderResult;
+import com.dtk.weixin.model.PayQueryField;
+import com.dtk.weixin.model.PayQueryParam;
+import com.dtk.weixin.model.PayQueryResult;
 import com.dtk.weixin.model.PayResult;
 import com.dtk.weixin.model.enums.PayOrderField;
 import com.dtk.weixin.model.enums.ResultCode;
@@ -45,6 +51,7 @@ public class HtmlPayController {
 	
 	private static Log logger = LogFactory.getLog(HtmlPayController.class);
 	
+	//商户公众号appID
 	private String appId = PlatformConfig.getConfigItem("weixin", "appId");
 	//app密码
 	private String appSecret = PlatformConfig.getConfigItem("weixin", "appSecret");
@@ -58,8 +65,37 @@ public class HtmlPayController {
 	private String unifiedOrder = PlatformConfig.getConfigItem("weixin", "unifiedOrder");
     // 支付 回调url
 	private String notifyUrl = PlatformConfig.getConfigItem("weixin", "notifyUrl");
+	// 重定向支付url
+	private String redirectUrl = PlatformConfig.getConfigItem("weixin", "redirectUrl");
+	//订单支付状态url
+	private String orderQueryUrl = PlatformConfig.getConfigItem("weixin", "orderQueryUrl");
 	
 	
+	/**
+	 * 
+	 * @description 重定向支付页面并授权
+	 * @param  
+	 * @author wy
+	 * @date 2017年7月28日 上午11:17:51
+	 */
+	@RequestMapping("init")
+	public void init(HttpServletRequest request, HttpServletResponse response, Model model,String carNo){
+		
+		if(StringUtils.isBlank(carNo)){
+			logger.info("carNo is not correct, " + "carNo = " + carNo);
+            throw new RuntimeException("车牌号校验不通过");
+		}
+		try {
+			String url = URLEncoder.encode(redirectUrl, "UTF-8");
+		    String getCodeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
+		    String requestUrl = getCodeUrl.replace("APPID", appId).replace("REDIRECT_URI", url).replace("SCOPE", "snsapi_base").replace("STATE", carNo); 
+		    model.addAttribute("carNo", carNo);
+		    response.sendRedirect(requestUrl);
+		} catch (IOException e) {
+			logger.info("重定向支付页面并授权失败");
+			e.printStackTrace();
+		}
+	}
 	
 	@RequestMapping("getCode")
 	@ResponseBody
@@ -92,7 +128,7 @@ public class HtmlPayController {
             String openId){
 		if(null == openId || "".equals(openId)){
 			logger.info("openId is not correct, " + "openId = " + openId);
-            throw new RuntimeException("签名校验不通过");
+            throw new RuntimeException("openId为空");
 		}
 		
 	    String strDate = DateUtil.format(new Date(), new SimpleDateFormat("yyyyMMddHHmmss"));
@@ -164,10 +200,63 @@ public class HtmlPayController {
         JSONObject ret = JsonUtil.getOkJson();
         ret.put("reslt", payResult);
         ret.put("param", genJsParam(payResult));
-
+        ret.put("outTradeNo", outTradeNo);
         return ret;
 		
 	}
+	
+	/**
+	 * 
+	 * @description 查询订单
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月1日 下午2:15:27
+	 */
+	@RequestMapping("queryOrder")
+    @ResponseBody
+    public PayQueryResult query(HttpServletRequest request, HttpServletResponse response, String outTradeNo) {
+		
+        PayQueryParam param = new PayQueryParam();
+        // 基本信息
+        param.setAppid(appId);
+        param.setMchId(mchId);
+
+        param.setOutTradeNo(outTradeNo); // 客户订单号
+
+        //签名
+        param.setNonceStr(EncryptUtil.random());
+        Map<String, Object> data = BeanUtil.object2Map(param); // 参数列表
+        param.setSign(SignUtil.sign(data, apiKey)); // 计算sign
+        data.put(PayOrderField.SIGN.getField(), param.getSign()); // sign放到map中，为后续转xml
+
+        // 校验参数是否齐全
+        ValidateUtil.validate(PayQueryField.values(), data);
+
+        // 转成xml格式
+        String xml = XmlUtil.toXml(data);
+        logger.info("post.xml=" + xml);
+        // 发送支付请求
+        String resultStr = WeixinUtil.postXml(orderQueryUrl, xml);
+        logger.info("result=" + resultStr);
+
+        // 校验返回结果 签名
+        Map<String, Object> resultMap = XmlUtil.parseXml(resultStr);
+        String resultSign = SignUtil.sign(resultMap, apiKey);
+        if (resultMap.get("sign") == null || !resultMap.get("sign").equals(resultSign)) {
+            logger.info("sign is not correct, " + resultMap.get("sign") + " " + resultSign);
+            throw new RuntimeException("签名校验不通过");
+        }
+
+        PayQueryResult result = BeanUtil.map2Object(PayQueryResult.class, resultMap);
+
+        return result;
+    }
+
+	@RequestMapping("payOk")
+	public String payOk(String outTradeNo){
+		return "weixin/park/payOk";
+	}
+	
 	
 	
 	private JSONObject genJsParam(PayResult payResult) {
