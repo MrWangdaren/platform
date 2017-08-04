@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.itcast.ssm.mapper.UsersMapper">
-  <resultMap id="BaseResultMap" type="cn.itcast.ssm.po.Users">
+<mapper namespace="com.dtk.platform.dao.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.dtk.platform.bean.Users">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="Vip_SN" jdbcType="VARCHAR" property="vipSn" />
     <result column="Vip_Name" jdbcType="VARCHAR" property="vipName" />
@@ -83,7 +83,7 @@
     UnionUniqueId, TPLUserId, Token, Vip_Level, Vip_State, State, Create_Time, Operate_Time, 
     Keep_Field
   </sql>
-  <select id="selectByExample" parameterType="cn.itcast.ssm.po.UsersExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dtk.platform.bean.UsersExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -107,13 +107,13 @@
     delete from users
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.itcast.ssm.po.UsersExample">
+  <delete id="deleteByExample" parameterType="com.dtk.platform.bean.UsersExample">
     delete from users
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.itcast.ssm.po.Users">
+  <insert id="insert" parameterType="com.dtk.platform.bean.Users">
     insert into users (ID, Vip_SN, Vip_Name, 
       Vip_Contact, Vip_Header_Icon, Vip_Gender, 
       Vip_Password, OpeneId, UnionUniqueId, 
@@ -127,7 +127,7 @@
       #{vipState,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.itcast.ssm.po.Users">
+  <insert id="insertSelective" parameterType="com.dtk.platform.bean.Users">
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -236,7 +236,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.itcast.ssm.po.UsersExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dtk.platform.bean.UsersExample" resultType="java.lang.Long">
     select count(*) from users
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -324,7 +324,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.itcast.ssm.po.Users">
+  <update id="updateByPrimaryKeySelective" parameterType="com.dtk.platform.bean.Users">
     update users
     <set>
       <if test="vipSn != null">
@@ -378,7 +378,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.itcast.ssm.po.Users">
+  <update id="updateByPrimaryKey" parameterType="com.dtk.platform.bean.Users">
     update users
     set Vip_SN = #{vipSn,jdbcType=VARCHAR},
       Vip_Name = #{vipName,jdbcType=VARCHAR},

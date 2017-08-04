@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.itcast.ssm.mapper.ParkInfoMapper">
-  <resultMap id="BaseResultMap" type="cn.itcast.ssm.po.ParkInfo">
+<mapper namespace="com.dtk.platform.dao.ParkInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dtk.platform.bean.ParkInfo">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="Park_Name" jdbcType="VARCHAR" property="parkName" />
     <result column="Park_Sn" jdbcType="VARCHAR" property="parkSn" />
@@ -76,7 +76,7 @@
     ID, Park_Name, Park_Sn, ParkAddress, Park_TotalSpaces, Park_RemainSpaces, State, 
     Descript, Create_Time, Operate_Time, Keep_Field
   </sql>
-  <select id="selectByExample" parameterType="cn.itcast.ssm.po.ParkInfoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dtk.platform.bean.ParkInfoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,13 +100,13 @@
     delete from park_info
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.itcast.ssm.po.ParkInfoExample">
+  <delete id="deleteByExample" parameterType="com.dtk.platform.bean.ParkInfoExample">
     delete from park_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.itcast.ssm.po.ParkInfo">
+  <insert id="insert" parameterType="com.dtk.platform.bean.ParkInfo">
     insert into park_info (ID, Park_Name, Park_Sn, 
       ParkAddress, Park_TotalSpaces, Park_RemainSpaces, 
       State, Descript, Create_Time, 
@@ -116,7 +116,7 @@
       #{state,jdbcType=INTEGER}, #{descript,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.itcast.ssm.po.ParkInfo">
+  <insert id="insertSelective" parameterType="com.dtk.platform.bean.ParkInfo">
     insert into park_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -189,7 +189,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.itcast.ssm.po.ParkInfoExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dtk.platform.bean.ParkInfoExample" resultType="java.lang.Long">
     select count(*) from park_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -253,7 +253,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.itcast.ssm.po.ParkInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.dtk.platform.bean.ParkInfo">
     update park_info
     <set>
       <if test="parkName != null">
@@ -289,7 +289,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.itcast.ssm.po.ParkInfo">
+  <update id="updateByPrimaryKey" parameterType="com.dtk.platform.bean.ParkInfo">
     update park_info
     set Park_Name = #{parkName,jdbcType=VARCHAR},
       Park_Sn = #{parkSn,jdbcType=VARCHAR},
