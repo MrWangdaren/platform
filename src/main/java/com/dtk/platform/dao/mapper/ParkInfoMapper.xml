@@ -5,9 +5,9 @@
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="Park_Name" jdbcType="VARCHAR" property="parkName" />
     <result column="Park_Sn" jdbcType="VARCHAR" property="parkSn" />
-    <result column="ParkAddress" jdbcType="VARCHAR" property="parkaddress" />
-    <result column="Park_TotalSpaces" jdbcType="INTEGER" property="parkTotalspaces" />
-    <result column="Park_RemainSpaces" jdbcType="INTEGER" property="parkRemainspaces" />
+    <result column="Park_Address" jdbcType="VARCHAR" property="parkAddress" />
+    <result column="Park_Total_Spaces" jdbcType="INTEGER" property="parkTotalSpaces" />
+    <result column="Park_Remain_Spaces" jdbcType="INTEGER" property="parkRemainSpaces" />
     <result column="State" jdbcType="INTEGER" property="state" />
     <result column="Descript" jdbcType="VARCHAR" property="descript" />
     <result column="Create_Time" jdbcType="TIMESTAMP" property="createTime" />
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, Park_Name, Park_Sn, ParkAddress, Park_TotalSpaces, Park_RemainSpaces, State, 
+    ID, Park_Name, Park_Sn, Park_Address, Park_Total_Spaces, Park_Remain_Spaces, State, 
     Descript, Create_Time, Operate_Time, Keep_Field
   </sql>
   <select id="selectByExample" parameterType="com.dtk.platform.bean.ParkInfoExample" resultMap="BaseResultMap">
@@ -108,11 +108,11 @@
   </delete>
   <insert id="insert" parameterType="com.dtk.platform.bean.ParkInfo">
     insert into park_info (ID, Park_Name, Park_Sn, 
-      ParkAddress, Park_TotalSpaces, Park_RemainSpaces, 
+      Park_Address, Park_Total_Spaces, Park_Remain_Spaces, 
       State, Descript, Create_Time, 
       Operate_Time, Keep_Field)
     values (#{id,jdbcType=INTEGER}, #{parkName,jdbcType=VARCHAR}, #{parkSn,jdbcType=VARCHAR}, 
-      #{parkaddress,jdbcType=VARCHAR}, #{parkTotalspaces,jdbcType=INTEGER}, #{parkRemainspaces,jdbcType=INTEGER}, 
+      #{parkAddress,jdbcType=VARCHAR}, #{parkTotalSpaces,jdbcType=INTEGER}, #{parkRemainSpaces,jdbcType=INTEGER}, 
       #{state,jdbcType=INTEGER}, #{descript,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR})
   </insert>
@@ -128,14 +128,14 @@
       <if test="parkSn != null">
         Park_Sn,
       </if>
-      <if test="parkaddress != null">
-        ParkAddress,
+      <if test="parkAddress != null">
+        Park_Address,
       </if>
-      <if test="parkTotalspaces != null">
-        Park_TotalSpaces,
+      <if test="parkTotalSpaces != null">
+        Park_Total_Spaces,
       </if>
-      <if test="parkRemainspaces != null">
-        Park_RemainSpaces,
+      <if test="parkRemainSpaces != null">
+        Park_Remain_Spaces,
       </if>
       <if test="state != null">
         State,
@@ -163,14 +163,14 @@
       <if test="parkSn != null">
         #{parkSn,jdbcType=VARCHAR},
       </if>
-      <if test="parkaddress != null">
-        #{parkaddress,jdbcType=VARCHAR},
+      <if test="parkAddress != null">
+        #{parkAddress,jdbcType=VARCHAR},
       </if>
-      <if test="parkTotalspaces != null">
-        #{parkTotalspaces,jdbcType=INTEGER},
+      <if test="parkTotalSpaces != null">
+        #{parkTotalSpaces,jdbcType=INTEGER},
       </if>
-      <if test="parkRemainspaces != null">
-        #{parkRemainspaces,jdbcType=INTEGER},
+      <if test="parkRemainSpaces != null">
+        #{parkRemainSpaces,jdbcType=INTEGER},
       </if>
       <if test="state != null">
         #{state,jdbcType=INTEGER},
@@ -207,14 +207,14 @@
       <if test="record.parkSn != null">
         Park_Sn = #{record.parkSn,jdbcType=VARCHAR},
       </if>
-      <if test="record.parkaddress != null">
-        ParkAddress = #{record.parkaddress,jdbcType=VARCHAR},
+      <if test="record.parkAddress != null">
+        Park_Address = #{record.parkAddress,jdbcType=VARCHAR},
       </if>
-      <if test="record.parkTotalspaces != null">
-        Park_TotalSpaces = #{record.parkTotalspaces,jdbcType=INTEGER},
+      <if test="record.parkTotalSpaces != null">
+        Park_Total_Spaces = #{record.parkTotalSpaces,jdbcType=INTEGER},
       </if>
-      <if test="record.parkRemainspaces != null">
-        Park_RemainSpaces = #{record.parkRemainspaces,jdbcType=INTEGER},
+      <if test="record.parkRemainSpaces != null">
+        Park_Remain_Spaces = #{record.parkRemainSpaces,jdbcType=INTEGER},
       </if>
       <if test="record.state != null">
         State = #{record.state,jdbcType=INTEGER},
@@ -241,9 +241,9 @@
     set ID = #{record.id,jdbcType=INTEGER},
       Park_Name = #{record.parkName,jdbcType=VARCHAR},
       Park_Sn = #{record.parkSn,jdbcType=VARCHAR},
-      ParkAddress = #{record.parkaddress,jdbcType=VARCHAR},
-      Park_TotalSpaces = #{record.parkTotalspaces,jdbcType=INTEGER},
-      Park_RemainSpaces = #{record.parkRemainspaces,jdbcType=INTEGER},
+      Park_Address = #{record.parkAddress,jdbcType=VARCHAR},
+      Park_Total_Spaces = #{record.parkTotalSpaces,jdbcType=INTEGER},
+      Park_Remain_Spaces = #{record.parkRemainSpaces,jdbcType=INTEGER},
       State = #{record.state,jdbcType=INTEGER},
       Descript = #{record.descript,jdbcType=VARCHAR},
       Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -262,14 +262,14 @@
       <if test="parkSn != null">
         Park_Sn = #{parkSn,jdbcType=VARCHAR},
       </if>
-      <if test="parkaddress != null">
-        ParkAddress = #{parkaddress,jdbcType=VARCHAR},
+      <if test="parkAddress != null">
+        Park_Address = #{parkAddress,jdbcType=VARCHAR},
       </if>
-      <if test="parkTotalspaces != null">
-        Park_TotalSpaces = #{parkTotalspaces,jdbcType=INTEGER},
+      <if test="parkTotalSpaces != null">
+        Park_Total_Spaces = #{parkTotalSpaces,jdbcType=INTEGER},
       </if>
-      <if test="parkRemainspaces != null">
-        Park_RemainSpaces = #{parkRemainspaces,jdbcType=INTEGER},
+      <if test="parkRemainSpaces != null">
+        Park_Remain_Spaces = #{parkRemainSpaces,jdbcType=INTEGER},
       </if>
       <if test="state != null">
         State = #{state,jdbcType=INTEGER},
@@ -293,9 +293,9 @@
     update park_info
     set Park_Name = #{parkName,jdbcType=VARCHAR},
       Park_Sn = #{parkSn,jdbcType=VARCHAR},
-      ParkAddress = #{parkaddress,jdbcType=VARCHAR},
-      Park_TotalSpaces = #{parkTotalspaces,jdbcType=INTEGER},
-      Park_RemainSpaces = #{parkRemainspaces,jdbcType=INTEGER},
+      Park_Address = #{parkAddress,jdbcType=VARCHAR},
+      Park_Total_Spaces = #{parkTotalSpaces,jdbcType=INTEGER},
+      Park_Remain_Spaces = #{parkRemainSpaces,jdbcType=INTEGER},
       State = #{state,jdbcType=INTEGER},
       Descript = #{descript,jdbcType=VARCHAR},
       Create_Time = #{createTime,jdbcType=TIMESTAMP},

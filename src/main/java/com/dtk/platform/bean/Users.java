@@ -4,163 +4,178 @@ import java.util.Date;
 
 /**
  * 
- * @Description 会员信息表
- * @author DL
- * @date 2017年7月19日 下午4:52:21
+ * <p>Description: 会员信息表 </p>
+ * @author wy
+ * @date 2017年8月4日 上午10:47:57
  */
 public class Users {
+    private Integer id;// 纪录ID
 
-	private Integer ID;// 纪录ID
-	private String vipSN;// 会员编号
-	private String vipName;// 会员名称
-	private String vipContact;// 会员联系方式
-	private String vipHeaderIcon;// 会员头像地址
-	private Integer vipGender;// 性别
-	private String vipPassword;// 会员登录密码
-	private String openeId;// 微信公众平台openID
-	private String unionUniqueId;// 微信开放平台多渠道统一ID
-	private String tplUserId;// 第三方会员系统用户ID
-	private String token;// 会话校验
-	private Integer vipLevel;// 会员级别
-	private Integer vipState;// 会员状态
-	private Integer state;// 纪录状态
-	private Date createTime;// 创建时间
-	private Date operateTime;// 操作纪录时间
-	private String keepField;// 保留字段
+    private String vipSn;// 会员编号
 
-	public Integer getID() {
-		return ID;
-	}
+    private String vipName;// 会员名称
 
-	public void setID(Integer iD) {
-		ID = iD;
-	}
+    private String vipContact;// 会员联系方式
 
-	public String getVipSN() {
-		return vipSN;
-	}
+    private String vipHeaderIcon;// 会员头像地址
 
-	public void setVipSN(String vipSN) {
-		this.vipSN = vipSN;
-	}
+    private Integer vipGender;// 性别
 
-	public String getVipName() {
-		return vipName;
-	}
+    private String vipPassword;// 会员登录密码
 
-	public void setVipName(String vipName) {
-		this.vipName = vipName;
-	}
+    private String openId;// 微信公众平台openID
 
-	public String getVipContact() {
-		return vipContact;
-	}
+    private String unionUniqueId;// 微信开放平台多渠道统一ID
 
-	public void setVipContact(String vipContact) {
-		this.vipContact = vipContact;
-	}
+    private String tplUserId;// 第三方会员系统用户ID
 
-	public String getVipHeaderIcon() {
-		return vipHeaderIcon;
-	}
+    private String token;// 会话校验
 
-	public void setVipHeaderIcon(String vipHeaderIcon) {
-		this.vipHeaderIcon = vipHeaderIcon;
-	}
+    private Integer vipLevel;// 会员级别
 
-	public Integer getVipGender() {
-		return vipGender;
-	}
+    private Integer vipState;// 会员状态
 
-	public void setVipGender(Integer vipGender) {
-		this.vipGender = vipGender;
-	}
+    private Integer state;// 纪录状态
 
-	public String getVipPassword() {
-		return vipPassword;
-	}
+    private Date createTime;// 创建时间
 
-	public void setVipPassword(String vipPassword) {
-		this.vipPassword = vipPassword;
-	}
+    private Date operateTime;// 操作纪录时间
 
-	public String getOpeneId() {
-		return openeId;
-	}
+    private String keepField;// 保留字段
 
-	public void setOpeneId(String openeId) {
-		this.openeId = openeId;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getUnionUniqueId() {
-		return unionUniqueId;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setUnionUniqueId(String unionUniqueId) {
-		this.unionUniqueId = unionUniqueId;
-	}
+    public String getVipSn() {
+        return vipSn;
+    }
 
-	public String getTplUserId() {
-		return tplUserId;
-	}
+    public void setVipSn(String vipSn) {
+        this.vipSn = vipSn == null ? null : vipSn.trim();
+    }
 
-	public void setTplUserId(String tplUserId) {
-		this.tplUserId = tplUserId;
-	}
+    public String getVipName() {
+        return vipName;
+    }
 
-	public String getToken() {
-		return token;
-	}
+    public void setVipName(String vipName) {
+        this.vipName = vipName == null ? null : vipName.trim();
+    }
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+    public String getVipContact() {
+        return vipContact;
+    }
 
-	public Integer getVipLevel() {
-		return vipLevel;
-	}
+    public void setVipContact(String vipContact) {
+        this.vipContact = vipContact == null ? null : vipContact.trim();
+    }
 
-	public void setVipLevel(Integer vipLevel) {
-		this.vipLevel = vipLevel;
-	}
+    public String getVipHeaderIcon() {
+        return vipHeaderIcon;
+    }
 
-	public Integer getVipState() {
-		return vipState;
-	}
+    public void setVipHeaderIcon(String vipHeaderIcon) {
+        this.vipHeaderIcon = vipHeaderIcon == null ? null : vipHeaderIcon.trim();
+    }
 
-	public void setVipState(Integer vipState) {
-		this.vipState = vipState;
-	}
+    public Integer getVipGender() {
+        return vipGender;
+    }
 
-	public Integer getState() {
-		return state;
-	}
+    public void setVipGender(Integer vipGender) {
+        this.vipGender = vipGender;
+    }
 
-	public void setState(Integer state) {
-		this.state = state;
-	}
+    public String getVipPassword() {
+        return vipPassword;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public void setVipPassword(String vipPassword) {
+        this.vipPassword = vipPassword == null ? null : vipPassword.trim();
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public String getOpenId() {
+        return openId;
+    }
 
-	public Date getOperateTime() {
-		return operateTime;
-	}
+    public void setOpenId(String openId) {
+        this.openId = openId == null ? null : openId.trim();
+    }
 
-	public void setOperateTime(Date operateTime) {
-		this.operateTime = operateTime;
-	}
+    public String getUnionUniqueId() {
+        return unionUniqueId;
+    }
 
-	public String getKeepField() {
-		return keepField;
-	}
+    public void setUnionUniqueId(String unionUniqueId) {
+        this.unionUniqueId = unionUniqueId == null ? null : unionUniqueId.trim();
+    }
 
-	public void setKeepField(String keepField) {
-		this.keepField = keepField;
-	}
+    public String getTplUserId() {
+        return tplUserId;
+    }
+
+    public void setTplUserId(String tplUserId) {
+        this.tplUserId = tplUserId == null ? null : tplUserId.trim();
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token == null ? null : token.trim();
+    }
+
+    public Integer getVipLevel() {
+        return vipLevel;
+    }
+
+    public void setVipLevel(Integer vipLevel) {
+        this.vipLevel = vipLevel;
+    }
+
+    public Integer getVipState() {
+        return vipState;
+    }
+
+    public void setVipState(Integer vipState) {
+        this.vipState = vipState;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getOperateTime() {
+        return operateTime;
+    }
+
+    public void setOperateTime(Date operateTime) {
+        this.operateTime = operateTime;
+    }
+
+    public String getKeepField() {
+        return keepField;
+    }
+
+    public void setKeepField(String keepField) {
+        this.keepField = keepField == null ? null : keepField.trim();
+    }
 }

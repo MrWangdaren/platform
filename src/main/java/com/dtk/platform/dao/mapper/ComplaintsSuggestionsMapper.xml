@@ -4,17 +4,17 @@
   <resultMap id="BaseResultMap" type="com.dtk.platform.bean.ComplaintsSuggestions">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="CS_Order_SN" jdbcType="VARCHAR" property="csOrderSn" />
-    <result column="CS_UserId" jdbcType="INTEGER" property="csUserid" />
+    <result column="CS_User_Id" jdbcType="INTEGER" property="csUserId" />
     <result column="CS_Type" jdbcType="INTEGER" property="csType" />
     <result column="CS_Park_OrderNo" jdbcType="VARCHAR" property="csParkOrderno" />
     <result column="CS_Pay_OrderNo" jdbcType="VARCHAR" property="csPayOrderno" />
     <result column="CS_Car_License" jdbcType="VARCHAR" property="csCarLicense" />
-    <result column="CS_Car_LicenseType" jdbcType="INTEGER" property="csCarLicensetype" />
-    <result column="CS_Car_VehiclePicUrl" jdbcType="VARCHAR" property="csCarVehiclepicurl" />
+    <result column="CS_Car_License_Type" jdbcType="INTEGER" property="csCarLicenseType" />
+    <result column="CS_Car_Vehicle_Pic_Url" jdbcType="VARCHAR" property="csCarVehiclePicUrl" />
     <result column="CS_Content" jdbcType="VARCHAR" property="csContent" />
     <result column="CS_Suggestion" jdbcType="VARCHAR" property="csSuggestion" />
     <result column="CS_Current_Operator" jdbcType="VARCHAR" property="csCurrentOperator" />
-    <result column="CS_United_OrderSN" jdbcType="VARCHAR" property="csUnitedOrdersn" />
+    <result column="CS_United_Order_SN" jdbcType="VARCHAR" property="csUnitedOrderSn" />
     <result column="CS_State" jdbcType="INTEGER" property="csState" />
     <result column="CS_Result" jdbcType="VARCHAR" property="csResult" />
     <result column="CS_Callback_Reason" jdbcType="VARCHAR" property="csCallbackReason" />
@@ -83,9 +83,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, CS_Order_SN, CS_UserId, CS_Type, CS_Park_OrderNo, CS_Pay_OrderNo, CS_Car_License, 
-    CS_Car_LicenseType, CS_Car_VehiclePicUrl, CS_Content, CS_Suggestion, CS_Current_Operator, 
-    CS_United_OrderSN, CS_State, CS_Result, CS_Callback_Reason, State, Descript, Create_Time, 
+    ID, CS_Order_SN, CS_User_Id, CS_Type, CS_Park_OrderNo, CS_Pay_OrderNo, CS_Car_License, 
+    CS_Car_License_Type, CS_Car_Vehicle_Pic_Url, CS_Content, CS_Suggestion, CS_Current_Operator, 
+    CS_United_Order_SN, CS_State, CS_Result, CS_Callback_Reason, State, Descript, Create_Time, 
     Operate_Time, Keep_Field
   </sql>
   <select id="selectByExample" parameterType="com.dtk.platform.bean.ComplaintsSuggestionsExample" resultMap="BaseResultMap">
@@ -119,19 +119,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.dtk.platform.bean.ComplaintsSuggestions">
-    insert into complaints_suggestions (ID, CS_Order_SN, CS_UserId, 
+    insert into complaints_suggestions (ID, CS_Order_SN, CS_User_Id, 
       CS_Type, CS_Park_OrderNo, CS_Pay_OrderNo, 
-      CS_Car_License, CS_Car_LicenseType, CS_Car_VehiclePicUrl, 
+      CS_Car_License, CS_Car_License_Type, CS_Car_Vehicle_Pic_Url, 
       CS_Content, CS_Suggestion, CS_Current_Operator, 
-      CS_United_OrderSN, CS_State, CS_Result, 
+      CS_United_Order_SN, CS_State, CS_Result, 
       CS_Callback_Reason, State, Descript, 
       Create_Time, Operate_Time, Keep_Field
       )
-    values (#{id,jdbcType=INTEGER}, #{csOrderSn,jdbcType=VARCHAR}, #{csUserid,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{csOrderSn,jdbcType=VARCHAR}, #{csUserId,jdbcType=INTEGER}, 
       #{csType,jdbcType=INTEGER}, #{csParkOrderno,jdbcType=VARCHAR}, #{csPayOrderno,jdbcType=VARCHAR}, 
-      #{csCarLicense,jdbcType=VARCHAR}, #{csCarLicensetype,jdbcType=INTEGER}, #{csCarVehiclepicurl,jdbcType=VARCHAR}, 
+      #{csCarLicense,jdbcType=VARCHAR}, #{csCarLicenseType,jdbcType=INTEGER}, #{csCarVehiclePicUrl,jdbcType=VARCHAR}, 
       #{csContent,jdbcType=VARCHAR}, #{csSuggestion,jdbcType=VARCHAR}, #{csCurrentOperator,jdbcType=VARCHAR}, 
-      #{csUnitedOrdersn,jdbcType=VARCHAR}, #{csState,jdbcType=INTEGER}, #{csResult,jdbcType=VARCHAR}, 
+      #{csUnitedOrderSn,jdbcType=VARCHAR}, #{csState,jdbcType=INTEGER}, #{csResult,jdbcType=VARCHAR}, 
       #{csCallbackReason,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{descript,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR}
       )
@@ -145,8 +145,8 @@
       <if test="csOrderSn != null">
         CS_Order_SN,
       </if>
-      <if test="csUserid != null">
-        CS_UserId,
+      <if test="csUserId != null">
+        CS_User_Id,
       </if>
       <if test="csType != null">
         CS_Type,
@@ -160,11 +160,11 @@
       <if test="csCarLicense != null">
         CS_Car_License,
       </if>
-      <if test="csCarLicensetype != null">
-        CS_Car_LicenseType,
+      <if test="csCarLicenseType != null">
+        CS_Car_License_Type,
       </if>
-      <if test="csCarVehiclepicurl != null">
-        CS_Car_VehiclePicUrl,
+      <if test="csCarVehiclePicUrl != null">
+        CS_Car_Vehicle_Pic_Url,
       </if>
       <if test="csContent != null">
         CS_Content,
@@ -175,8 +175,8 @@
       <if test="csCurrentOperator != null">
         CS_Current_Operator,
       </if>
-      <if test="csUnitedOrdersn != null">
-        CS_United_OrderSN,
+      <if test="csUnitedOrderSn != null">
+        CS_United_Order_SN,
       </if>
       <if test="csState != null">
         CS_State,
@@ -210,8 +210,8 @@
       <if test="csOrderSn != null">
         #{csOrderSn,jdbcType=VARCHAR},
       </if>
-      <if test="csUserid != null">
-        #{csUserid,jdbcType=INTEGER},
+      <if test="csUserId != null">
+        #{csUserId,jdbcType=INTEGER},
       </if>
       <if test="csType != null">
         #{csType,jdbcType=INTEGER},
@@ -225,11 +225,11 @@
       <if test="csCarLicense != null">
         #{csCarLicense,jdbcType=VARCHAR},
       </if>
-      <if test="csCarLicensetype != null">
-        #{csCarLicensetype,jdbcType=INTEGER},
+      <if test="csCarLicenseType != null">
+        #{csCarLicenseType,jdbcType=INTEGER},
       </if>
-      <if test="csCarVehiclepicurl != null">
-        #{csCarVehiclepicurl,jdbcType=VARCHAR},
+      <if test="csCarVehiclePicUrl != null">
+        #{csCarVehiclePicUrl,jdbcType=VARCHAR},
       </if>
       <if test="csContent != null">
         #{csContent,jdbcType=VARCHAR},
@@ -240,8 +240,8 @@
       <if test="csCurrentOperator != null">
         #{csCurrentOperator,jdbcType=VARCHAR},
       </if>
-      <if test="csUnitedOrdersn != null">
-        #{csUnitedOrdersn,jdbcType=VARCHAR},
+      <if test="csUnitedOrderSn != null">
+        #{csUnitedOrderSn,jdbcType=VARCHAR},
       </if>
       <if test="csState != null">
         #{csState,jdbcType=INTEGER},
@@ -284,8 +284,8 @@
       <if test="record.csOrderSn != null">
         CS_Order_SN = #{record.csOrderSn,jdbcType=VARCHAR},
       </if>
-      <if test="record.csUserid != null">
-        CS_UserId = #{record.csUserid,jdbcType=INTEGER},
+      <if test="record.csUserId != null">
+        CS_User_Id = #{record.csUserId,jdbcType=INTEGER},
       </if>
       <if test="record.csType != null">
         CS_Type = #{record.csType,jdbcType=INTEGER},
@@ -299,11 +299,11 @@
       <if test="record.csCarLicense != null">
         CS_Car_License = #{record.csCarLicense,jdbcType=VARCHAR},
       </if>
-      <if test="record.csCarLicensetype != null">
-        CS_Car_LicenseType = #{record.csCarLicensetype,jdbcType=INTEGER},
+      <if test="record.csCarLicenseType != null">
+        CS_Car_License_Type = #{record.csCarLicenseType,jdbcType=INTEGER},
       </if>
-      <if test="record.csCarVehiclepicurl != null">
-        CS_Car_VehiclePicUrl = #{record.csCarVehiclepicurl,jdbcType=VARCHAR},
+      <if test="record.csCarVehiclePicUrl != null">
+        CS_Car_Vehicle_Pic_Url = #{record.csCarVehiclePicUrl,jdbcType=VARCHAR},
       </if>
       <if test="record.csContent != null">
         CS_Content = #{record.csContent,jdbcType=VARCHAR},
@@ -314,8 +314,8 @@
       <if test="record.csCurrentOperator != null">
         CS_Current_Operator = #{record.csCurrentOperator,jdbcType=VARCHAR},
       </if>
-      <if test="record.csUnitedOrdersn != null">
-        CS_United_OrderSN = #{record.csUnitedOrdersn,jdbcType=VARCHAR},
+      <if test="record.csUnitedOrderSn != null">
+        CS_United_Order_SN = #{record.csUnitedOrderSn,jdbcType=VARCHAR},
       </if>
       <if test="record.csState != null">
         CS_State = #{record.csState,jdbcType=INTEGER},
@@ -350,17 +350,17 @@
     update complaints_suggestions
     set ID = #{record.id,jdbcType=INTEGER},
       CS_Order_SN = #{record.csOrderSn,jdbcType=VARCHAR},
-      CS_UserId = #{record.csUserid,jdbcType=INTEGER},
+      CS_User_Id = #{record.csUserId,jdbcType=INTEGER},
       CS_Type = #{record.csType,jdbcType=INTEGER},
       CS_Park_OrderNo = #{record.csParkOrderno,jdbcType=VARCHAR},
       CS_Pay_OrderNo = #{record.csPayOrderno,jdbcType=VARCHAR},
       CS_Car_License = #{record.csCarLicense,jdbcType=VARCHAR},
-      CS_Car_LicenseType = #{record.csCarLicensetype,jdbcType=INTEGER},
-      CS_Car_VehiclePicUrl = #{record.csCarVehiclepicurl,jdbcType=VARCHAR},
+      CS_Car_License_Type = #{record.csCarLicenseType,jdbcType=INTEGER},
+      CS_Car_Vehicle_Pic_Url = #{record.csCarVehiclePicUrl,jdbcType=VARCHAR},
       CS_Content = #{record.csContent,jdbcType=VARCHAR},
       CS_Suggestion = #{record.csSuggestion,jdbcType=VARCHAR},
       CS_Current_Operator = #{record.csCurrentOperator,jdbcType=VARCHAR},
-      CS_United_OrderSN = #{record.csUnitedOrdersn,jdbcType=VARCHAR},
+      CS_United_Order_SN = #{record.csUnitedOrderSn,jdbcType=VARCHAR},
       CS_State = #{record.csState,jdbcType=INTEGER},
       CS_Result = #{record.csResult,jdbcType=VARCHAR},
       CS_Callback_Reason = #{record.csCallbackReason,jdbcType=VARCHAR},
@@ -379,8 +379,8 @@
       <if test="csOrderSn != null">
         CS_Order_SN = #{csOrderSn,jdbcType=VARCHAR},
       </if>
-      <if test="csUserid != null">
-        CS_UserId = #{csUserid,jdbcType=INTEGER},
+      <if test="csUserId != null">
+        CS_User_Id = #{csUserId,jdbcType=INTEGER},
       </if>
       <if test="csType != null">
         CS_Type = #{csType,jdbcType=INTEGER},
@@ -394,11 +394,11 @@
       <if test="csCarLicense != null">
         CS_Car_License = #{csCarLicense,jdbcType=VARCHAR},
       </if>
-      <if test="csCarLicensetype != null">
-        CS_Car_LicenseType = #{csCarLicensetype,jdbcType=INTEGER},
+      <if test="csCarLicenseType != null">
+        CS_Car_License_Type = #{csCarLicenseType,jdbcType=INTEGER},
       </if>
-      <if test="csCarVehiclepicurl != null">
-        CS_Car_VehiclePicUrl = #{csCarVehiclepicurl,jdbcType=VARCHAR},
+      <if test="csCarVehiclePicUrl != null">
+        CS_Car_Vehicle_Pic_Url = #{csCarVehiclePicUrl,jdbcType=VARCHAR},
       </if>
       <if test="csContent != null">
         CS_Content = #{csContent,jdbcType=VARCHAR},
@@ -409,8 +409,8 @@
       <if test="csCurrentOperator != null">
         CS_Current_Operator = #{csCurrentOperator,jdbcType=VARCHAR},
       </if>
-      <if test="csUnitedOrdersn != null">
-        CS_United_OrderSN = #{csUnitedOrdersn,jdbcType=VARCHAR},
+      <if test="csUnitedOrderSn != null">
+        CS_United_Order_SN = #{csUnitedOrderSn,jdbcType=VARCHAR},
       </if>
       <if test="csState != null">
         CS_State = #{csState,jdbcType=INTEGER},
@@ -442,17 +442,17 @@
   <update id="updateByPrimaryKey" parameterType="com.dtk.platform.bean.ComplaintsSuggestions">
     update complaints_suggestions
     set CS_Order_SN = #{csOrderSn,jdbcType=VARCHAR},
-      CS_UserId = #{csUserid,jdbcType=INTEGER},
+      CS_User_Id = #{csUserId,jdbcType=INTEGER},
       CS_Type = #{csType,jdbcType=INTEGER},
       CS_Park_OrderNo = #{csParkOrderno,jdbcType=VARCHAR},
       CS_Pay_OrderNo = #{csPayOrderno,jdbcType=VARCHAR},
       CS_Car_License = #{csCarLicense,jdbcType=VARCHAR},
-      CS_Car_LicenseType = #{csCarLicensetype,jdbcType=INTEGER},
-      CS_Car_VehiclePicUrl = #{csCarVehiclepicurl,jdbcType=VARCHAR},
+      CS_Car_License_Type = #{csCarLicenseType,jdbcType=INTEGER},
+      CS_Car_Vehicle_Pic_Url = #{csCarVehiclePicUrl,jdbcType=VARCHAR},
       CS_Content = #{csContent,jdbcType=VARCHAR},
       CS_Suggestion = #{csSuggestion,jdbcType=VARCHAR},
       CS_Current_Operator = #{csCurrentOperator,jdbcType=VARCHAR},
-      CS_United_OrderSN = #{csUnitedOrdersn,jdbcType=VARCHAR},
+      CS_United_Order_SN = #{csUnitedOrderSn,jdbcType=VARCHAR},
       CS_State = #{csState,jdbcType=INTEGER},
       CS_Result = #{csResult,jdbcType=VARCHAR},
       CS_Callback_Reason = #{csCallbackReason,jdbcType=VARCHAR},

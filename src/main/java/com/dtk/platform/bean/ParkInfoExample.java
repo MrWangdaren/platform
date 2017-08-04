@@ -305,193 +305,193 @@ public class ParkInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressIsNull() {
-            addCriterion("ParkAddress is null");
+        public Criteria andParkAddressIsNull() {
+            addCriterion("Park_Address is null");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressIsNotNull() {
-            addCriterion("ParkAddress is not null");
+        public Criteria andParkAddressIsNotNull() {
+            addCriterion("Park_Address is not null");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressEqualTo(String value) {
-            addCriterion("ParkAddress =", value, "parkaddress");
+        public Criteria andParkAddressEqualTo(String value) {
+            addCriterion("Park_Address =", value, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressNotEqualTo(String value) {
-            addCriterion("ParkAddress <>", value, "parkaddress");
+        public Criteria andParkAddressNotEqualTo(String value) {
+            addCriterion("Park_Address <>", value, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressGreaterThan(String value) {
-            addCriterion("ParkAddress >", value, "parkaddress");
+        public Criteria andParkAddressGreaterThan(String value) {
+            addCriterion("Park_Address >", value, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressGreaterThanOrEqualTo(String value) {
-            addCriterion("ParkAddress >=", value, "parkaddress");
+        public Criteria andParkAddressGreaterThanOrEqualTo(String value) {
+            addCriterion("Park_Address >=", value, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressLessThan(String value) {
-            addCriterion("ParkAddress <", value, "parkaddress");
+        public Criteria andParkAddressLessThan(String value) {
+            addCriterion("Park_Address <", value, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressLessThanOrEqualTo(String value) {
-            addCriterion("ParkAddress <=", value, "parkaddress");
+        public Criteria andParkAddressLessThanOrEqualTo(String value) {
+            addCriterion("Park_Address <=", value, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressLike(String value) {
-            addCriterion("ParkAddress like", value, "parkaddress");
+        public Criteria andParkAddressLike(String value) {
+            addCriterion("Park_Address like", value, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressNotLike(String value) {
-            addCriterion("ParkAddress not like", value, "parkaddress");
+        public Criteria andParkAddressNotLike(String value) {
+            addCriterion("Park_Address not like", value, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressIn(List<String> values) {
-            addCriterion("ParkAddress in", values, "parkaddress");
+        public Criteria andParkAddressIn(List<String> values) {
+            addCriterion("Park_Address in", values, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressNotIn(List<String> values) {
-            addCriterion("ParkAddress not in", values, "parkaddress");
+        public Criteria andParkAddressNotIn(List<String> values) {
+            addCriterion("Park_Address not in", values, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressBetween(String value1, String value2) {
-            addCriterion("ParkAddress between", value1, value2, "parkaddress");
+        public Criteria andParkAddressBetween(String value1, String value2) {
+            addCriterion("Park_Address between", value1, value2, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkaddressNotBetween(String value1, String value2) {
-            addCriterion("ParkAddress not between", value1, value2, "parkaddress");
+        public Criteria andParkAddressNotBetween(String value1, String value2) {
+            addCriterion("Park_Address not between", value1, value2, "parkAddress");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesIsNull() {
-            addCriterion("Park_TotalSpaces is null");
+        public Criteria andParkTotalSpacesIsNull() {
+            addCriterion("Park_Total_Spaces is null");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesIsNotNull() {
-            addCriterion("Park_TotalSpaces is not null");
+        public Criteria andParkTotalSpacesIsNotNull() {
+            addCriterion("Park_Total_Spaces is not null");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesEqualTo(Integer value) {
-            addCriterion("Park_TotalSpaces =", value, "parkTotalspaces");
+        public Criteria andParkTotalSpacesEqualTo(Integer value) {
+            addCriterion("Park_Total_Spaces =", value, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesNotEqualTo(Integer value) {
-            addCriterion("Park_TotalSpaces <>", value, "parkTotalspaces");
+        public Criteria andParkTotalSpacesNotEqualTo(Integer value) {
+            addCriterion("Park_Total_Spaces <>", value, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesGreaterThan(Integer value) {
-            addCriterion("Park_TotalSpaces >", value, "parkTotalspaces");
+        public Criteria andParkTotalSpacesGreaterThan(Integer value) {
+            addCriterion("Park_Total_Spaces >", value, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesGreaterThanOrEqualTo(Integer value) {
-            addCriterion("Park_TotalSpaces >=", value, "parkTotalspaces");
+        public Criteria andParkTotalSpacesGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Park_Total_Spaces >=", value, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesLessThan(Integer value) {
-            addCriterion("Park_TotalSpaces <", value, "parkTotalspaces");
+        public Criteria andParkTotalSpacesLessThan(Integer value) {
+            addCriterion("Park_Total_Spaces <", value, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesLessThanOrEqualTo(Integer value) {
-            addCriterion("Park_TotalSpaces <=", value, "parkTotalspaces");
+        public Criteria andParkTotalSpacesLessThanOrEqualTo(Integer value) {
+            addCriterion("Park_Total_Spaces <=", value, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesIn(List<Integer> values) {
-            addCriterion("Park_TotalSpaces in", values, "parkTotalspaces");
+        public Criteria andParkTotalSpacesIn(List<Integer> values) {
+            addCriterion("Park_Total_Spaces in", values, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesNotIn(List<Integer> values) {
-            addCriterion("Park_TotalSpaces not in", values, "parkTotalspaces");
+        public Criteria andParkTotalSpacesNotIn(List<Integer> values) {
+            addCriterion("Park_Total_Spaces not in", values, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesBetween(Integer value1, Integer value2) {
-            addCriterion("Park_TotalSpaces between", value1, value2, "parkTotalspaces");
+        public Criteria andParkTotalSpacesBetween(Integer value1, Integer value2) {
+            addCriterion("Park_Total_Spaces between", value1, value2, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkTotalspacesNotBetween(Integer value1, Integer value2) {
-            addCriterion("Park_TotalSpaces not between", value1, value2, "parkTotalspaces");
+        public Criteria andParkTotalSpacesNotBetween(Integer value1, Integer value2) {
+            addCriterion("Park_Total_Spaces not between", value1, value2, "parkTotalSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesIsNull() {
-            addCriterion("Park_RemainSpaces is null");
+        public Criteria andParkRemainSpacesIsNull() {
+            addCriterion("Park_Remain_Spaces is null");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesIsNotNull() {
-            addCriterion("Park_RemainSpaces is not null");
+        public Criteria andParkRemainSpacesIsNotNull() {
+            addCriterion("Park_Remain_Spaces is not null");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesEqualTo(Integer value) {
-            addCriterion("Park_RemainSpaces =", value, "parkRemainspaces");
+        public Criteria andParkRemainSpacesEqualTo(Integer value) {
+            addCriterion("Park_Remain_Spaces =", value, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesNotEqualTo(Integer value) {
-            addCriterion("Park_RemainSpaces <>", value, "parkRemainspaces");
+        public Criteria andParkRemainSpacesNotEqualTo(Integer value) {
+            addCriterion("Park_Remain_Spaces <>", value, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesGreaterThan(Integer value) {
-            addCriterion("Park_RemainSpaces >", value, "parkRemainspaces");
+        public Criteria andParkRemainSpacesGreaterThan(Integer value) {
+            addCriterion("Park_Remain_Spaces >", value, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesGreaterThanOrEqualTo(Integer value) {
-            addCriterion("Park_RemainSpaces >=", value, "parkRemainspaces");
+        public Criteria andParkRemainSpacesGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Park_Remain_Spaces >=", value, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesLessThan(Integer value) {
-            addCriterion("Park_RemainSpaces <", value, "parkRemainspaces");
+        public Criteria andParkRemainSpacesLessThan(Integer value) {
+            addCriterion("Park_Remain_Spaces <", value, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesLessThanOrEqualTo(Integer value) {
-            addCriterion("Park_RemainSpaces <=", value, "parkRemainspaces");
+        public Criteria andParkRemainSpacesLessThanOrEqualTo(Integer value) {
+            addCriterion("Park_Remain_Spaces <=", value, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesIn(List<Integer> values) {
-            addCriterion("Park_RemainSpaces in", values, "parkRemainspaces");
+        public Criteria andParkRemainSpacesIn(List<Integer> values) {
+            addCriterion("Park_Remain_Spaces in", values, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesNotIn(List<Integer> values) {
-            addCriterion("Park_RemainSpaces not in", values, "parkRemainspaces");
+        public Criteria andParkRemainSpacesNotIn(List<Integer> values) {
+            addCriterion("Park_Remain_Spaces not in", values, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesBetween(Integer value1, Integer value2) {
-            addCriterion("Park_RemainSpaces between", value1, value2, "parkRemainspaces");
+        public Criteria andParkRemainSpacesBetween(Integer value1, Integer value2) {
+            addCriterion("Park_Remain_Spaces between", value1, value2, "parkRemainSpaces");
             return (Criteria) this;
         }
 
-        public Criteria andParkRemainspacesNotBetween(Integer value1, Integer value2) {
-            addCriterion("Park_RemainSpaces not between", value1, value2, "parkRemainspaces");
+        public Criteria andParkRemainSpacesNotBetween(Integer value1, Integer value2) {
+            addCriterion("Park_Remain_Spaces not between", value1, value2, "parkRemainSpaces");
             return (Criteria) this;
         }
 

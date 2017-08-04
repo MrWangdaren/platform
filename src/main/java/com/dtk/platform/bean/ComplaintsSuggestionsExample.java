@@ -235,63 +235,63 @@ public class ComplaintsSuggestionsExample {
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridIsNull() {
-            addCriterion("CS_UserId is null");
+        public Criteria andCsUserIdIsNull() {
+            addCriterion("CS_User_Id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridIsNotNull() {
-            addCriterion("CS_UserId is not null");
+        public Criteria andCsUserIdIsNotNull() {
+            addCriterion("CS_User_Id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridEqualTo(Integer value) {
-            addCriterion("CS_UserId =", value, "csUserid");
+        public Criteria andCsUserIdEqualTo(Integer value) {
+            addCriterion("CS_User_Id =", value, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridNotEqualTo(Integer value) {
-            addCriterion("CS_UserId <>", value, "csUserid");
+        public Criteria andCsUserIdNotEqualTo(Integer value) {
+            addCriterion("CS_User_Id <>", value, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridGreaterThan(Integer value) {
-            addCriterion("CS_UserId >", value, "csUserid");
+        public Criteria andCsUserIdGreaterThan(Integer value) {
+            addCriterion("CS_User_Id >", value, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridGreaterThanOrEqualTo(Integer value) {
-            addCriterion("CS_UserId >=", value, "csUserid");
+        public Criteria andCsUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("CS_User_Id >=", value, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridLessThan(Integer value) {
-            addCriterion("CS_UserId <", value, "csUserid");
+        public Criteria andCsUserIdLessThan(Integer value) {
+            addCriterion("CS_User_Id <", value, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridLessThanOrEqualTo(Integer value) {
-            addCriterion("CS_UserId <=", value, "csUserid");
+        public Criteria andCsUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("CS_User_Id <=", value, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridIn(List<Integer> values) {
-            addCriterion("CS_UserId in", values, "csUserid");
+        public Criteria andCsUserIdIn(List<Integer> values) {
+            addCriterion("CS_User_Id in", values, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridNotIn(List<Integer> values) {
-            addCriterion("CS_UserId not in", values, "csUserid");
+        public Criteria andCsUserIdNotIn(List<Integer> values) {
+            addCriterion("CS_User_Id not in", values, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridBetween(Integer value1, Integer value2) {
-            addCriterion("CS_UserId between", value1, value2, "csUserid");
+        public Criteria andCsUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("CS_User_Id between", value1, value2, "csUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCsUseridNotBetween(Integer value1, Integer value2) {
-            addCriterion("CS_UserId not between", value1, value2, "csUserid");
+        public Criteria andCsUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("CS_User_Id not between", value1, value2, "csUserId");
             return (Criteria) this;
         }
 
@@ -565,133 +565,133 @@ public class ComplaintsSuggestionsExample {
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeIsNull() {
-            addCriterion("CS_Car_LicenseType is null");
+        public Criteria andCsCarLicenseTypeIsNull() {
+            addCriterion("CS_Car_License_Type is null");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeIsNotNull() {
-            addCriterion("CS_Car_LicenseType is not null");
+        public Criteria andCsCarLicenseTypeIsNotNull() {
+            addCriterion("CS_Car_License_Type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeEqualTo(Integer value) {
-            addCriterion("CS_Car_LicenseType =", value, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeEqualTo(Integer value) {
+            addCriterion("CS_Car_License_Type =", value, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeNotEqualTo(Integer value) {
-            addCriterion("CS_Car_LicenseType <>", value, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeNotEqualTo(Integer value) {
+            addCriterion("CS_Car_License_Type <>", value, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeGreaterThan(Integer value) {
-            addCriterion("CS_Car_LicenseType >", value, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeGreaterThan(Integer value) {
+            addCriterion("CS_Car_License_Type >", value, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("CS_Car_LicenseType >=", value, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("CS_Car_License_Type >=", value, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeLessThan(Integer value) {
-            addCriterion("CS_Car_LicenseType <", value, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeLessThan(Integer value) {
+            addCriterion("CS_Car_License_Type <", value, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeLessThanOrEqualTo(Integer value) {
-            addCriterion("CS_Car_LicenseType <=", value, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("CS_Car_License_Type <=", value, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeIn(List<Integer> values) {
-            addCriterion("CS_Car_LicenseType in", values, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeIn(List<Integer> values) {
+            addCriterion("CS_Car_License_Type in", values, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeNotIn(List<Integer> values) {
-            addCriterion("CS_Car_LicenseType not in", values, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeNotIn(List<Integer> values) {
+            addCriterion("CS_Car_License_Type not in", values, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeBetween(Integer value1, Integer value2) {
-            addCriterion("CS_Car_LicenseType between", value1, value2, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeBetween(Integer value1, Integer value2) {
+            addCriterion("CS_Car_License_Type between", value1, value2, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarLicensetypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("CS_Car_LicenseType not between", value1, value2, "csCarLicensetype");
+        public Criteria andCsCarLicenseTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("CS_Car_License_Type not between", value1, value2, "csCarLicenseType");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlIsNull() {
-            addCriterion("CS_Car_VehiclePicUrl is null");
+        public Criteria andCsCarVehiclePicUrlIsNull() {
+            addCriterion("CS_Car_Vehicle_Pic_Url is null");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlIsNotNull() {
-            addCriterion("CS_Car_VehiclePicUrl is not null");
+        public Criteria andCsCarVehiclePicUrlIsNotNull() {
+            addCriterion("CS_Car_Vehicle_Pic_Url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlEqualTo(String value) {
-            addCriterion("CS_Car_VehiclePicUrl =", value, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlEqualTo(String value) {
+            addCriterion("CS_Car_Vehicle_Pic_Url =", value, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlNotEqualTo(String value) {
-            addCriterion("CS_Car_VehiclePicUrl <>", value, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlNotEqualTo(String value) {
+            addCriterion("CS_Car_Vehicle_Pic_Url <>", value, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlGreaterThan(String value) {
-            addCriterion("CS_Car_VehiclePicUrl >", value, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlGreaterThan(String value) {
+            addCriterion("CS_Car_Vehicle_Pic_Url >", value, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlGreaterThanOrEqualTo(String value) {
-            addCriterion("CS_Car_VehiclePicUrl >=", value, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("CS_Car_Vehicle_Pic_Url >=", value, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlLessThan(String value) {
-            addCriterion("CS_Car_VehiclePicUrl <", value, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlLessThan(String value) {
+            addCriterion("CS_Car_Vehicle_Pic_Url <", value, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlLessThanOrEqualTo(String value) {
-            addCriterion("CS_Car_VehiclePicUrl <=", value, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlLessThanOrEqualTo(String value) {
+            addCriterion("CS_Car_Vehicle_Pic_Url <=", value, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlLike(String value) {
-            addCriterion("CS_Car_VehiclePicUrl like", value, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlLike(String value) {
+            addCriterion("CS_Car_Vehicle_Pic_Url like", value, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlNotLike(String value) {
-            addCriterion("CS_Car_VehiclePicUrl not like", value, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlNotLike(String value) {
+            addCriterion("CS_Car_Vehicle_Pic_Url not like", value, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlIn(List<String> values) {
-            addCriterion("CS_Car_VehiclePicUrl in", values, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlIn(List<String> values) {
+            addCriterion("CS_Car_Vehicle_Pic_Url in", values, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlNotIn(List<String> values) {
-            addCriterion("CS_Car_VehiclePicUrl not in", values, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlNotIn(List<String> values) {
+            addCriterion("CS_Car_Vehicle_Pic_Url not in", values, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlBetween(String value1, String value2) {
-            addCriterion("CS_Car_VehiclePicUrl between", value1, value2, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlBetween(String value1, String value2) {
+            addCriterion("CS_Car_Vehicle_Pic_Url between", value1, value2, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCsCarVehiclepicurlNotBetween(String value1, String value2) {
-            addCriterion("CS_Car_VehiclePicUrl not between", value1, value2, "csCarVehiclepicurl");
+        public Criteria andCsCarVehiclePicUrlNotBetween(String value1, String value2) {
+            addCriterion("CS_Car_Vehicle_Pic_Url not between", value1, value2, "csCarVehiclePicUrl");
             return (Criteria) this;
         }
 
@@ -905,73 +905,73 @@ public class ComplaintsSuggestionsExample {
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnIsNull() {
-            addCriterion("CS_United_OrderSN is null");
+        public Criteria andCsUnitedOrderSnIsNull() {
+            addCriterion("CS_United_Order_SN is null");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnIsNotNull() {
-            addCriterion("CS_United_OrderSN is not null");
+        public Criteria andCsUnitedOrderSnIsNotNull() {
+            addCriterion("CS_United_Order_SN is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnEqualTo(String value) {
-            addCriterion("CS_United_OrderSN =", value, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnEqualTo(String value) {
+            addCriterion("CS_United_Order_SN =", value, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnNotEqualTo(String value) {
-            addCriterion("CS_United_OrderSN <>", value, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnNotEqualTo(String value) {
+            addCriterion("CS_United_Order_SN <>", value, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnGreaterThan(String value) {
-            addCriterion("CS_United_OrderSN >", value, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnGreaterThan(String value) {
+            addCriterion("CS_United_Order_SN >", value, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnGreaterThanOrEqualTo(String value) {
-            addCriterion("CS_United_OrderSN >=", value, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnGreaterThanOrEqualTo(String value) {
+            addCriterion("CS_United_Order_SN >=", value, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnLessThan(String value) {
-            addCriterion("CS_United_OrderSN <", value, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnLessThan(String value) {
+            addCriterion("CS_United_Order_SN <", value, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnLessThanOrEqualTo(String value) {
-            addCriterion("CS_United_OrderSN <=", value, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnLessThanOrEqualTo(String value) {
+            addCriterion("CS_United_Order_SN <=", value, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnLike(String value) {
-            addCriterion("CS_United_OrderSN like", value, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnLike(String value) {
+            addCriterion("CS_United_Order_SN like", value, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnNotLike(String value) {
-            addCriterion("CS_United_OrderSN not like", value, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnNotLike(String value) {
+            addCriterion("CS_United_Order_SN not like", value, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnIn(List<String> values) {
-            addCriterion("CS_United_OrderSN in", values, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnIn(List<String> values) {
+            addCriterion("CS_United_Order_SN in", values, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnNotIn(List<String> values) {
-            addCriterion("CS_United_OrderSN not in", values, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnNotIn(List<String> values) {
+            addCriterion("CS_United_Order_SN not in", values, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnBetween(String value1, String value2) {
-            addCriterion("CS_United_OrderSN between", value1, value2, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnBetween(String value1, String value2) {
+            addCriterion("CS_United_Order_SN between", value1, value2, "csUnitedOrderSn");
             return (Criteria) this;
         }
 
-        public Criteria andCsUnitedOrdersnNotBetween(String value1, String value2) {
-            addCriterion("CS_United_OrderSN not between", value1, value2, "csUnitedOrdersn");
+        public Criteria andCsUnitedOrderSnNotBetween(String value1, String value2) {
+            addCriterion("CS_United_Order_SN not between", value1, value2, "csUnitedOrderSn");
             return (Criteria) this;
         }
 

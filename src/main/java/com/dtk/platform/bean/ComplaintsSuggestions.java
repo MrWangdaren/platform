@@ -4,208 +4,218 @@ import java.util.Date;
 
 /**
  * 
- * @Description 申诉建议表
- * @author DL
- * @date 2017年7月19日 下午5:26:13
+ * <p>Description: 申诉建议表 </p>
+ * @author wy
+ * @date 2017年8月4日 上午10:25:34
  */
 public class ComplaintsSuggestions {
+    private Integer id;// 纪录ID
 
-	private Integer ID;// 纪录ID
-	private String csOrderSN;// 申诉建议订单号
-	private String csUserId;// 提交申诉建议的用户ID
-	private Integer csType;// 申诉建议类型：1.建议，2停车订单申诉，3.绑定车辆信息申诉，9支付订单申诉
-	private String csParkOrderNo;// 申诉停车订单号
-	private String csPayOrderNo;// 申诉支付订单号
-	private String csCarLicense;// 申诉车辆车牌号
-	private Integer csCarLicenseType;// 申诉车辆类型
-	private String csCarVehiclePicUrl1;// 申诉行驶证照片1
-	private String csCarVehiclePicUrl2;// 申诉行驶证照片2
-	private String csContent;// 申诉内容说明
-	private String csSuggestion;// 申诉处理建议
-	private String csCurrentOperator;// 申诉当前处理人
-	private String csUnitedOrderSN;// 申诉关联的申诉单号
-	private Integer csState;// 申诉订单状态：1.未处理，2.处理中，3.驳回，4处理完成
-	private String csResult;// 申诉处理结果说明
-	private String csCallbackReason;// 申诉驳回缘由
-	private Integer state;// 纪录状态
-	private String descript;// 描述
-	private Date createTime;// 创建时间
-	private Date operateTime;// 操作纪录时间
-	private String keepField;// 保留字段
+    private String csOrderSn;// 申诉建议订单号
 
-	public Integer getID() {
-		return ID;
-	}
+    private Integer csUserId;// 提交申诉建议的用户ID
 
-	public void setID(Integer iD) {
-		ID = iD;
-	}
+    private Integer csType;// 申诉建议类型：1.建议，2停车订单申诉，3.绑定车辆信息申诉，9支付订单申诉
 
-	public String getCsOrderSN() {
-		return csOrderSN;
-	}
+    private String csParkOrderno;// 申诉停车订单号
 
-	public void setCsOrderSN(String csOrderSN) {
-		this.csOrderSN = csOrderSN;
-	}
+    private String csPayOrderno;// 申诉支付订单号
 
-	public String getCsUserId() {
-		return csUserId;
-	}
+    private String csCarLicense;// 申诉车辆车牌号
 
-	public void setCsUserId(String csUserId) {
-		this.csUserId = csUserId;
-	}
+    private Integer csCarLicenseType;// 申诉车辆类型
 
-	public Integer getCsType() {
-		return csType;
-	}
+    private String csCarVehiclePicUrl;// 申诉行驶证照片1
 
-	public void setCsType(Integer csType) {
-		this.csType = csType;
-	}
+    private String csContent;// 申诉内容说明
 
-	public String getCsParkOrderNo() {
-		return csParkOrderNo;
-	}
+    private String csSuggestion;// 申诉处理建议
 
-	public void setCsParkOrderNo(String csParkOrderNo) {
-		this.csParkOrderNo = csParkOrderNo;
-	}
+    private String csCurrentOperator;// 申诉当前处理人
 
-	public String getCsPayOrderNo() {
-		return csPayOrderNo;
-	}
+    private String csUnitedOrderSn;// 申诉关联的申诉单号
 
-	public void setCsPayOrderNo(String csPayOrderNo) {
-		this.csPayOrderNo = csPayOrderNo;
-	}
+    private Integer csState;// 申诉订单状态：1.未处理，2.处理中，3.驳回，4处理完成
 
-	public String getCsCarLicense() {
-		return csCarLicense;
-	}
+    private String csResult;// 申诉处理结果说明
 
-	public void setCsCarLicense(String csCarLicense) {
-		this.csCarLicense = csCarLicense;
-	}
+    private String csCallbackReason;// 申诉驳回缘由
 
-	public Integer getCsCarLicenseType() {
-		return csCarLicenseType;
-	}
+    private Integer state;// 纪录状态
 
-	public void setCsCarLicenseType(Integer csCarLicenseType) {
-		this.csCarLicenseType = csCarLicenseType;
-	}
+    private String descript;// 描述
 
-	public String getCsCarVehiclePicUrl1() {
-		return csCarVehiclePicUrl1;
-	}
+    private Date createTime;// 创建时间
 
-	public void setCsCarVehiclePicUrl1(String csCarVehiclePicUrl1) {
-		this.csCarVehiclePicUrl1 = csCarVehiclePicUrl1;
-	}
+    private Date operateTime;// 操作纪录时间
 
-	public String getCsCarVehiclePicUrl2() {
-		return csCarVehiclePicUrl2;
-	}
+    private String keepField;// 保留字段
 
-	public void setCsCarVehiclePicUrl2(String csCarVehiclePicUrl2) {
-		this.csCarVehiclePicUrl2 = csCarVehiclePicUrl2;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getCsContent() {
-		return csContent;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setCsContent(String csContent) {
-		this.csContent = csContent;
-	}
+    public String getCsOrderSn() {
+        return csOrderSn;
+    }
 
-	public String getCsSuggestion() {
-		return csSuggestion;
-	}
+    public void setCsOrderSn(String csOrderSn) {
+        this.csOrderSn = csOrderSn == null ? null : csOrderSn.trim();
+    }
 
-	public void setCsSuggestion(String csSuggestion) {
-		this.csSuggestion = csSuggestion;
-	}
+    public Integer getCsUserId() {
+        return csUserId;
+    }
 
-	public String getCsCurrentOperator() {
-		return csCurrentOperator;
-	}
+    public void setCsUserId(Integer csUserId) {
+        this.csUserId = csUserId;
+    }
 
-	public void setCsCurrentOperator(String csCurrentOperator) {
-		this.csCurrentOperator = csCurrentOperator;
-	}
+    public Integer getCsType() {
+        return csType;
+    }
 
-	public String getCsUnitedOrderSN() {
-		return csUnitedOrderSN;
-	}
+    public void setCsType(Integer csType) {
+        this.csType = csType;
+    }
 
-	public void setCsUnitedOrderSN(String csUnitedOrderSN) {
-		this.csUnitedOrderSN = csUnitedOrderSN;
-	}
+    public String getCsParkOrderno() {
+        return csParkOrderno;
+    }
 
-	public Integer getCsState() {
-		return csState;
-	}
+    public void setCsParkOrderno(String csParkOrderno) {
+        this.csParkOrderno = csParkOrderno == null ? null : csParkOrderno.trim();
+    }
 
-	public void setCsState(Integer csState) {
-		this.csState = csState;
-	}
+    public String getCsPayOrderno() {
+        return csPayOrderno;
+    }
 
-	public String getCsResult() {
-		return csResult;
-	}
+    public void setCsPayOrderno(String csPayOrderno) {
+        this.csPayOrderno = csPayOrderno == null ? null : csPayOrderno.trim();
+    }
 
-	public void setCsResult(String csResult) {
-		this.csResult = csResult;
-	}
+    public String getCsCarLicense() {
+        return csCarLicense;
+    }
 
-	public String getCsCallbackReason() {
-		return csCallbackReason;
-	}
+    public void setCsCarLicense(String csCarLicense) {
+        this.csCarLicense = csCarLicense == null ? null : csCarLicense.trim();
+    }
 
-	public void setCsCallbackReason(String csCallbackReason) {
-		this.csCallbackReason = csCallbackReason;
-	}
+    public Integer getCsCarLicenseType() {
+        return csCarLicenseType;
+    }
 
-	public Integer getState() {
-		return state;
-	}
+    public void setCsCarLicenseType(Integer csCarLicenseType) {
+        this.csCarLicenseType = csCarLicenseType;
+    }
 
-	public void setState(Integer state) {
-		this.state = state;
-	}
+    public String getCsCarVehiclePicUrl() {
+        return csCarVehiclePicUrl;
+    }
 
-	public String getDescript() {
-		return descript;
-	}
+    public void setCsCarVehiclePicUrl(String csCarVehiclePicUrl) {
+        this.csCarVehiclePicUrl = csCarVehiclePicUrl == null ? null : csCarVehiclePicUrl.trim();
+    }
 
-	public void setDescript(String descript) {
-		this.descript = descript;
-	}
+    public String getCsContent() {
+        return csContent;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public void setCsContent(String csContent) {
+        this.csContent = csContent == null ? null : csContent.trim();
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public String getCsSuggestion() {
+        return csSuggestion;
+    }
 
-	public Date getOperateTime() {
-		return operateTime;
-	}
+    public void setCsSuggestion(String csSuggestion) {
+        this.csSuggestion = csSuggestion == null ? null : csSuggestion.trim();
+    }
 
-	public void setOperateTime(Date operateTime) {
-		this.operateTime = operateTime;
-	}
+    public String getCsCurrentOperator() {
+        return csCurrentOperator;
+    }
 
-	public String getKeepField() {
-		return keepField;
-	}
+    public void setCsCurrentOperator(String csCurrentOperator) {
+        this.csCurrentOperator = csCurrentOperator == null ? null : csCurrentOperator.trim();
+    }
 
-	public void setKeepField(String keepField) {
-		this.keepField = keepField;
-	}
+    public String getCsUnitedOrderSn() {
+        return csUnitedOrderSn;
+    }
+
+    public void setCsUnitedOrderSn(String csUnitedOrderSn) {
+        this.csUnitedOrderSn = csUnitedOrderSn == null ? null : csUnitedOrderSn.trim();
+    }
+
+    public Integer getCsState() {
+        return csState;
+    }
+
+    public void setCsState(Integer csState) {
+        this.csState = csState;
+    }
+
+    public String getCsResult() {
+        return csResult;
+    }
+
+    public void setCsResult(String csResult) {
+        this.csResult = csResult == null ? null : csResult.trim();
+    }
+
+    public String getCsCallbackReason() {
+        return csCallbackReason;
+    }
+
+    public void setCsCallbackReason(String csCallbackReason) {
+        this.csCallbackReason = csCallbackReason == null ? null : csCallbackReason.trim();
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public String getDescript() {
+        return descript;
+    }
+
+    public void setDescript(String descript) {
+        this.descript = descript == null ? null : descript.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getOperateTime() {
+        return operateTime;
+    }
+
+    public void setOperateTime(Date operateTime) {
+        this.operateTime = operateTime;
+    }
+
+    public String getKeepField() {
+        return keepField;
+    }
+
+    public void setKeepField(String keepField) {
+        this.keepField = keepField == null ? null : keepField.trim();
+    }
 }

@@ -9,9 +9,9 @@
     <result column="Operator_Pwd" jdbcType="VARCHAR" property="operatorPwd" />
     <result column="Operator_Icon" jdbcType="VARCHAR" property="operatorIcon" />
     <result column="Operator_Gender" jdbcType="INTEGER" property="operatorGender" />
-    <result column="OpeneId" jdbcType="VARCHAR" property="openeid" />
-    <result column="UnionUniqueId" jdbcType="VARCHAR" property="unionuniqueid" />
-    <result column="TPLUserId" jdbcType="VARCHAR" property="tpluserid" />
+    <result column="Open_Id" jdbcType="VARCHAR" property="openId" />
+    <result column="Union_Unique_Id" jdbcType="VARCHAR" property="unionUniqueId" />
+    <result column="TPL_User_Id" jdbcType="VARCHAR" property="tplUserId" />
     <result column="Token" jdbcType="VARCHAR" property="token" />
     <result column="Operator_Role_ID" jdbcType="INTEGER" property="operatorRoleId" />
     <result column="State" jdbcType="INTEGER" property="state" />
@@ -79,8 +79,8 @@
   </sql>
   <sql id="Base_Column_List">
     ID, Operator_SN, Operator_Name, Operator_Contact, Operator_Pwd, Operator_Icon, Operator_Gender, 
-    OpeneId, UnionUniqueId, TPLUserId, Token, Operator_Role_ID, State, Create_Time, Operate_Time, 
-    Keep_Field
+    Open_Id, Union_Unique_Id, TPL_User_Id, Token, Operator_Role_ID, State, Create_Time, 
+    Operate_Time, Keep_Field
   </sql>
   <select id="selectByExample" parameterType="com.dtk.platform.bean.OperatorsExample" resultMap="BaseResultMap">
     select
@@ -115,14 +115,14 @@
   <insert id="insert" parameterType="com.dtk.platform.bean.Operators">
     insert into operators (ID, Operator_SN, Operator_Name, 
       Operator_Contact, Operator_Pwd, Operator_Icon, 
-      Operator_Gender, OpeneId, UnionUniqueId, 
-      TPLUserId, Token, Operator_Role_ID, 
+      Operator_Gender, Open_Id, Union_Unique_Id, 
+      TPL_User_Id, Token, Operator_Role_ID, 
       State, Create_Time, Operate_Time, 
       Keep_Field)
     values (#{id,jdbcType=INTEGER}, #{operatorSn,jdbcType=VARCHAR}, #{operatorName,jdbcType=VARCHAR}, 
       #{operatorContact,jdbcType=VARCHAR}, #{operatorPwd,jdbcType=VARCHAR}, #{operatorIcon,jdbcType=VARCHAR}, 
-      #{operatorGender,jdbcType=INTEGER}, #{openeid,jdbcType=VARCHAR}, #{unionuniqueid,jdbcType=VARCHAR}, 
-      #{tpluserid,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{operatorRoleId,jdbcType=INTEGER}, 
+      #{operatorGender,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{unionUniqueId,jdbcType=VARCHAR}, 
+      #{tplUserId,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{operatorRoleId,jdbcType=INTEGER}, 
       #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, 
       #{keepField,jdbcType=VARCHAR})
   </insert>
@@ -150,14 +150,14 @@
       <if test="operatorGender != null">
         Operator_Gender,
       </if>
-      <if test="openeid != null">
-        OpeneId,
+      <if test="openId != null">
+        Open_Id,
       </if>
-      <if test="unionuniqueid != null">
-        UnionUniqueId,
+      <if test="unionUniqueId != null">
+        Union_Unique_Id,
       </if>
-      <if test="tpluserid != null">
-        TPLUserId,
+      <if test="tplUserId != null">
+        TPL_User_Id,
       </if>
       <if test="token != null">
         Token,
@@ -200,14 +200,14 @@
       <if test="operatorGender != null">
         #{operatorGender,jdbcType=INTEGER},
       </if>
-      <if test="openeid != null">
-        #{openeid,jdbcType=VARCHAR},
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="unionuniqueid != null">
-        #{unionuniqueid,jdbcType=VARCHAR},
+      <if test="unionUniqueId != null">
+        #{unionUniqueId,jdbcType=VARCHAR},
       </if>
-      <if test="tpluserid != null">
-        #{tpluserid,jdbcType=VARCHAR},
+      <if test="tplUserId != null">
+        #{tplUserId,jdbcType=VARCHAR},
       </if>
       <if test="token != null">
         #{token,jdbcType=VARCHAR},
@@ -259,14 +259,14 @@
       <if test="record.operatorGender != null">
         Operator_Gender = #{record.operatorGender,jdbcType=INTEGER},
       </if>
-      <if test="record.openeid != null">
-        OpeneId = #{record.openeid,jdbcType=VARCHAR},
+      <if test="record.openId != null">
+        Open_Id = #{record.openId,jdbcType=VARCHAR},
       </if>
-      <if test="record.unionuniqueid != null">
-        UnionUniqueId = #{record.unionuniqueid,jdbcType=VARCHAR},
+      <if test="record.unionUniqueId != null">
+        Union_Unique_Id = #{record.unionUniqueId,jdbcType=VARCHAR},
       </if>
-      <if test="record.tpluserid != null">
-        TPLUserId = #{record.tpluserid,jdbcType=VARCHAR},
+      <if test="record.tplUserId != null">
+        TPL_User_Id = #{record.tplUserId,jdbcType=VARCHAR},
       </if>
       <if test="record.token != null">
         Token = #{record.token,jdbcType=VARCHAR},
@@ -300,9 +300,9 @@
       Operator_Pwd = #{record.operatorPwd,jdbcType=VARCHAR},
       Operator_Icon = #{record.operatorIcon,jdbcType=VARCHAR},
       Operator_Gender = #{record.operatorGender,jdbcType=INTEGER},
-      OpeneId = #{record.openeid,jdbcType=VARCHAR},
-      UnionUniqueId = #{record.unionuniqueid,jdbcType=VARCHAR},
-      TPLUserId = #{record.tpluserid,jdbcType=VARCHAR},
+      Open_Id = #{record.openId,jdbcType=VARCHAR},
+      Union_Unique_Id = #{record.unionUniqueId,jdbcType=VARCHAR},
+      TPL_User_Id = #{record.tplUserId,jdbcType=VARCHAR},
       Token = #{record.token,jdbcType=VARCHAR},
       Operator_Role_ID = #{record.operatorRoleId,jdbcType=INTEGER},
       State = #{record.state,jdbcType=INTEGER},
@@ -334,14 +334,14 @@
       <if test="operatorGender != null">
         Operator_Gender = #{operatorGender,jdbcType=INTEGER},
       </if>
-      <if test="openeid != null">
-        OpeneId = #{openeid,jdbcType=VARCHAR},
+      <if test="openId != null">
+        Open_Id = #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="unionuniqueid != null">
-        UnionUniqueId = #{unionuniqueid,jdbcType=VARCHAR},
+      <if test="unionUniqueId != null">
+        Union_Unique_Id = #{unionUniqueId,jdbcType=VARCHAR},
       </if>
-      <if test="tpluserid != null">
-        TPLUserId = #{tpluserid,jdbcType=VARCHAR},
+      <if test="tplUserId != null">
+        TPL_User_Id = #{tplUserId,jdbcType=VARCHAR},
       </if>
       <if test="token != null">
         Token = #{token,jdbcType=VARCHAR},
@@ -372,9 +372,9 @@
       Operator_Pwd = #{operatorPwd,jdbcType=VARCHAR},
       Operator_Icon = #{operatorIcon,jdbcType=VARCHAR},
       Operator_Gender = #{operatorGender,jdbcType=INTEGER},
-      OpeneId = #{openeid,jdbcType=VARCHAR},
-      UnionUniqueId = #{unionuniqueid,jdbcType=VARCHAR},
-      TPLUserId = #{tpluserid,jdbcType=VARCHAR},
+      Open_Id = #{openId,jdbcType=VARCHAR},
+      Union_Unique_Id = #{unionUniqueId,jdbcType=VARCHAR},
+      TPL_User_Id = #{tplUserId,jdbcType=VARCHAR},
       Token = #{token,jdbcType=VARCHAR},
       Operator_Role_ID = #{operatorRoleId,jdbcType=INTEGER},
       State = #{state,jdbcType=INTEGER},

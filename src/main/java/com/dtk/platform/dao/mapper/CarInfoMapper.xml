@@ -3,12 +3,12 @@
 <mapper namespace="com.dtk.platform.dao.CarInfoMapper">
   <resultMap id="BaseResultMap" type="com.dtk.platform.bean.CarInfo">
     <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="Attribution_UserId1" jdbcType="INTEGER" property="attributionUserid1" />
-    <result column="Attribution_UserId2" jdbcType="INTEGER" property="attributionUserid2" />
+    <result column="Attribution_User_Id1" jdbcType="INTEGER" property="attributionUserId1" />
+    <result column="Attribution_User_Id2" jdbcType="INTEGER" property="attributionUserId2" />
     <result column="Car_License" jdbcType="VARCHAR" property="carLicense" />
     <result column="License_Type" jdbcType="INTEGER" property="licenseType" />
-    <result column="Vehicle_PicUrl" jdbcType="VARCHAR" property="vehiclePicurl" />
-    <result column="Car_PicUrl" jdbcType="VARCHAR" property="carPicurl" />
+    <result column="Vehicle_Pic_Url" jdbcType="VARCHAR" property="vehiclePicUrl" />
+    <result column="Car_Pic_Url" jdbcType="VARCHAR" property="carPicUrl" />
     <result column="State" jdbcType="INTEGER" property="state" />
     <result column="Descript" jdbcType="VARCHAR" property="descript" />
     <result column="Create_Time" jdbcType="TIMESTAMP" property="createTime" />
@@ -74,8 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, Attribution_UserId1, Attribution_UserId2, Car_License, License_Type, Vehicle_PicUrl, 
-    Car_PicUrl, State, Descript, Create_Time, Operate_Time, Keep_Field
+    ID, Attribution_User_Id1, Attribution_User_Id2, Car_License, License_Type, Vehicle_Pic_Url, 
+    Car_Pic_Url, State, Descript, Create_Time, Operate_Time, Keep_Field
   </sql>
   <select id="selectByExample" parameterType="com.dtk.platform.bean.CarInfoExample" resultMap="BaseResultMap">
     select
@@ -108,14 +108,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.dtk.platform.bean.CarInfo">
-    insert into car_info (ID, Attribution_UserId1, Attribution_UserId2, 
-      Car_License, License_Type, Vehicle_PicUrl, 
-      Car_PicUrl, State, Descript, 
+    insert into car_info (ID, Attribution_User_Id1, Attribution_User_Id2, 
+      Car_License, License_Type, Vehicle_Pic_Url, 
+      Car_Pic_Url, State, Descript, 
       Create_Time, Operate_Time, Keep_Field
       )
-    values (#{id,jdbcType=INTEGER}, #{attributionUserid1,jdbcType=INTEGER}, #{attributionUserid2,jdbcType=INTEGER}, 
-      #{carLicense,jdbcType=VARCHAR}, #{licenseType,jdbcType=INTEGER}, #{vehiclePicurl,jdbcType=VARCHAR}, 
-      #{carPicurl,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{descript,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{attributionUserId1,jdbcType=INTEGER}, #{attributionUserId2,jdbcType=INTEGER}, 
+      #{carLicense,jdbcType=VARCHAR}, #{licenseType,jdbcType=INTEGER}, #{vehiclePicUrl,jdbcType=VARCHAR}, 
+      #{carPicUrl,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{descript,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR}
       )
   </insert>
@@ -125,11 +125,11 @@
       <if test="id != null">
         ID,
       </if>
-      <if test="attributionUserid1 != null">
-        Attribution_UserId1,
+      <if test="attributionUserId1 != null">
+        Attribution_User_Id1,
       </if>
-      <if test="attributionUserid2 != null">
-        Attribution_UserId2,
+      <if test="attributionUserId2 != null">
+        Attribution_User_Id2,
       </if>
       <if test="carLicense != null">
         Car_License,
@@ -137,11 +137,11 @@
       <if test="licenseType != null">
         License_Type,
       </if>
-      <if test="vehiclePicurl != null">
-        Vehicle_PicUrl,
+      <if test="vehiclePicUrl != null">
+        Vehicle_Pic_Url,
       </if>
-      <if test="carPicurl != null">
-        Car_PicUrl,
+      <if test="carPicUrl != null">
+        Car_Pic_Url,
       </if>
       <if test="state != null">
         State,
@@ -163,11 +163,11 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="attributionUserid1 != null">
-        #{attributionUserid1,jdbcType=INTEGER},
+      <if test="attributionUserId1 != null">
+        #{attributionUserId1,jdbcType=INTEGER},
       </if>
-      <if test="attributionUserid2 != null">
-        #{attributionUserid2,jdbcType=INTEGER},
+      <if test="attributionUserId2 != null">
+        #{attributionUserId2,jdbcType=INTEGER},
       </if>
       <if test="carLicense != null">
         #{carLicense,jdbcType=VARCHAR},
@@ -175,11 +175,11 @@
       <if test="licenseType != null">
         #{licenseType,jdbcType=INTEGER},
       </if>
-      <if test="vehiclePicurl != null">
-        #{vehiclePicurl,jdbcType=VARCHAR},
+      <if test="vehiclePicUrl != null">
+        #{vehiclePicUrl,jdbcType=VARCHAR},
       </if>
-      <if test="carPicurl != null">
-        #{carPicurl,jdbcType=VARCHAR},
+      <if test="carPicUrl != null">
+        #{carPicUrl,jdbcType=VARCHAR},
       </if>
       <if test="state != null">
         #{state,jdbcType=INTEGER},
@@ -210,11 +210,11 @@
       <if test="record.id != null">
         ID = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.attributionUserid1 != null">
-        Attribution_UserId1 = #{record.attributionUserid1,jdbcType=INTEGER},
+      <if test="record.attributionUserId1 != null">
+        Attribution_User_Id1 = #{record.attributionUserId1,jdbcType=INTEGER},
       </if>
-      <if test="record.attributionUserid2 != null">
-        Attribution_UserId2 = #{record.attributionUserid2,jdbcType=INTEGER},
+      <if test="record.attributionUserId2 != null">
+        Attribution_User_Id2 = #{record.attributionUserId2,jdbcType=INTEGER},
       </if>
       <if test="record.carLicense != null">
         Car_License = #{record.carLicense,jdbcType=VARCHAR},
@@ -222,11 +222,11 @@
       <if test="record.licenseType != null">
         License_Type = #{record.licenseType,jdbcType=INTEGER},
       </if>
-      <if test="record.vehiclePicurl != null">
-        Vehicle_PicUrl = #{record.vehiclePicurl,jdbcType=VARCHAR},
+      <if test="record.vehiclePicUrl != null">
+        Vehicle_Pic_Url = #{record.vehiclePicUrl,jdbcType=VARCHAR},
       </if>
-      <if test="record.carPicurl != null">
-        Car_PicUrl = #{record.carPicurl,jdbcType=VARCHAR},
+      <if test="record.carPicUrl != null">
+        Car_Pic_Url = #{record.carPicUrl,jdbcType=VARCHAR},
       </if>
       <if test="record.state != null">
         State = #{record.state,jdbcType=INTEGER},
@@ -251,12 +251,12 @@
   <update id="updateByExample" parameterType="map">
     update car_info
     set ID = #{record.id,jdbcType=INTEGER},
-      Attribution_UserId1 = #{record.attributionUserid1,jdbcType=INTEGER},
-      Attribution_UserId2 = #{record.attributionUserid2,jdbcType=INTEGER},
+      Attribution_User_Id1 = #{record.attributionUserId1,jdbcType=INTEGER},
+      Attribution_User_Id2 = #{record.attributionUserId2,jdbcType=INTEGER},
       Car_License = #{record.carLicense,jdbcType=VARCHAR},
       License_Type = #{record.licenseType,jdbcType=INTEGER},
-      Vehicle_PicUrl = #{record.vehiclePicurl,jdbcType=VARCHAR},
-      Car_PicUrl = #{record.carPicurl,jdbcType=VARCHAR},
+      Vehicle_Pic_Url = #{record.vehiclePicUrl,jdbcType=VARCHAR},
+      Car_Pic_Url = #{record.carPicUrl,jdbcType=VARCHAR},
       State = #{record.state,jdbcType=INTEGER},
       Descript = #{record.descript,jdbcType=VARCHAR},
       Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -269,11 +269,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.dtk.platform.bean.CarInfo">
     update car_info
     <set>
-      <if test="attributionUserid1 != null">
-        Attribution_UserId1 = #{attributionUserid1,jdbcType=INTEGER},
+      <if test="attributionUserId1 != null">
+        Attribution_User_Id1 = #{attributionUserId1,jdbcType=INTEGER},
       </if>
-      <if test="attributionUserid2 != null">
-        Attribution_UserId2 = #{attributionUserid2,jdbcType=INTEGER},
+      <if test="attributionUserId2 != null">
+        Attribution_User_Id2 = #{attributionUserId2,jdbcType=INTEGER},
       </if>
       <if test="carLicense != null">
         Car_License = #{carLicense,jdbcType=VARCHAR},
@@ -281,11 +281,11 @@
       <if test="licenseType != null">
         License_Type = #{licenseType,jdbcType=INTEGER},
       </if>
-      <if test="vehiclePicurl != null">
-        Vehicle_PicUrl = #{vehiclePicurl,jdbcType=VARCHAR},
+      <if test="vehiclePicUrl != null">
+        Vehicle_Pic_Url = #{vehiclePicUrl,jdbcType=VARCHAR},
       </if>
-      <if test="carPicurl != null">
-        Car_PicUrl = #{carPicurl,jdbcType=VARCHAR},
+      <if test="carPicUrl != null">
+        Car_Pic_Url = #{carPicUrl,jdbcType=VARCHAR},
       </if>
       <if test="state != null">
         State = #{state,jdbcType=INTEGER},
@@ -307,12 +307,12 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.dtk.platform.bean.CarInfo">
     update car_info
-    set Attribution_UserId1 = #{attributionUserid1,jdbcType=INTEGER},
-      Attribution_UserId2 = #{attributionUserid2,jdbcType=INTEGER},
+    set Attribution_User_Id1 = #{attributionUserId1,jdbcType=INTEGER},
+      Attribution_User_Id2 = #{attributionUserId2,jdbcType=INTEGER},
       Car_License = #{carLicense,jdbcType=VARCHAR},
       License_Type = #{licenseType,jdbcType=INTEGER},
-      Vehicle_PicUrl = #{vehiclePicurl,jdbcType=VARCHAR},
-      Car_PicUrl = #{carPicurl,jdbcType=VARCHAR},
+      Vehicle_Pic_Url = #{vehiclePicUrl,jdbcType=VARCHAR},
+      Car_Pic_Url = #{carPicUrl,jdbcType=VARCHAR},
       State = #{state,jdbcType=INTEGER},
       Descript = #{descript,jdbcType=VARCHAR},
       Create_Time = #{createTime,jdbcType=TIMESTAMP},

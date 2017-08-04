@@ -9,9 +9,9 @@
     <result column="Vip_Header_Icon" jdbcType="VARCHAR" property="vipHeaderIcon" />
     <result column="Vip_Gender" jdbcType="INTEGER" property="vipGender" />
     <result column="Vip_Password" jdbcType="VARCHAR" property="vipPassword" />
-    <result column="OpeneId" jdbcType="VARCHAR" property="openeid" />
-    <result column="UnionUniqueId" jdbcType="VARCHAR" property="unionuniqueid" />
-    <result column="TPLUserId" jdbcType="VARCHAR" property="tpluserid" />
+    <result column="Open_Id" jdbcType="VARCHAR" property="openId" />
+    <result column="Union_Unique_Id" jdbcType="VARCHAR" property="unionUniqueId" />
+    <result column="TPL_User_Id" jdbcType="VARCHAR" property="tplUserId" />
     <result column="Token" jdbcType="VARCHAR" property="token" />
     <result column="Vip_Level" jdbcType="INTEGER" property="vipLevel" />
     <result column="Vip_State" jdbcType="INTEGER" property="vipState" />
@@ -79,8 +79,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, Vip_SN, Vip_Name, Vip_Contact, Vip_Header_Icon, Vip_Gender, Vip_Password, OpeneId, 
-    UnionUniqueId, TPLUserId, Token, Vip_Level, Vip_State, State, Create_Time, Operate_Time, 
+    ID, Vip_SN, Vip_Name, Vip_Contact, Vip_Header_Icon, Vip_Gender, Vip_Password, Open_Id, 
+    Union_Unique_Id, TPL_User_Id, Token, Vip_Level, Vip_State, State, Create_Time, Operate_Time, 
     Keep_Field
   </sql>
   <select id="selectByExample" parameterType="com.dtk.platform.bean.UsersExample" resultMap="BaseResultMap">
@@ -116,14 +116,14 @@
   <insert id="insert" parameterType="com.dtk.platform.bean.Users">
     insert into users (ID, Vip_SN, Vip_Name, 
       Vip_Contact, Vip_Header_Icon, Vip_Gender, 
-      Vip_Password, OpeneId, UnionUniqueId, 
-      TPLUserId, Token, Vip_Level, 
+      Vip_Password, Open_Id, Union_Unique_Id, 
+      TPL_User_Id, Token, Vip_Level, 
       Vip_State, State, Create_Time, 
       Operate_Time, Keep_Field)
     values (#{id,jdbcType=INTEGER}, #{vipSn,jdbcType=VARCHAR}, #{vipName,jdbcType=VARCHAR}, 
       #{vipContact,jdbcType=VARCHAR}, #{vipHeaderIcon,jdbcType=VARCHAR}, #{vipGender,jdbcType=INTEGER}, 
-      #{vipPassword,jdbcType=VARCHAR}, #{openeid,jdbcType=VARCHAR}, #{unionuniqueid,jdbcType=VARCHAR}, 
-      #{tpluserid,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{vipLevel,jdbcType=INTEGER}, 
+      #{vipPassword,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{unionUniqueId,jdbcType=VARCHAR}, 
+      #{tplUserId,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{vipLevel,jdbcType=INTEGER}, 
       #{vipState,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR})
   </insert>
@@ -151,14 +151,14 @@
       <if test="vipPassword != null">
         Vip_Password,
       </if>
-      <if test="openeid != null">
-        OpeneId,
+      <if test="openId != null">
+        Open_Id,
       </if>
-      <if test="unionuniqueid != null">
-        UnionUniqueId,
+      <if test="unionUniqueId != null">
+        Union_Unique_Id,
       </if>
-      <if test="tpluserid != null">
-        TPLUserId,
+      <if test="tplUserId != null">
+        TPL_User_Id,
       </if>
       <if test="token != null">
         Token,
@@ -204,14 +204,14 @@
       <if test="vipPassword != null">
         #{vipPassword,jdbcType=VARCHAR},
       </if>
-      <if test="openeid != null">
-        #{openeid,jdbcType=VARCHAR},
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="unionuniqueid != null">
-        #{unionuniqueid,jdbcType=VARCHAR},
+      <if test="unionUniqueId != null">
+        #{unionUniqueId,jdbcType=VARCHAR},
       </if>
-      <if test="tpluserid != null">
-        #{tpluserid,jdbcType=VARCHAR},
+      <if test="tplUserId != null">
+        #{tplUserId,jdbcType=VARCHAR},
       </if>
       <if test="token != null">
         #{token,jdbcType=VARCHAR},
@@ -266,14 +266,14 @@
       <if test="record.vipPassword != null">
         Vip_Password = #{record.vipPassword,jdbcType=VARCHAR},
       </if>
-      <if test="record.openeid != null">
-        OpeneId = #{record.openeid,jdbcType=VARCHAR},
+      <if test="record.openId != null">
+        Open_Id = #{record.openId,jdbcType=VARCHAR},
       </if>
-      <if test="record.unionuniqueid != null">
-        UnionUniqueId = #{record.unionuniqueid,jdbcType=VARCHAR},
+      <if test="record.unionUniqueId != null">
+        Union_Unique_Id = #{record.unionUniqueId,jdbcType=VARCHAR},
       </if>
-      <if test="record.tpluserid != null">
-        TPLUserId = #{record.tpluserid,jdbcType=VARCHAR},
+      <if test="record.tplUserId != null">
+        TPL_User_Id = #{record.tplUserId,jdbcType=VARCHAR},
       </if>
       <if test="record.token != null">
         Token = #{record.token,jdbcType=VARCHAR},
@@ -310,9 +310,9 @@
       Vip_Header_Icon = #{record.vipHeaderIcon,jdbcType=VARCHAR},
       Vip_Gender = #{record.vipGender,jdbcType=INTEGER},
       Vip_Password = #{record.vipPassword,jdbcType=VARCHAR},
-      OpeneId = #{record.openeid,jdbcType=VARCHAR},
-      UnionUniqueId = #{record.unionuniqueid,jdbcType=VARCHAR},
-      TPLUserId = #{record.tpluserid,jdbcType=VARCHAR},
+      Open_Id = #{record.openId,jdbcType=VARCHAR},
+      Union_Unique_Id = #{record.unionUniqueId,jdbcType=VARCHAR},
+      TPL_User_Id = #{record.tplUserId,jdbcType=VARCHAR},
       Token = #{record.token,jdbcType=VARCHAR},
       Vip_Level = #{record.vipLevel,jdbcType=INTEGER},
       Vip_State = #{record.vipState,jdbcType=INTEGER},
@@ -345,14 +345,14 @@
       <if test="vipPassword != null">
         Vip_Password = #{vipPassword,jdbcType=VARCHAR},
       </if>
-      <if test="openeid != null">
-        OpeneId = #{openeid,jdbcType=VARCHAR},
+      <if test="openId != null">
+        Open_Id = #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="unionuniqueid != null">
-        UnionUniqueId = #{unionuniqueid,jdbcType=VARCHAR},
+      <if test="unionUniqueId != null">
+        Union_Unique_Id = #{unionUniqueId,jdbcType=VARCHAR},
       </if>
-      <if test="tpluserid != null">
-        TPLUserId = #{tpluserid,jdbcType=VARCHAR},
+      <if test="tplUserId != null">
+        TPL_User_Id = #{tplUserId,jdbcType=VARCHAR},
       </if>
       <if test="token != null">
         Token = #{token,jdbcType=VARCHAR},
@@ -386,9 +386,9 @@
       Vip_Header_Icon = #{vipHeaderIcon,jdbcType=VARCHAR},
       Vip_Gender = #{vipGender,jdbcType=INTEGER},
       Vip_Password = #{vipPassword,jdbcType=VARCHAR},
-      OpeneId = #{openeid,jdbcType=VARCHAR},
-      UnionUniqueId = #{unionuniqueid,jdbcType=VARCHAR},
-      TPLUserId = #{tpluserid,jdbcType=VARCHAR},
+      Open_Id = #{openId,jdbcType=VARCHAR},
+      Union_Unique_Id = #{unionUniqueId,jdbcType=VARCHAR},
+      TPL_User_Id = #{tplUserId,jdbcType=VARCHAR},
       Token = #{token,jdbcType=VARCHAR},
       Vip_Level = #{vipLevel,jdbcType=INTEGER},
       Vip_State = #{vipState,jdbcType=INTEGER},

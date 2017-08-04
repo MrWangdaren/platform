@@ -165,123 +165,123 @@ public class CarInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1IsNull() {
-            addCriterion("Attribution_UserId1 is null");
+        public Criteria andAttributionUserId1IsNull() {
+            addCriterion("Attribution_User_Id1 is null");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1IsNotNull() {
-            addCriterion("Attribution_UserId1 is not null");
+        public Criteria andAttributionUserId1IsNotNull() {
+            addCriterion("Attribution_User_Id1 is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1EqualTo(Integer value) {
-            addCriterion("Attribution_UserId1 =", value, "attributionUserid1");
+        public Criteria andAttributionUserId1EqualTo(Integer value) {
+            addCriterion("Attribution_User_Id1 =", value, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1NotEqualTo(Integer value) {
-            addCriterion("Attribution_UserId1 <>", value, "attributionUserid1");
+        public Criteria andAttributionUserId1NotEqualTo(Integer value) {
+            addCriterion("Attribution_User_Id1 <>", value, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1GreaterThan(Integer value) {
-            addCriterion("Attribution_UserId1 >", value, "attributionUserid1");
+        public Criteria andAttributionUserId1GreaterThan(Integer value) {
+            addCriterion("Attribution_User_Id1 >", value, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1GreaterThanOrEqualTo(Integer value) {
-            addCriterion("Attribution_UserId1 >=", value, "attributionUserid1");
+        public Criteria andAttributionUserId1GreaterThanOrEqualTo(Integer value) {
+            addCriterion("Attribution_User_Id1 >=", value, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1LessThan(Integer value) {
-            addCriterion("Attribution_UserId1 <", value, "attributionUserid1");
+        public Criteria andAttributionUserId1LessThan(Integer value) {
+            addCriterion("Attribution_User_Id1 <", value, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1LessThanOrEqualTo(Integer value) {
-            addCriterion("Attribution_UserId1 <=", value, "attributionUserid1");
+        public Criteria andAttributionUserId1LessThanOrEqualTo(Integer value) {
+            addCriterion("Attribution_User_Id1 <=", value, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1In(List<Integer> values) {
-            addCriterion("Attribution_UserId1 in", values, "attributionUserid1");
+        public Criteria andAttributionUserId1In(List<Integer> values) {
+            addCriterion("Attribution_User_Id1 in", values, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1NotIn(List<Integer> values) {
-            addCriterion("Attribution_UserId1 not in", values, "attributionUserid1");
+        public Criteria andAttributionUserId1NotIn(List<Integer> values) {
+            addCriterion("Attribution_User_Id1 not in", values, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1Between(Integer value1, Integer value2) {
-            addCriterion("Attribution_UserId1 between", value1, value2, "attributionUserid1");
+        public Criteria andAttributionUserId1Between(Integer value1, Integer value2) {
+            addCriterion("Attribution_User_Id1 between", value1, value2, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid1NotBetween(Integer value1, Integer value2) {
-            addCriterion("Attribution_UserId1 not between", value1, value2, "attributionUserid1");
+        public Criteria andAttributionUserId1NotBetween(Integer value1, Integer value2) {
+            addCriterion("Attribution_User_Id1 not between", value1, value2, "attributionUserId1");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2IsNull() {
-            addCriterion("Attribution_UserId2 is null");
+        public Criteria andAttributionUserId2IsNull() {
+            addCriterion("Attribution_User_Id2 is null");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2IsNotNull() {
-            addCriterion("Attribution_UserId2 is not null");
+        public Criteria andAttributionUserId2IsNotNull() {
+            addCriterion("Attribution_User_Id2 is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2EqualTo(Integer value) {
-            addCriterion("Attribution_UserId2 =", value, "attributionUserid2");
+        public Criteria andAttributionUserId2EqualTo(Integer value) {
+            addCriterion("Attribution_User_Id2 =", value, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2NotEqualTo(Integer value) {
-            addCriterion("Attribution_UserId2 <>", value, "attributionUserid2");
+        public Criteria andAttributionUserId2NotEqualTo(Integer value) {
+            addCriterion("Attribution_User_Id2 <>", value, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2GreaterThan(Integer value) {
-            addCriterion("Attribution_UserId2 >", value, "attributionUserid2");
+        public Criteria andAttributionUserId2GreaterThan(Integer value) {
+            addCriterion("Attribution_User_Id2 >", value, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2GreaterThanOrEqualTo(Integer value) {
-            addCriterion("Attribution_UserId2 >=", value, "attributionUserid2");
+        public Criteria andAttributionUserId2GreaterThanOrEqualTo(Integer value) {
+            addCriterion("Attribution_User_Id2 >=", value, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2LessThan(Integer value) {
-            addCriterion("Attribution_UserId2 <", value, "attributionUserid2");
+        public Criteria andAttributionUserId2LessThan(Integer value) {
+            addCriterion("Attribution_User_Id2 <", value, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2LessThanOrEqualTo(Integer value) {
-            addCriterion("Attribution_UserId2 <=", value, "attributionUserid2");
+        public Criteria andAttributionUserId2LessThanOrEqualTo(Integer value) {
+            addCriterion("Attribution_User_Id2 <=", value, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2In(List<Integer> values) {
-            addCriterion("Attribution_UserId2 in", values, "attributionUserid2");
+        public Criteria andAttributionUserId2In(List<Integer> values) {
+            addCriterion("Attribution_User_Id2 in", values, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2NotIn(List<Integer> values) {
-            addCriterion("Attribution_UserId2 not in", values, "attributionUserid2");
+        public Criteria andAttributionUserId2NotIn(List<Integer> values) {
+            addCriterion("Attribution_User_Id2 not in", values, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2Between(Integer value1, Integer value2) {
-            addCriterion("Attribution_UserId2 between", value1, value2, "attributionUserid2");
+        public Criteria andAttributionUserId2Between(Integer value1, Integer value2) {
+            addCriterion("Attribution_User_Id2 between", value1, value2, "attributionUserId2");
             return (Criteria) this;
         }
 
-        public Criteria andAttributionUserid2NotBetween(Integer value1, Integer value2) {
-            addCriterion("Attribution_UserId2 not between", value1, value2, "attributionUserid2");
+        public Criteria andAttributionUserId2NotBetween(Integer value1, Integer value2) {
+            addCriterion("Attribution_User_Id2 not between", value1, value2, "attributionUserId2");
             return (Criteria) this;
         }
 
@@ -415,143 +415,143 @@ public class CarInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlIsNull() {
-            addCriterion("Vehicle_PicUrl is null");
+        public Criteria andVehiclePicUrlIsNull() {
+            addCriterion("Vehicle_Pic_Url is null");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlIsNotNull() {
-            addCriterion("Vehicle_PicUrl is not null");
+        public Criteria andVehiclePicUrlIsNotNull() {
+            addCriterion("Vehicle_Pic_Url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlEqualTo(String value) {
-            addCriterion("Vehicle_PicUrl =", value, "vehiclePicurl");
+        public Criteria andVehiclePicUrlEqualTo(String value) {
+            addCriterion("Vehicle_Pic_Url =", value, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlNotEqualTo(String value) {
-            addCriterion("Vehicle_PicUrl <>", value, "vehiclePicurl");
+        public Criteria andVehiclePicUrlNotEqualTo(String value) {
+            addCriterion("Vehicle_Pic_Url <>", value, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlGreaterThan(String value) {
-            addCriterion("Vehicle_PicUrl >", value, "vehiclePicurl");
+        public Criteria andVehiclePicUrlGreaterThan(String value) {
+            addCriterion("Vehicle_Pic_Url >", value, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlGreaterThanOrEqualTo(String value) {
-            addCriterion("Vehicle_PicUrl >=", value, "vehiclePicurl");
+        public Criteria andVehiclePicUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("Vehicle_Pic_Url >=", value, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlLessThan(String value) {
-            addCriterion("Vehicle_PicUrl <", value, "vehiclePicurl");
+        public Criteria andVehiclePicUrlLessThan(String value) {
+            addCriterion("Vehicle_Pic_Url <", value, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlLessThanOrEqualTo(String value) {
-            addCriterion("Vehicle_PicUrl <=", value, "vehiclePicurl");
+        public Criteria andVehiclePicUrlLessThanOrEqualTo(String value) {
+            addCriterion("Vehicle_Pic_Url <=", value, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlLike(String value) {
-            addCriterion("Vehicle_PicUrl like", value, "vehiclePicurl");
+        public Criteria andVehiclePicUrlLike(String value) {
+            addCriterion("Vehicle_Pic_Url like", value, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlNotLike(String value) {
-            addCriterion("Vehicle_PicUrl not like", value, "vehiclePicurl");
+        public Criteria andVehiclePicUrlNotLike(String value) {
+            addCriterion("Vehicle_Pic_Url not like", value, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlIn(List<String> values) {
-            addCriterion("Vehicle_PicUrl in", values, "vehiclePicurl");
+        public Criteria andVehiclePicUrlIn(List<String> values) {
+            addCriterion("Vehicle_Pic_Url in", values, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlNotIn(List<String> values) {
-            addCriterion("Vehicle_PicUrl not in", values, "vehiclePicurl");
+        public Criteria andVehiclePicUrlNotIn(List<String> values) {
+            addCriterion("Vehicle_Pic_Url not in", values, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlBetween(String value1, String value2) {
-            addCriterion("Vehicle_PicUrl between", value1, value2, "vehiclePicurl");
+        public Criteria andVehiclePicUrlBetween(String value1, String value2) {
+            addCriterion("Vehicle_Pic_Url between", value1, value2, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andVehiclePicurlNotBetween(String value1, String value2) {
-            addCriterion("Vehicle_PicUrl not between", value1, value2, "vehiclePicurl");
+        public Criteria andVehiclePicUrlNotBetween(String value1, String value2) {
+            addCriterion("Vehicle_Pic_Url not between", value1, value2, "vehiclePicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlIsNull() {
-            addCriterion("Car_PicUrl is null");
+        public Criteria andCarPicUrlIsNull() {
+            addCriterion("Car_Pic_Url is null");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlIsNotNull() {
-            addCriterion("Car_PicUrl is not null");
+        public Criteria andCarPicUrlIsNotNull() {
+            addCriterion("Car_Pic_Url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlEqualTo(String value) {
-            addCriterion("Car_PicUrl =", value, "carPicurl");
+        public Criteria andCarPicUrlEqualTo(String value) {
+            addCriterion("Car_Pic_Url =", value, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlNotEqualTo(String value) {
-            addCriterion("Car_PicUrl <>", value, "carPicurl");
+        public Criteria andCarPicUrlNotEqualTo(String value) {
+            addCriterion("Car_Pic_Url <>", value, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlGreaterThan(String value) {
-            addCriterion("Car_PicUrl >", value, "carPicurl");
+        public Criteria andCarPicUrlGreaterThan(String value) {
+            addCriterion("Car_Pic_Url >", value, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlGreaterThanOrEqualTo(String value) {
-            addCriterion("Car_PicUrl >=", value, "carPicurl");
+        public Criteria andCarPicUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("Car_Pic_Url >=", value, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlLessThan(String value) {
-            addCriterion("Car_PicUrl <", value, "carPicurl");
+        public Criteria andCarPicUrlLessThan(String value) {
+            addCriterion("Car_Pic_Url <", value, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlLessThanOrEqualTo(String value) {
-            addCriterion("Car_PicUrl <=", value, "carPicurl");
+        public Criteria andCarPicUrlLessThanOrEqualTo(String value) {
+            addCriterion("Car_Pic_Url <=", value, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlLike(String value) {
-            addCriterion("Car_PicUrl like", value, "carPicurl");
+        public Criteria andCarPicUrlLike(String value) {
+            addCriterion("Car_Pic_Url like", value, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlNotLike(String value) {
-            addCriterion("Car_PicUrl not like", value, "carPicurl");
+        public Criteria andCarPicUrlNotLike(String value) {
+            addCriterion("Car_Pic_Url not like", value, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlIn(List<String> values) {
-            addCriterion("Car_PicUrl in", values, "carPicurl");
+        public Criteria andCarPicUrlIn(List<String> values) {
+            addCriterion("Car_Pic_Url in", values, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlNotIn(List<String> values) {
-            addCriterion("Car_PicUrl not in", values, "carPicurl");
+        public Criteria andCarPicUrlNotIn(List<String> values) {
+            addCriterion("Car_Pic_Url not in", values, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlBetween(String value1, String value2) {
-            addCriterion("Car_PicUrl between", value1, value2, "carPicurl");
+        public Criteria andCarPicUrlBetween(String value1, String value2) {
+            addCriterion("Car_Pic_Url between", value1, value2, "carPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCarPicurlNotBetween(String value1, String value2) {
-            addCriterion("Car_PicUrl not between", value1, value2, "carPicurl");
+        public Criteria andCarPicUrlNotBetween(String value1, String value2) {
+            addCriterion("Car_Pic_Url not between", value1, value2, "carPicUrl");
             return (Criteria) this;
         }
 

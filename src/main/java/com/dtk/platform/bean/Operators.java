@@ -4,154 +4,168 @@ import java.util.Date;
 
 /**
  * 
- * @Description 操作员信息表
- * @author DL
- * @date 2017年7月19日 下午4:42:32
+ * <p>Description: 操作员信息表 </p>
+ * @author wy
+ * @date 2017年8月4日 上午10:28:20
  */
 public class Operators {
+    private Integer id;// 纪录ID
 
-	private Integer ID;// 纪录ID
-	private String operatorSN;// 操作员编号
-	private String operatorName;// 操作员名称
-	private String operatorContact;// 操作员联系方式
-	private String operatorPwd;// 操作员登录密码
-	private String operatorIcon;// 操作员会员头像地址
-	private Integer operatorGender;// 操作员性别
-	private String openeId;// 微信公众平台openID
-	private String unionUniqueId;// 微信开放平台多渠道统一ID
-	private String tplUserId;// 第三方会员系统用户ID
-	private String token;// 会话校验标识
-	private Integer operatorRoleID;// 角色ID
-	private Integer state;// 纪录状态
-	private Date createTime;// 创建时间
-	private Date operateTime;// 操作纪录时间
-	private String keepField;// 保留字段
+    private String operatorSn;// 操作员编号
 
-	public Integer getID() {
-		return ID;
-	}
+    private String operatorName;// 操作员名称
 
-	public void setID(Integer iD) {
-		ID = iD;
-	}
+    private String operatorContact;// 操作员联系方式
 
-	public String getOperatorSN() {
-		return operatorSN;
-	}
+    private String operatorPwd;// 操作员登录密码
 
-	public void setOperatorSN(String operatorSN) {
-		this.operatorSN = operatorSN;
-	}
+    private String operatorIcon;// 操作员会员头像地址
 
-	public String getOperatorName() {
-		return operatorName;
-	}
+    private Integer operatorGender;// 操作员性别
 
-	public void setOperatorName(String operatorName) {
-		this.operatorName = operatorName;
-	}
+    private String openId;// 微信公众平台openID
 
-	public String getOperatorContact() {
-		return operatorContact;
-	}
+    private String unionUniqueId;// 微信开放平台多渠道统一ID
 
-	public void setOperatorContact(String operatorContact) {
-		this.operatorContact = operatorContact;
-	}
+    private String tplUserId;// 第三方会员系统用户ID
 
-	public String getOperatorPwd() {
-		return operatorPwd;
-	}
+    private String token;// 会话校验标识
 
-	public void setOperatorPwd(String operatorPwd) {
-		this.operatorPwd = operatorPwd;
-	}
+    private Integer operatorRoleId;// 角色ID
 
-	public String getOperatorIcon() {
-		return operatorIcon;
-	}
+    private Integer state;// 纪录状态
 
-	public void setOperatorIcon(String operatorIcon) {
-		this.operatorIcon = operatorIcon;
-	}
+    private Date createTime;// 创建时间
 
-	public Integer getOperatorGender() {
-		return operatorGender;
-	}
+    private Date operateTime;// 操作纪录时间
 
-	public void setOperatorGender(Integer operatorGender) {
-		this.operatorGender = operatorGender;
-	}
+    private String keepField;// 保留字段
 
-	public String getOpeneId() {
-		return openeId;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setOpeneId(String openeId) {
-		this.openeId = openeId;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getUnionUniqueId() {
-		return unionUniqueId;
-	}
+    public String getOperatorSn() {
+        return operatorSn;
+    }
 
-	public void setUnionUniqueId(String unionUniqueId) {
-		this.unionUniqueId = unionUniqueId;
-	}
+    public void setOperatorSn(String operatorSn) {
+        this.operatorSn = operatorSn == null ? null : operatorSn.trim();
+    }
 
-	public String getTplUserId() {
-		return tplUserId;
-	}
+    public String getOperatorName() {
+        return operatorName;
+    }
 
-	public void setTplUserId(String tplUserId) {
-		this.tplUserId = tplUserId;
-	}
+    public void setOperatorName(String operatorName) {
+        this.operatorName = operatorName == null ? null : operatorName.trim();
+    }
 
-	public String getToken() {
-		return token;
-	}
+    public String getOperatorContact() {
+        return operatorContact;
+    }
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+    public void setOperatorContact(String operatorContact) {
+        this.operatorContact = operatorContact == null ? null : operatorContact.trim();
+    }
 
-	public Integer getOperatorRoleID() {
-		return operatorRoleID;
-	}
+    public String getOperatorPwd() {
+        return operatorPwd;
+    }
 
-	public void setOperatorRoleID(Integer operatorRoleID) {
-		this.operatorRoleID = operatorRoleID;
-	}
+    public void setOperatorPwd(String operatorPwd) {
+        this.operatorPwd = operatorPwd == null ? null : operatorPwd.trim();
+    }
 
-	public Integer getState() {
-		return state;
-	}
+    public String getOperatorIcon() {
+        return operatorIcon;
+    }
 
-	public void setState(Integer state) {
-		this.state = state;
-	}
+    public void setOperatorIcon(String operatorIcon) {
+        this.operatorIcon = operatorIcon == null ? null : operatorIcon.trim();
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public Integer getOperatorGender() {
+        return operatorGender;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setOperatorGender(Integer operatorGender) {
+        this.operatorGender = operatorGender;
+    }
 
-	public Date getOperateTime() {
-		return operateTime;
-	}
+    public String getOpenId() {
+        return openId;
+    }
 
-	public void setOperateTime(Date operateTime) {
-		this.operateTime = operateTime;
-	}
+    public void setOpenId(String openId) {
+        this.openId = openId == null ? null : openId.trim();
+    }
 
-	public String getKeepField() {
-		return keepField;
-	}
+    public String getUnionUniqueId() {
+        return unionUniqueId;
+    }
 
-	public void setKeepField(String keepField) {
-		this.keepField = keepField;
-	}
+    public void setUnionUniqueId(String unionUniqueId) {
+        this.unionUniqueId = unionUniqueId == null ? null : unionUniqueId.trim();
+    }
+
+    public String getTplUserId() {
+        return tplUserId;
+    }
+
+    public void setTplUserId(String tplUserId) {
+        this.tplUserId = tplUserId == null ? null : tplUserId.trim();
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token == null ? null : token.trim();
+    }
+
+    public Integer getOperatorRoleId() {
+        return operatorRoleId;
+    }
+
+    public void setOperatorRoleId(Integer operatorRoleId) {
+        this.operatorRoleId = operatorRoleId;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getOperateTime() {
+        return operateTime;
+    }
+
+    public void setOperateTime(Date operateTime) {
+        this.operateTime = operateTime;
+    }
+
+    public String getKeepField() {
+        return keepField;
+    }
+
+    public void setKeepField(String keepField) {
+        this.keepField = keepField == null ? null : keepField.trim();
+    }
 }
