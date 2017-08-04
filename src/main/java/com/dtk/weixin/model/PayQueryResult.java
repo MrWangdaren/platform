@@ -1,5 +1,11 @@
 package com.dtk.weixin.model;
 
+/**
+ * 
+ * <p>Description: 查询订单支付结果类 </p>
+ * @author wy
+ * @date 2017年8月4日 上午11:12:13
+ */
 public class PayQueryResult extends WeixinResult {
     private String appid;
     private String mchId;

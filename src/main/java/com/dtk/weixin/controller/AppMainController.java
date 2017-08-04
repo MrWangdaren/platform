@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -33,38 +31,42 @@ public class AppMainController {
 	
 	private static Log logger = LogFactory.getLog(AppMainController.class);
 
+	/**
+	 * 
+	 * @description 初始化页面跳转
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月4日 上午11:01:04
+	 */
 	@RequestMapping("init")
 	public String init(){
 		return "weixin/park/main";
 	}
 	
-	
+	/**
+	 * 
+	 * @description 是否在场内
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月4日 上午11:00:43
+	 */
 	@RequestMapping("isInPark")
 	@ResponseBody
 	public Map<String, String> isInPark(String carNo){
-		
 		Map<String, String> res = new HashMap<String, String>();
-		
 		res.put("code", "200");
-		
-		
 		return res;
 	}
 	
 	
-	@RequestMapping("pay/toPay")
-	public String toPay(HttpServletRequest request, HttpServletResponse response){
-		
-		try{
-			String code = (String) request.getSession().getAttribute("code"); 
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return "weixin/park/main";
-	}
-	
-	// 回调url
-    @RequestMapping(value = "pay/callback", produces = {"application/json;charset=UTF-8"})
+	/**
+	 * 
+	 * @description 支付回调 通知支付状态
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月4日 上午11:02:41
+	 */
+    @RequestMapping(value = "pay/callback")
     @ResponseBody
     public String notify(HttpServletRequest request) {
         try {

@@ -97,6 +97,13 @@ public class HtmlPayController {
 		}
 	}
 	
+	/**
+	 * 
+	 * @description 获取用户code，用户获取openId
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月4日 上午11:09:11
+	 */
 	@RequestMapping("getCode")
 	@ResponseBody
 	public Map<String, String> getCode(String code){
@@ -121,7 +128,13 @@ public class HtmlPayController {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @description 开始支付
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月4日 上午11:09:52
+	 */
 	@RequestMapping(value = "/doPay")
 	@ResponseBody
 	public JSONObject doPay(HttpServletRequest request, HttpServletResponse response, Model model,
