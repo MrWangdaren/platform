@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.itcast.ssm.mapper.UsersMapper">
-  <resultMap id="BaseResultMap" type="cn.itcast.ssm.po.Users">
+<mapper namespace="cn.itcast.ssm.mapper.OperatorsMapper">
+  <resultMap id="BaseResultMap" type="cn.itcast.ssm.po.Operators">
     <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="Vip_SN" jdbcType="VARCHAR" property="vipSn" />
-    <result column="Vip_Name" jdbcType="VARCHAR" property="vipName" />
-    <result column="Vip_Contact" jdbcType="VARCHAR" property="vipContact" />
-    <result column="Vip_Header_Icon" jdbcType="VARCHAR" property="vipHeaderIcon" />
-    <result column="Vip_Gender" jdbcType="INTEGER" property="vipGender" />
-    <result column="Vip_Password" jdbcType="VARCHAR" property="vipPassword" />
+    <result column="Operator_SN" jdbcType="VARCHAR" property="operatorSn" />
+    <result column="Operator_Name" jdbcType="VARCHAR" property="operatorName" />
+    <result column="Operator_Contact" jdbcType="VARCHAR" property="operatorContact" />
+    <result column="Operator_Pwd" jdbcType="VARCHAR" property="operatorPwd" />
+    <result column="Operator_Icon" jdbcType="VARCHAR" property="operatorIcon" />
+    <result column="Operator_Gender" jdbcType="INTEGER" property="operatorGender" />
     <result column="OpeneId" jdbcType="VARCHAR" property="openeid" />
     <result column="UnionUniqueId" jdbcType="VARCHAR" property="unionuniqueid" />
     <result column="TPLUserId" jdbcType="VARCHAR" property="tpluserid" />
     <result column="Token" jdbcType="VARCHAR" property="token" />
-    <result column="Vip_Level" jdbcType="INTEGER" property="vipLevel" />
-    <result column="Vip_State" jdbcType="INTEGER" property="vipState" />
+    <result column="Operator_Role_ID" jdbcType="INTEGER" property="operatorRoleId" />
     <result column="State" jdbcType="INTEGER" property="state" />
     <result column="Create_Time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="Operate_Time" jdbcType="TIMESTAMP" property="operateTime" />
@@ -79,17 +78,17 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, Vip_SN, Vip_Name, Vip_Contact, Vip_Header_Icon, Vip_Gender, Vip_Password, OpeneId, 
-    UnionUniqueId, TPLUserId, Token, Vip_Level, Vip_State, State, Create_Time, Operate_Time, 
+    ID, Operator_SN, Operator_Name, Operator_Contact, Operator_Pwd, Operator_Icon, Operator_Gender, 
+    OpeneId, UnionUniqueId, TPLUserId, Token, Operator_Role_ID, State, Create_Time, Operate_Time, 
     Keep_Field
   </sql>
-  <select id="selectByExample" parameterType="cn.itcast.ssm.po.UsersExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="cn.itcast.ssm.po.OperatorsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from users
+    from operators
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -100,56 +99,56 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from users
+    from operators
     where ID = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from users
+    delete from operators
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.itcast.ssm.po.UsersExample">
-    delete from users
+  <delete id="deleteByExample" parameterType="cn.itcast.ssm.po.OperatorsExample">
+    delete from operators
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.itcast.ssm.po.Users">
-    insert into users (ID, Vip_SN, Vip_Name, 
-      Vip_Contact, Vip_Header_Icon, Vip_Gender, 
-      Vip_Password, OpeneId, UnionUniqueId, 
-      TPLUserId, Token, Vip_Level, 
-      Vip_State, State, Create_Time, 
-      Operate_Time, Keep_Field)
-    values (#{id,jdbcType=INTEGER}, #{vipSn,jdbcType=VARCHAR}, #{vipName,jdbcType=VARCHAR}, 
-      #{vipContact,jdbcType=VARCHAR}, #{vipHeaderIcon,jdbcType=VARCHAR}, #{vipGender,jdbcType=INTEGER}, 
-      #{vipPassword,jdbcType=VARCHAR}, #{openeid,jdbcType=VARCHAR}, #{unionuniqueid,jdbcType=VARCHAR}, 
-      #{tpluserid,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{vipLevel,jdbcType=INTEGER}, 
-      #{vipState,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="cn.itcast.ssm.po.Operators">
+    insert into operators (ID, Operator_SN, Operator_Name, 
+      Operator_Contact, Operator_Pwd, Operator_Icon, 
+      Operator_Gender, OpeneId, UnionUniqueId, 
+      TPLUserId, Token, Operator_Role_ID, 
+      State, Create_Time, Operate_Time, 
+      Keep_Field)
+    values (#{id,jdbcType=INTEGER}, #{operatorSn,jdbcType=VARCHAR}, #{operatorName,jdbcType=VARCHAR}, 
+      #{operatorContact,jdbcType=VARCHAR}, #{operatorPwd,jdbcType=VARCHAR}, #{operatorIcon,jdbcType=VARCHAR}, 
+      #{operatorGender,jdbcType=INTEGER}, #{openeid,jdbcType=VARCHAR}, #{unionuniqueid,jdbcType=VARCHAR}, 
+      #{tpluserid,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{operatorRoleId,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, 
+      #{keepField,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.itcast.ssm.po.Users">
-    insert into users
+  <insert id="insertSelective" parameterType="cn.itcast.ssm.po.Operators">
+    insert into operators
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         ID,
       </if>
-      <if test="vipSn != null">
-        Vip_SN,
+      <if test="operatorSn != null">
+        Operator_SN,
       </if>
-      <if test="vipName != null">
-        Vip_Name,
+      <if test="operatorName != null">
+        Operator_Name,
       </if>
-      <if test="vipContact != null">
-        Vip_Contact,
+      <if test="operatorContact != null">
+        Operator_Contact,
       </if>
-      <if test="vipHeaderIcon != null">
-        Vip_Header_Icon,
+      <if test="operatorPwd != null">
+        Operator_Pwd,
       </if>
-      <if test="vipGender != null">
-        Vip_Gender,
+      <if test="operatorIcon != null">
+        Operator_Icon,
       </if>
-      <if test="vipPassword != null">
-        Vip_Password,
+      <if test="operatorGender != null">
+        Operator_Gender,
       </if>
       <if test="openeid != null">
         OpeneId,
@@ -163,11 +162,8 @@
       <if test="token != null">
         Token,
       </if>
-      <if test="vipLevel != null">
-        Vip_Level,
-      </if>
-      <if test="vipState != null">
-        Vip_State,
+      <if test="operatorRoleId != null">
+        Operator_Role_ID,
       </if>
       <if test="state != null">
         State,
@@ -186,23 +182,23 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="vipSn != null">
-        #{vipSn,jdbcType=VARCHAR},
+      <if test="operatorSn != null">
+        #{operatorSn,jdbcType=VARCHAR},
       </if>
-      <if test="vipName != null">
-        #{vipName,jdbcType=VARCHAR},
+      <if test="operatorName != null">
+        #{operatorName,jdbcType=VARCHAR},
       </if>
-      <if test="vipContact != null">
-        #{vipContact,jdbcType=VARCHAR},
+      <if test="operatorContact != null">
+        #{operatorContact,jdbcType=VARCHAR},
       </if>
-      <if test="vipHeaderIcon != null">
-        #{vipHeaderIcon,jdbcType=VARCHAR},
+      <if test="operatorPwd != null">
+        #{operatorPwd,jdbcType=VARCHAR},
       </if>
-      <if test="vipGender != null">
-        #{vipGender,jdbcType=INTEGER},
+      <if test="operatorIcon != null">
+        #{operatorIcon,jdbcType=VARCHAR},
       </if>
-      <if test="vipPassword != null">
-        #{vipPassword,jdbcType=VARCHAR},
+      <if test="operatorGender != null">
+        #{operatorGender,jdbcType=INTEGER},
       </if>
       <if test="openeid != null">
         #{openeid,jdbcType=VARCHAR},
@@ -216,11 +212,8 @@
       <if test="token != null">
         #{token,jdbcType=VARCHAR},
       </if>
-      <if test="vipLevel != null">
-        #{vipLevel,jdbcType=INTEGER},
-      </if>
-      <if test="vipState != null">
-        #{vipState,jdbcType=INTEGER},
+      <if test="operatorRoleId != null">
+        #{operatorRoleId,jdbcType=INTEGER},
       </if>
       <if test="state != null">
         #{state,jdbcType=INTEGER},
@@ -236,35 +229,35 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.itcast.ssm.po.UsersExample" resultType="java.lang.Long">
-    select count(*) from users
+  <select id="countByExample" parameterType="cn.itcast.ssm.po.OperatorsExample" resultType="java.lang.Long">
+    select count(*) from operators
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update users
+    update operators
     <set>
       <if test="record.id != null">
         ID = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.vipSn != null">
-        Vip_SN = #{record.vipSn,jdbcType=VARCHAR},
+      <if test="record.operatorSn != null">
+        Operator_SN = #{record.operatorSn,jdbcType=VARCHAR},
       </if>
-      <if test="record.vipName != null">
-        Vip_Name = #{record.vipName,jdbcType=VARCHAR},
+      <if test="record.operatorName != null">
+        Operator_Name = #{record.operatorName,jdbcType=VARCHAR},
       </if>
-      <if test="record.vipContact != null">
-        Vip_Contact = #{record.vipContact,jdbcType=VARCHAR},
+      <if test="record.operatorContact != null">
+        Operator_Contact = #{record.operatorContact,jdbcType=VARCHAR},
       </if>
-      <if test="record.vipHeaderIcon != null">
-        Vip_Header_Icon = #{record.vipHeaderIcon,jdbcType=VARCHAR},
+      <if test="record.operatorPwd != null">
+        Operator_Pwd = #{record.operatorPwd,jdbcType=VARCHAR},
       </if>
-      <if test="record.vipGender != null">
-        Vip_Gender = #{record.vipGender,jdbcType=INTEGER},
+      <if test="record.operatorIcon != null">
+        Operator_Icon = #{record.operatorIcon,jdbcType=VARCHAR},
       </if>
-      <if test="record.vipPassword != null">
-        Vip_Password = #{record.vipPassword,jdbcType=VARCHAR},
+      <if test="record.operatorGender != null">
+        Operator_Gender = #{record.operatorGender,jdbcType=INTEGER},
       </if>
       <if test="record.openeid != null">
         OpeneId = #{record.openeid,jdbcType=VARCHAR},
@@ -278,11 +271,8 @@
       <if test="record.token != null">
         Token = #{record.token,jdbcType=VARCHAR},
       </if>
-      <if test="record.vipLevel != null">
-        Vip_Level = #{record.vipLevel,jdbcType=INTEGER},
-      </if>
-      <if test="record.vipState != null">
-        Vip_State = #{record.vipState,jdbcType=INTEGER},
+      <if test="record.operatorRoleId != null">
+        Operator_Role_ID = #{record.operatorRoleId,jdbcType=INTEGER},
       </if>
       <if test="record.state != null">
         State = #{record.state,jdbcType=INTEGER},
@@ -302,20 +292,19 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update users
+    update operators
     set ID = #{record.id,jdbcType=INTEGER},
-      Vip_SN = #{record.vipSn,jdbcType=VARCHAR},
-      Vip_Name = #{record.vipName,jdbcType=VARCHAR},
-      Vip_Contact = #{record.vipContact,jdbcType=VARCHAR},
-      Vip_Header_Icon = #{record.vipHeaderIcon,jdbcType=VARCHAR},
-      Vip_Gender = #{record.vipGender,jdbcType=INTEGER},
-      Vip_Password = #{record.vipPassword,jdbcType=VARCHAR},
+      Operator_SN = #{record.operatorSn,jdbcType=VARCHAR},
+      Operator_Name = #{record.operatorName,jdbcType=VARCHAR},
+      Operator_Contact = #{record.operatorContact,jdbcType=VARCHAR},
+      Operator_Pwd = #{record.operatorPwd,jdbcType=VARCHAR},
+      Operator_Icon = #{record.operatorIcon,jdbcType=VARCHAR},
+      Operator_Gender = #{record.operatorGender,jdbcType=INTEGER},
       OpeneId = #{record.openeid,jdbcType=VARCHAR},
       UnionUniqueId = #{record.unionuniqueid,jdbcType=VARCHAR},
       TPLUserId = #{record.tpluserid,jdbcType=VARCHAR},
       Token = #{record.token,jdbcType=VARCHAR},
-      Vip_Level = #{record.vipLevel,jdbcType=INTEGER},
-      Vip_State = #{record.vipState,jdbcType=INTEGER},
+      Operator_Role_ID = #{record.operatorRoleId,jdbcType=INTEGER},
       State = #{record.state,jdbcType=INTEGER},
       Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
       Operate_Time = #{record.operateTime,jdbcType=TIMESTAMP},
@@ -324,26 +313,26 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.itcast.ssm.po.Users">
-    update users
+  <update id="updateByPrimaryKeySelective" parameterType="cn.itcast.ssm.po.Operators">
+    update operators
     <set>
-      <if test="vipSn != null">
-        Vip_SN = #{vipSn,jdbcType=VARCHAR},
+      <if test="operatorSn != null">
+        Operator_SN = #{operatorSn,jdbcType=VARCHAR},
       </if>
-      <if test="vipName != null">
-        Vip_Name = #{vipName,jdbcType=VARCHAR},
+      <if test="operatorName != null">
+        Operator_Name = #{operatorName,jdbcType=VARCHAR},
       </if>
-      <if test="vipContact != null">
-        Vip_Contact = #{vipContact,jdbcType=VARCHAR},
+      <if test="operatorContact != null">
+        Operator_Contact = #{operatorContact,jdbcType=VARCHAR},
       </if>
-      <if test="vipHeaderIcon != null">
-        Vip_Header_Icon = #{vipHeaderIcon,jdbcType=VARCHAR},
+      <if test="operatorPwd != null">
+        Operator_Pwd = #{operatorPwd,jdbcType=VARCHAR},
       </if>
-      <if test="vipGender != null">
-        Vip_Gender = #{vipGender,jdbcType=INTEGER},
+      <if test="operatorIcon != null">
+        Operator_Icon = #{operatorIcon,jdbcType=VARCHAR},
       </if>
-      <if test="vipPassword != null">
-        Vip_Password = #{vipPassword,jdbcType=VARCHAR},
+      <if test="operatorGender != null">
+        Operator_Gender = #{operatorGender,jdbcType=INTEGER},
       </if>
       <if test="openeid != null">
         OpeneId = #{openeid,jdbcType=VARCHAR},
@@ -357,11 +346,8 @@
       <if test="token != null">
         Token = #{token,jdbcType=VARCHAR},
       </if>
-      <if test="vipLevel != null">
-        Vip_Level = #{vipLevel,jdbcType=INTEGER},
-      </if>
-      <if test="vipState != null">
-        Vip_State = #{vipState,jdbcType=INTEGER},
+      <if test="operatorRoleId != null">
+        Operator_Role_ID = #{operatorRoleId,jdbcType=INTEGER},
       </if>
       <if test="state != null">
         State = #{state,jdbcType=INTEGER},
@@ -378,20 +364,19 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.itcast.ssm.po.Users">
-    update users
-    set Vip_SN = #{vipSn,jdbcType=VARCHAR},
-      Vip_Name = #{vipName,jdbcType=VARCHAR},
-      Vip_Contact = #{vipContact,jdbcType=VARCHAR},
-      Vip_Header_Icon = #{vipHeaderIcon,jdbcType=VARCHAR},
-      Vip_Gender = #{vipGender,jdbcType=INTEGER},
-      Vip_Password = #{vipPassword,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="cn.itcast.ssm.po.Operators">
+    update operators
+    set Operator_SN = #{operatorSn,jdbcType=VARCHAR},
+      Operator_Name = #{operatorName,jdbcType=VARCHAR},
+      Operator_Contact = #{operatorContact,jdbcType=VARCHAR},
+      Operator_Pwd = #{operatorPwd,jdbcType=VARCHAR},
+      Operator_Icon = #{operatorIcon,jdbcType=VARCHAR},
+      Operator_Gender = #{operatorGender,jdbcType=INTEGER},
       OpeneId = #{openeid,jdbcType=VARCHAR},
       UnionUniqueId = #{unionuniqueid,jdbcType=VARCHAR},
       TPLUserId = #{tpluserid,jdbcType=VARCHAR},
       Token = #{token,jdbcType=VARCHAR},
-      Vip_Level = #{vipLevel,jdbcType=INTEGER},
-      Vip_State = #{vipState,jdbcType=INTEGER},
+      Operator_Role_ID = #{operatorRoleId,jdbcType=INTEGER},
       State = #{state,jdbcType=INTEGER},
       Create_Time = #{createTime,jdbcType=TIMESTAMP},
       Operate_Time = #{operateTime,jdbcType=TIMESTAMP},
