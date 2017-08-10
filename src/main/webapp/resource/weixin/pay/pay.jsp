@@ -15,16 +15,14 @@
      <link rel="stylesheet" href="${PATH}/resource/weixin/css/css.css">
 	 <script type="text/javascript" src="${PATH}/resource/common/js/jquery-1.12.3.min.js"></script>
 	 <script type="text/javascript" src="${PATH}/resource/common/js/content.js"></script>
-	 <%  
-		String code = request.getParameter("code");  
-		String carLicense = request.getParameter("state"); 
-   	 %>  
+	 
 </head>
 <body>
 <div class="page">
 	<div class="brand-wrap"></div>
-	<input type="hidden" id="code" value="<%out.print(code); %>"/>  
-	<input type="hidden" id="openId" value=""/>  
+	<%  
+		String carLicense = request.getParameter("carLicense");  
+    %>  
 	<div class="payInfo">
 	    <h2 class="title">
             <i></i>
@@ -33,7 +31,7 @@
 	    <div class="con" style="padding-top:5px;">
 	        <ul class="info">
 	        	<li class="clearfix">
-	                <span>车牌号：</span><span id="carLicense"><% out.print(carLicense); %></span>
+	                <span>车牌号：</span><span id="carLicense"><%out.print(carLicense); %></span>
 	            </li>
 	            <li class="clearfix">
 	                <span>停车场名称：</span><span>江苏迪泰柯停车场</span>
@@ -162,7 +160,7 @@ function isDisabled(btn,tag){
 	    FastClick.attach(document.body);
 	});
 </script>
-<script type="text/javascript" src="${PATH}/resource/weixin/js/pay/pay.js?verson=0120"></script> 
+<script type="text/javascript" src="${PATH}/resource/weixin/js/pay/pay.js?verson=0123"></script> 
 <script type="text/javascript" src="${PATH}/resource/weixin/js/main/dialog.js?verson=0119"></script>
 <script type="text/javascript" src="${PATH}/resource/weixin/js/main/main.js?verson=0119"></script>
 <script type="text/javascript" src="${PATH}/resource/common/js/fastclick.js"></script>

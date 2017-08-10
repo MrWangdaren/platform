@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
-"http://mybatis.org/dtd/mybatis-3-config.dtd"> 
 <Config>
 	<ConfigKind name="a" desc="b">
 		<ConfigItem name="c" desc="d">123456</ConfigItem>
@@ -20,5 +18,7 @@
 		<ConfigItem name="orderQueryUrl" desc="查询订单支付状态Url">https://api.mch.weixin.qq.com/pay/orderquery</ConfigItem>
 	</ConfigKind>
 	
-	
+	<ConfigKind name="platform" desc="微信基础配置信息">
+		<ConfigItem name="rootUrl" desc="项目域名">http://wylsr.imwork.net</ConfigItem>
+	</ConfigKind>
 </Config>

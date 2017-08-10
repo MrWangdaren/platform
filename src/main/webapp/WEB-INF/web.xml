@@ -85,6 +85,18 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	<!-- 微信公众号登录过滤器 -->
+	<filter>
+		<description>微信登录过滤器</description>
+		<filter-name>weixinLoginFilter</filter-name>
+		<filter-class>com.dtk.weixin.filter.WeixinLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>weixinLoginFilter</filter-name>
+		<url-pattern>/weixin/*</url-pattern>
+	</filter-mapping>
+	
+	
 	<!-- SpringMVC核心分发器 -->
 	<servlet>
     	<servlet-name>springmvc</servlet-name>

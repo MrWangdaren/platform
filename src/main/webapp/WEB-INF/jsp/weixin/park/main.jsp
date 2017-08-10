@@ -296,7 +296,7 @@
  	    $.promptDialog_wait("请稍后....")
  	   	$.post("${PATH}/weixin/main/isInPark.do",{carNo:str},function(data) {
  	   		if(data.code == 200) {
- 	   			window.location.href = "${PATH}/weixin/pay/init.do?carNo=" + str;
+ 	   			window.location.href = "${PATH}/weixin/pay/init.do?carLicense=" + str;
  	   		}
  	   		else {
  	   			close_waitpop();

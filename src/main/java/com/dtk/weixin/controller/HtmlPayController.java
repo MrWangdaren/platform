@@ -1,12 +1,12 @@
 package com.dtk.weixin.controller;
 
-import java.io.IOException;
-import java.net.URLEncoder;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -53,8 +53,6 @@ public class HtmlPayController {
 	
 	//商户公众号appID
 	private String appId = PlatformConfig.getConfigItem("weixin", "appId");
-	//app密码
-	private String appSecret = PlatformConfig.getConfigItem("weixin", "appSecret");
 	//商户号
 	private String mchId = PlatformConfig.getConfigItem("weixin", "mchId");
     // 申请开通微信支付后，发给开发者。用于计算签名
@@ -79,52 +77,14 @@ public class HtmlPayController {
 	 * @date 2017年7月28日 上午11:17:51
 	 */
 	@RequestMapping("init")
-	public void init(HttpServletRequest request, HttpServletResponse response, Model model,String carNo){
+	public String init(HttpServletRequest request, HttpServletResponse response, Model model, String carLicense){
 		
-		if(StringUtils.isBlank(carNo)){
-			logger.info("carNo is not correct, " + "carNo = " + carNo);
+		if(StringUtils.isBlank(carLicense)){
+			logger.info("carNo is not correct, " + "carLicense = " + carLicense);
             throw new RuntimeException("车牌号校验不通过");
 		}
-		try {
-			String url = URLEncoder.encode(redirectUrl, "UTF-8");
-		    String getCodeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
-		    String requestUrl = getCodeUrl.replace("APPID", appId).replace("REDIRECT_URI", url).replace("SCOPE", "snsapi_base").replace("STATE", carNo); 
-		    model.addAttribute("carNo", carNo);
-		    response.sendRedirect(requestUrl);
-		} catch (IOException e) {
-			logger.info("重定向支付页面并授权失败");
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * 
-	 * @description 获取用户code，用户获取openId
-	 * @param  
-	 * @author wy
-	 * @date 2017年8月4日 上午11:09:11
-	 */
-	@RequestMapping("getCode")
-	@ResponseBody
-	public Map<String, String> getCode(String code){
-		Map<String, String> result = new HashMap<String, String>();
-		result.put("code", "0");
-		if(code == null || code.equals("")){
-			result.put("message", "用户code为空,请联系管理员！");
-			return result;
-		}
-		String access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
-		String requestUrl = access_token_url.replace("APPID", appId).replace("SECRET", appSecret).replace("CODE", code);  
-        JSONObject jsonObject = WeixinUtil.httpRequest(requestUrl, "GET", null);  
-        String openid = jsonObject.getString("openid");
-		System.out.println(openid);
-		if(openid == null || openid.equals("")){
-			result.put("message", "未取得用户openid,请联系管理员！");
-			return result;
-		}
-		result.put("code", "1");
-		result.put("openId", openid);
-		return result;
+		model.addAttribute("carLicense", carLicense);
+		return "redirect:" + redirectUrl;
 	}
 	
 	
@@ -137,13 +97,21 @@ public class HtmlPayController {
 	 */
 	@RequestMapping(value = "/doPay")
 	@ResponseBody
-	public JSONObject doPay(HttpServletRequest request, HttpServletResponse response, Model model,
-            String openId){
-		if(null == openId || "".equals(openId)){
+	public JSONObject doPay(HttpServletRequest request, HttpServletResponse response, Model model, String carLicense){
+		Cookie[] cookies = request.getCookies();
+		String openId = "";
+		//判断cookie中是否存在openid 若存在则直接跳过，不存在则获取一次
+        if(cookies!=null){
+            for(Cookie cookie : cookies){
+                if(cookie.getName().equals("openId")){
+                    openId = cookie.getValue();
+                }
+            }
+        }
+		if(cookies == null || StringUtils.isEmpty(openId)){
 			logger.info("openId is not correct, " + "openId = " + openId);
             throw new RuntimeException("openId为空");
 		}
-		
 	    String strDate = DateUtil.format(new Date(), new SimpleDateFormat("yyyyMMddHHmmss"));
 	    //商户订单号
         String outTradeNo = "dtkparkfee" + strDate;
@@ -266,11 +234,10 @@ public class HtmlPayController {
     }
 
 	@RequestMapping("payOk")
-	public String payOk(String outTradeNo){
+	public String payOk(String outTradeNo, Model model){
+		model.addAttribute("outTradeNo", outTradeNo);
 		return "weixin/park/payOk";
 	}
-	
-	
 	
 	private JSONObject genJsParam(PayResult payResult) {
         Long timestamp = System.currentTimeMillis() / 1000;

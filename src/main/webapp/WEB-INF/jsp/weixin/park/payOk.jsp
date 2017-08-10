@@ -35,9 +35,6 @@
 	        	<li class="clearfix">
 	                <span>车牌号：</span><span id="carLicense"><% out.print(carLicense); %></span>
 	            </li>
-	        	<li class="clearfix">
-	                <span>车牌号：</span><span id="carLicense"><% out.print(carLicense); %></span>
-	            </li>
 	            <li class="clearfix">
 	                <span>停车场名称：</span><span>江苏迪泰柯停车场</span>
 	            </li>
@@ -53,6 +50,15 @@
 	            </li>
 	            <li class="clearfix">
 	                <span>停车时长：</span><span><i class="cost">2</i>小时</span>
+	            </li>
+	            <li class="clearfix">
+	                <span>缴费金额：</span><span id="carLicense"><i class="cost">2</i>元</span>
+	            </li>
+	            <li class="clearfix">
+	                <span>订单号：</span><span id="carLicense">${outTradeNo }</span>
+	            </li>
+	            <li class="clearfix">
+	                <span>微信订单号：</span><span id="carLicense">12316546546</span>
 	            </li>
 	            
 	        </ul>
