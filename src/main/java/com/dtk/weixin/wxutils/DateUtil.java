@@ -2,6 +2,7 @@ package com.dtk.weixin.wxutils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -132,10 +133,20 @@ public class DateUtil {
 		}
 	}
 
+	
+	public static Date parseDefaultTime(String ds) {
+		SimpleDateFormat format = new SimpleDateFormat(formatDefaultTime);
+		return parse(ds, format);
+	}
+	
+	
 	public static Date parse(String ds) {
 		SimpleDateFormat format = new SimpleDateFormat(formatDefaultDate);
 		return parse(ds, format);
 	}
+	
+	
+	
 
 	/**
 	 * 当前时间
@@ -154,5 +165,29 @@ public class DateUtil {
 	public static long nowTime() {
 		return System.currentTimeMillis() / 1000;
 	}
+	
+	/**
+	 * 
+	 * @description 计算时间差
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月15日 上午10:08:24
+	 */
+	public static Long intervalTime(Date dateBefore, Date date){
+		Calendar dateOne=Calendar.getInstance();
+		Calendar dateTwo=Calendar.getInstance();
+		dateOne.setTime(date);
+		dateTwo.setTime(dateBefore);
+		long timeOne=dateOne.getTimeInMillis();
+		long timeTwo=dateTwo.getTimeInMillis();
+		long milliseconds = timeOne - timeTwo;
+		
+		return milliseconds;
+	}
+	
+	
+	
+	
+	
 
 }

@@ -1,21 +1,37 @@
 package com.dtk.weixin.controller;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.dtk.platform.bean.CarInfo;
+import com.dtk.platform.bean.CarInfoExample;
+import com.dtk.platform.bean.InPark;
+import com.dtk.platform.bean.InParkExample;
+import com.dtk.platform.bean.Users;
+import com.dtk.platform.dao.CarInfoMapper;
+import com.dtk.platform.dao.InParkMapper;
+import com.dtk.platform.service.UsersService;
 import com.dtk.weixin.model.PayNotifyResult;
 import com.dtk.weixin.model.enums.ResultCode;
 import com.dtk.weixin.wxutils.BeanUtil;
+import com.dtk.weixin.wxutils.CookieUtil;
+import com.dtk.weixin.wxutils.DateUtil;
 import com.dtk.weixin.wxutils.WeixinUtil;
 import com.dtk.weixin.wxutils.XmlUtil;
 
@@ -30,6 +46,14 @@ import com.dtk.weixin.wxutils.XmlUtil;
 public class AppMainController {
 	
 	private static Log logger = LogFactory.getLog(AppMainController.class);
+	
+	@Autowired
+	private UsersService usersService;
+	@Autowired
+	private CarInfoMapper carInfoDao;
+	@Autowired
+	private InParkMapper inParkDao;
+	
 
 	/**
 	 * 
@@ -52,9 +76,16 @@ public class AppMainController {
 	 */
 	@RequestMapping("isInPark")
 	@ResponseBody
-	public Map<String, String> isInPark(String carNo){
+	public Map<String, String> isInPark(String carLicense, int licenseType){
 		Map<String, String> res = new HashMap<String, String>();
-		res.put("code", "200");
+		
+		InParkExample inParkExample = new InParkExample();
+		InParkExample.Criteria inSql = inParkExample.createCriteria();
+		inSql.andCarLicenseEqualTo(carLicense).andLicenseTypeEqualTo(licenseType).andIsPayEqualTo(0);
+		List<InPark> ls = inParkDao.selectByExample(inParkExample);
+		if(ls != null && ls.size() ==  1){
+			res.put("code", "200");
+		}
 		return res;
 	}
 	
@@ -84,5 +115,60 @@ public class AppMainController {
         }
         return WeixinUtil.getResult(ResultCode.SUCCESS, "OK");
     }
+    
+    /**
+     * 
+     * @description 加载页面数据
+     * @param  
+     * @author wy
+     * @date 2017年8月15日 上午10:05:42
+     */
+    @RequestMapping(value = "loadCarInfo")
+    @ResponseBody
+    public Map<String, Object>  loadCarInfo(HttpServletRequest request){
+    	Map<String, Object> res = new HashMap<String, Object>();
+    	List<CarInfo> carInfoList = null;
+    	List<InPark> inParkList = new ArrayList<InPark>(); 
+    	
+    	try{
+    		String openId = CookieUtil.getOpenId(request);
+    		Users users = usersService.queryUsersByOpenId(openId);
+    		CarInfoExample example = new CarInfoExample();
+    		example.createCriteria().andAttributionUserId1EqualTo(users.getId()).andStateEqualTo(1);
+    		example.or().andAttributionUserId2EqualTo(users.getId()).andStateEqualTo(1);
+    		example.setOrderByClause("ID");
+    		carInfoList = carInfoDao.selectByExample(example);
+    		for(CarInfo info : carInfoList){
+    			String license = info.getCarLicense();
+    			int licenseType = info.getLicenseType();
+    			InParkExample inParkExample = new InParkExample();
+    			InParkExample.Criteria inSql = inParkExample.createCriteria();
+    			inSql.andCarLicenseEqualTo(license).andLicenseTypeEqualTo(licenseType).andIsPayEqualTo(0);
+    			List<InPark> ls = inParkDao.selectByExample(inParkExample);
+    			if(ls != null && ls.size() > 0){
+    				InPark inPark = ls.get(0);
+    				Date date = DateUtil.parseDefaultTime(inPark.getComeTime());
+    				Long stopTime = DateUtil.intervalTime(date, new Date())/(1000*60);//转化为分
+    				ls.get(0).setStopTime(stopTime);
+    				inParkList.add(ls.get(0));
+    			}
+    		}
+    		res.put("code", "1");
+    		res.put("carInfoList", carInfoList);
+    		res.put("inParkList", inParkList);
+    	}catch(Exception e){
+    		logger.error(e.getMessage(), e);
+    		e.printStackTrace();
+    	}
+    	return res;
+    }
+    
+    /**
+     * 
+     * @description 计算停车时长
+     * @param  
+     * @author wy
+     * @date 2017年8月15日 上午10:04:59
+     */
 	
 }

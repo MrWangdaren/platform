@@ -77,15 +77,52 @@ public class HtmlPayController {
 	 * @date 2017年7月28日 上午11:17:51
 	 */
 	@RequestMapping("init")
-	public String init(HttpServletRequest request, HttpServletResponse response, Model model, String carLicense){
-		
+	public String init(HttpServletRequest request, HttpServletResponse response, Model model, 
+			String carLicense, Integer licenseType){
 		if(StringUtils.isBlank(carLicense)){
-			logger.info("carNo is not correct, " + "carLicense = " + carLicense);
+			logger.info("carLicense is not correct, " + "carLicense = " + carLicense);
             throw new RuntimeException("车牌号校验不通过");
 		}
+		if(licenseType == null){
+			logger.info("licenseType is not correct, " + "licenseType = " + licenseType);
+            throw new RuntimeException("车牌类型校验不通过");
+		}
 		model.addAttribute("carLicense", carLicense);
+		model.addAttribute("licenseType", licenseType);
 		return "redirect:" + redirectUrl;
 	}
+	
+	/**
+	 * 
+	 * @description 加载页面数据
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月15日 下午2:16:25
+	 */
+	@RequestMapping("loadPayInfo")
+	@ResponseBody
+	public Map<String, Object> loadPayInfo(HttpServletRequest request, String carLicense, Integer licenseType){
+		
+		Map<String, Object> res = new HashMap<String, Object>();
+		
+		
+		
+		
+		
+		
+		
+		return res;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	/**

@@ -32,6 +32,8 @@ public class CarInfo {
     private Date operateTime;// 操作纪录时间
 
     private String keepField;// 保留字段
+    
+   
 
     public Integer getId() {
         return id;
@@ -128,4 +130,5 @@ public class CarInfo {
     public void setKeepField(String keepField) {
         this.keepField = keepField == null ? null : keepField.trim();
     }
+    
 }

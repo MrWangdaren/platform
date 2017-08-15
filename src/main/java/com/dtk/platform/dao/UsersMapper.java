@@ -29,4 +29,16 @@ public interface UsersMapper {
     int updateByPrimaryKeySelective(Users record);
 
     int updateByPrimaryKey(Users record);
+    
+    /**
+     * 
+     * @description 根据OpenId查询用户
+     * @param  
+     * @author wy
+     * @date 2017年8月14日 上午11:02:55
+     */
+    public Users queryUsersByOpenId(String openId) throws Exception;
+    
+    
+    
 }

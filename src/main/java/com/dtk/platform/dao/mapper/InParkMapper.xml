@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dtk.platform.dao.InParkMapper">
+  <resultMap id="BaseResultMap" type="com.dtk.platform.bean.InPark">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Car_License" jdbcType="VARCHAR" property="carLicense" />
+    <result column="License_Type" jdbcType="INTEGER" property="licenseType" />
+    <result column="Car_Type_ID" jdbcType="INTEGER" property="carTypeId" />
+    <result column="Park_ID" jdbcType="INTEGER" property="parkId" />
+    <result column="Come_Time" jdbcType="VARCHAR" property="comeTime" />
+    <result column="In_Pic_Path" jdbcType="VARCHAR" property="inPicPath" />
+    <result column="In_Pic_Name" jdbcType="VARCHAR" property="inPicName" />
+    <result column="In_Water_No" jdbcType="VARCHAR" property="inWaterNo" />
+    <result column="Is_Pay" jdbcType="INTEGER" property="isPay" />
+    <result column="Last_Pay_Time" jdbcType="VARCHAR" property="lastPayTime" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="Create_Time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="Operate_Time" jdbcType="TIMESTAMP" property="operateTime" />
+    <result column="Keep_Field" jdbcType="VARCHAR" property="keepField" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, Car_License, License_Type, Car_Type_ID, Park_ID, Come_Time, In_Pic_Path, In_Pic_Name, 
+    In_Water_No, Is_Pay, Last_Pay_Time, State, Create_Time, Operate_Time, Keep_Field
+  </sql>
+  <select id="selectByExample" parameterType="com.dtk.platform.bean.InParkExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from inpark
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from inpark
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from inpark
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dtk.platform.bean.InParkExample">
+    delete from inpark
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dtk.platform.bean.InPark">
+    insert into inpark (ID, Car_License, License_Type, 
+      Car_Type_ID, Park_ID, Come_Time, 
+      In_Pic_Path, In_Pic_Name, In_Water_No, 
+      Is_Pay, Last_Pay_Time, State, 
+      Create_Time, Operate_Time, Keep_Field
+      )
+    values (#{id,jdbcType=INTEGER}, #{carLicense,jdbcType=VARCHAR}, #{licenseType,jdbcType=INTEGER}, 
+      #{carTypeId,jdbcType=INTEGER}, #{parkId,jdbcType=INTEGER}, #{comeTime,jdbcType=VARCHAR}, 
+      #{inPicPath,jdbcType=VARCHAR}, #{inPicName,jdbcType=VARCHAR}, #{inWaterNo,jdbcType=VARCHAR}, 
+      #{isPay,jdbcType=INTEGER}, #{lastPayTime,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dtk.platform.bean.InPark">
+    insert into inpark
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="carLicense != null">
+        Car_License,
+      </if>
+      <if test="licenseType != null">
+        License_Type,
+      </if>
+      <if test="carTypeId != null">
+        Car_Type_ID,
+      </if>
+      <if test="parkId != null">
+        Park_ID,
+      </if>
+      <if test="comeTime != null">
+        Come_Time,
+      </if>
+      <if test="inPicPath != null">
+        In_Pic_Path,
+      </if>
+      <if test="inPicName != null">
+        In_Pic_Name,
+      </if>
+      <if test="inWaterNo != null">
+        In_Water_No,
+      </if>
+      <if test="isPay != null">
+        Is_Pay,
+      </if>
+      <if test="lastPayTime != null">
+        Last_Pay_Time,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="createTime != null">
+        Create_Time,
+      </if>
+      <if test="operateTime != null">
+        Operate_Time,
+      </if>
+      <if test="keepField != null">
+        Keep_Field,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="carLicense != null">
+        #{carLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseType != null">
+        #{licenseType,jdbcType=INTEGER},
+      </if>
+      <if test="carTypeId != null">
+        #{carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="parkId != null">
+        #{parkId,jdbcType=INTEGER},
+      </if>
+      <if test="comeTime != null">
+        #{comeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inPicPath != null">
+        #{inPicPath,jdbcType=VARCHAR},
+      </if>
+      <if test="inPicName != null">
+        #{inPicName,jdbcType=VARCHAR},
+      </if>
+      <if test="inWaterNo != null">
+        #{inWaterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isPay != null">
+        #{isPay,jdbcType=INTEGER},
+      </if>
+      <if test="lastPayTime != null">
+        #{lastPayTime,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTime != null">
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keepField != null">
+        #{keepField,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dtk.platform.bean.InParkExample" resultType="java.lang.Long">
+    select count(*) from inpark
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update inpark
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.carLicense != null">
+        Car_License = #{record.carLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="record.licenseType != null">
+        License_Type = #{record.licenseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.carTypeId != null">
+        Car_Type_ID = #{record.carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parkId != null">
+        Park_ID = #{record.parkId,jdbcType=INTEGER},
+      </if>
+      <if test="record.comeTime != null">
+        Come_Time = #{record.comeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inPicPath != null">
+        In_Pic_Path = #{record.inPicPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inPicName != null">
+        In_Pic_Name = #{record.inPicName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inWaterNo != null">
+        In_Water_No = #{record.inWaterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isPay != null">
+        Is_Pay = #{record.isPay,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastPayTime != null">
+        Last_Pay_Time = #{record.lastPayTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        State = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operateTime != null">
+        Operate_Time = #{record.operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.keepField != null">
+        Keep_Field = #{record.keepField,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update inpark
+    set ID = #{record.id,jdbcType=INTEGER},
+      Car_License = #{record.carLicense,jdbcType=VARCHAR},
+      License_Type = #{record.licenseType,jdbcType=INTEGER},
+      Car_Type_ID = #{record.carTypeId,jdbcType=INTEGER},
+      Park_ID = #{record.parkId,jdbcType=INTEGER},
+      Come_Time = #{record.comeTime,jdbcType=VARCHAR},
+      In_Pic_Path = #{record.inPicPath,jdbcType=VARCHAR},
+      In_Pic_Name = #{record.inPicName,jdbcType=VARCHAR},
+      In_Water_No = #{record.inWaterNo,jdbcType=VARCHAR},
+      Is_Pay = #{record.isPay,jdbcType=INTEGER},
+      Last_Pay_Time = #{record.lastPayTime,jdbcType=VARCHAR},
+      State = #{record.state,jdbcType=INTEGER},
+      Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
+      Operate_Time = #{record.operateTime,jdbcType=TIMESTAMP},
+      Keep_Field = #{record.keepField,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dtk.platform.bean.InPark">
+    update inpark
+    <set>
+      <if test="carLicense != null">
+        Car_License = #{carLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseType != null">
+        License_Type = #{licenseType,jdbcType=INTEGER},
+      </if>
+      <if test="carTypeId != null">
+        Car_Type_ID = #{carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="parkId != null">
+        Park_ID = #{parkId,jdbcType=INTEGER},
+      </if>
+      <if test="comeTime != null">
+        Come_Time = #{comeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inPicPath != null">
+        In_Pic_Path = #{inPicPath,jdbcType=VARCHAR},
+      </if>
+      <if test="inPicName != null">
+        In_Pic_Name = #{inPicName,jdbcType=VARCHAR},
+      </if>
+      <if test="inWaterNo != null">
+        In_Water_No = #{inWaterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isPay != null">
+        Is_Pay = #{isPay,jdbcType=INTEGER},
+      </if>
+      <if test="lastPayTime != null">
+        Last_Pay_Time = #{lastPayTime,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        Create_Time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTime != null">
+        Operate_Time = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keepField != null">
+        Keep_Field = #{keepField,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dtk.platform.bean.InPark">
+    update inpark
+    set Car_License = #{carLicense,jdbcType=VARCHAR},
+      License_Type = #{licenseType,jdbcType=INTEGER},
+      Car_Type_ID = #{carTypeId,jdbcType=INTEGER},
+      Park_ID = #{parkId,jdbcType=INTEGER},
+      Come_Time = #{comeTime,jdbcType=VARCHAR},
+      In_Pic_Path = #{inPicPath,jdbcType=VARCHAR},
+      In_Pic_Name = #{inPicName,jdbcType=VARCHAR},
+      In_Water_No = #{inWaterNo,jdbcType=VARCHAR},
+      Is_Pay = #{isPay,jdbcType=INTEGER},
+      Last_Pay_Time = #{lastPayTime,jdbcType=VARCHAR},
+      State = #{state,jdbcType=INTEGER},
+      Create_Time = #{createTime,jdbcType=TIMESTAMP},
+      Operate_Time = #{operateTime,jdbcType=TIMESTAMP},
+      Keep_Field = #{keepField,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

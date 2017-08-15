@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dtk.platform.dao.PayInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dtk.platform.bean.PayInfo">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="In_Water_NO" jdbcType="VARCHAR" property="inWaterNo" />
+    <result column="Car_License" jdbcType="VARCHAR" property="carLicense" />
+    <result column="License_Type" jdbcType="INTEGER" property="licenseType" />
+    <result column="Car_Type_ID" jdbcType="INTEGER" property="carTypeId" />
+    <result column="Park_ID" jdbcType="INTEGER" property="parkId" />
+    <result column="Come_Time" jdbcType="VARCHAR" property="comeTime" />
+    <result column="Pay_Time" jdbcType="VARCHAR" property="payTime" />
+    <result column="Fee_Mny" jdbcType="INTEGER" property="feeMny" />
+    <result column="Fact_Mny" jdbcType="INTEGER" property="factMny" />
+    <result column="SumFreeMny" jdbcType="INTEGER" property="sumfreemny" />
+    <result column="SumFreeHour" jdbcType="INTEGER" property="sumfreehour" />
+    <result column="Pay_Mode" jdbcType="INTEGER" property="payMode" />
+    <result column="Pay_Flag" jdbcType="INTEGER" property="payFlag" />
+    <result column="Fee_Type" jdbcType="INTEGER" property="feeType" />
+    <result column="Fee_Type_Id" jdbcType="INTEGER" property="feeTypeId" />
+    <result column="Go_Pic_Path" jdbcType="VARCHAR" property="goPicPath" />
+    <result column="Go_Pic_Name" jdbcType="VARCHAR" property="goPicName" />
+    <result column="Out_Trade_No" jdbcType="VARCHAR" property="outTradeNo" />
+    <result column="Transaction_Id" jdbcType="VARCHAR" property="transactionId" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="Create_Time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="Operate_Time" jdbcType="TIMESTAMP" property="operateTime" />
+    <result column="Keep_Field" jdbcType="VARCHAR" property="keepField" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, In_Water_NO, Car_License, License_Type, Car_Type_ID, Park_ID, Come_Time, Pay_Time, 
+    Fee_Mny, Fact_Mny, SumFreeMny, SumFreeHour, Pay_Mode, Pay_Flag, Fee_Type, Fee_Type_Id, 
+    Go_Pic_Path, Go_Pic_Name, Out_Trade_No, Transaction_Id, State, Create_Time, Operate_Time, 
+    Keep_Field
+  </sql>
+  <select id="selectByExample" parameterType="com.dtk.platform.bean.PayInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pay_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pay_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pay_info
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dtk.platform.bean.PayInfoExample">
+    delete from pay_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dtk.platform.bean.PayInfo">
+    insert into pay_info (ID, In_Water_NO, Car_License, 
+      License_Type, Car_Type_ID, Park_ID, 
+      Come_Time, Pay_Time, Fee_Mny, 
+      Fact_Mny, SumFreeMny, SumFreeHour, 
+      Pay_Mode, Pay_Flag, Fee_Type, 
+      Fee_Type_Id, Go_Pic_Path, Go_Pic_Name, 
+      Out_Trade_No, Transaction_Id, State, 
+      Create_Time, Operate_Time, Keep_Field
+      )
+    values (#{id,jdbcType=INTEGER}, #{inWaterNo,jdbcType=VARCHAR}, #{carLicense,jdbcType=VARCHAR}, 
+      #{licenseType,jdbcType=INTEGER}, #{carTypeId,jdbcType=INTEGER}, #{parkId,jdbcType=INTEGER}, 
+      #{comeTime,jdbcType=VARCHAR}, #{payTime,jdbcType=VARCHAR}, #{feeMny,jdbcType=INTEGER}, 
+      #{factMny,jdbcType=INTEGER}, #{sumfreemny,jdbcType=INTEGER}, #{sumfreehour,jdbcType=INTEGER}, 
+      #{payMode,jdbcType=INTEGER}, #{payFlag,jdbcType=INTEGER}, #{feeType,jdbcType=INTEGER}, 
+      #{feeTypeId,jdbcType=INTEGER}, #{goPicPath,jdbcType=VARCHAR}, #{goPicName,jdbcType=VARCHAR}, 
+      #{outTradeNo,jdbcType=VARCHAR}, #{transactionId,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, #{keepField,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dtk.platform.bean.PayInfo">
+    insert into pay_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="inWaterNo != null">
+        In_Water_NO,
+      </if>
+      <if test="carLicense != null">
+        Car_License,
+      </if>
+      <if test="licenseType != null">
+        License_Type,
+      </if>
+      <if test="carTypeId != null">
+        Car_Type_ID,
+      </if>
+      <if test="parkId != null">
+        Park_ID,
+      </if>
+      <if test="comeTime != null">
+        Come_Time,
+      </if>
+      <if test="payTime != null">
+        Pay_Time,
+      </if>
+      <if test="feeMny != null">
+        Fee_Mny,
+      </if>
+      <if test="factMny != null">
+        Fact_Mny,
+      </if>
+      <if test="sumfreemny != null">
+        SumFreeMny,
+      </if>
+      <if test="sumfreehour != null">
+        SumFreeHour,
+      </if>
+      <if test="payMode != null">
+        Pay_Mode,
+      </if>
+      <if test="payFlag != null">
+        Pay_Flag,
+      </if>
+      <if test="feeType != null">
+        Fee_Type,
+      </if>
+      <if test="feeTypeId != null">
+        Fee_Type_Id,
+      </if>
+      <if test="goPicPath != null">
+        Go_Pic_Path,
+      </if>
+      <if test="goPicName != null">
+        Go_Pic_Name,
+      </if>
+      <if test="outTradeNo != null">
+        Out_Trade_No,
+      </if>
+      <if test="transactionId != null">
+        Transaction_Id,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="createTime != null">
+        Create_Time,
+      </if>
+      <if test="operateTime != null">
+        Operate_Time,
+      </if>
+      <if test="keepField != null">
+        Keep_Field,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="inWaterNo != null">
+        #{inWaterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="carLicense != null">
+        #{carLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseType != null">
+        #{licenseType,jdbcType=INTEGER},
+      </if>
+      <if test="carTypeId != null">
+        #{carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="parkId != null">
+        #{parkId,jdbcType=INTEGER},
+      </if>
+      <if test="comeTime != null">
+        #{comeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="feeMny != null">
+        #{feeMny,jdbcType=INTEGER},
+      </if>
+      <if test="factMny != null">
+        #{factMny,jdbcType=INTEGER},
+      </if>
+      <if test="sumfreemny != null">
+        #{sumfreemny,jdbcType=INTEGER},
+      </if>
+      <if test="sumfreehour != null">
+        #{sumfreehour,jdbcType=INTEGER},
+      </if>
+      <if test="payMode != null">
+        #{payMode,jdbcType=INTEGER},
+      </if>
+      <if test="payFlag != null">
+        #{payFlag,jdbcType=INTEGER},
+      </if>
+      <if test="feeType != null">
+        #{feeType,jdbcType=INTEGER},
+      </if>
+      <if test="feeTypeId != null">
+        #{feeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="goPicPath != null">
+        #{goPicPath,jdbcType=VARCHAR},
+      </if>
+      <if test="goPicName != null">
+        #{goPicName,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null">
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionId != null">
+        #{transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTime != null">
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keepField != null">
+        #{keepField,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dtk.platform.bean.PayInfoExample" resultType="java.lang.Long">
+    select count(*) from pay_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update pay_info
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.inWaterNo != null">
+        In_Water_NO = #{record.inWaterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carLicense != null">
+        Car_License = #{record.carLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="record.licenseType != null">
+        License_Type = #{record.licenseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.carTypeId != null">
+        Car_Type_ID = #{record.carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parkId != null">
+        Park_ID = #{record.parkId,jdbcType=INTEGER},
+      </if>
+      <if test="record.comeTime != null">
+        Come_Time = #{record.comeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payTime != null">
+        Pay_Time = #{record.payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.feeMny != null">
+        Fee_Mny = #{record.feeMny,jdbcType=INTEGER},
+      </if>
+      <if test="record.factMny != null">
+        Fact_Mny = #{record.factMny,jdbcType=INTEGER},
+      </if>
+      <if test="record.sumfreemny != null">
+        SumFreeMny = #{record.sumfreemny,jdbcType=INTEGER},
+      </if>
+      <if test="record.sumfreehour != null">
+        SumFreeHour = #{record.sumfreehour,jdbcType=INTEGER},
+      </if>
+      <if test="record.payMode != null">
+        Pay_Mode = #{record.payMode,jdbcType=INTEGER},
+      </if>
+      <if test="record.payFlag != null">
+        Pay_Flag = #{record.payFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.feeType != null">
+        Fee_Type = #{record.feeType,jdbcType=INTEGER},
+      </if>
+      <if test="record.feeTypeId != null">
+        Fee_Type_Id = #{record.feeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goPicPath != null">
+        Go_Pic_Path = #{record.goPicPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goPicName != null">
+        Go_Pic_Name = #{record.goPicName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outTradeNo != null">
+        Out_Trade_No = #{record.outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transactionId != null">
+        Transaction_Id = #{record.transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        State = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operateTime != null">
+        Operate_Time = #{record.operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.keepField != null">
+        Keep_Field = #{record.keepField,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update pay_info
+    set ID = #{record.id,jdbcType=INTEGER},
+      In_Water_NO = #{record.inWaterNo,jdbcType=VARCHAR},
+      Car_License = #{record.carLicense,jdbcType=VARCHAR},
+      License_Type = #{record.licenseType,jdbcType=INTEGER},
+      Car_Type_ID = #{record.carTypeId,jdbcType=INTEGER},
+      Park_ID = #{record.parkId,jdbcType=INTEGER},
+      Come_Time = #{record.comeTime,jdbcType=VARCHAR},
+      Pay_Time = #{record.payTime,jdbcType=VARCHAR},
+      Fee_Mny = #{record.feeMny,jdbcType=INTEGER},
+      Fact_Mny = #{record.factMny,jdbcType=INTEGER},
+      SumFreeMny = #{record.sumfreemny,jdbcType=INTEGER},
+      SumFreeHour = #{record.sumfreehour,jdbcType=INTEGER},
+      Pay_Mode = #{record.payMode,jdbcType=INTEGER},
+      Pay_Flag = #{record.payFlag,jdbcType=INTEGER},
+      Fee_Type = #{record.feeType,jdbcType=INTEGER},
+      Fee_Type_Id = #{record.feeTypeId,jdbcType=INTEGER},
+      Go_Pic_Path = #{record.goPicPath,jdbcType=VARCHAR},
+      Go_Pic_Name = #{record.goPicName,jdbcType=VARCHAR},
+      Out_Trade_No = #{record.outTradeNo,jdbcType=VARCHAR},
+      Transaction_Id = #{record.transactionId,jdbcType=VARCHAR},
+      State = #{record.state,jdbcType=INTEGER},
+      Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
+      Operate_Time = #{record.operateTime,jdbcType=TIMESTAMP},
+      Keep_Field = #{record.keepField,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dtk.platform.bean.PayInfo">
+    update pay_info
+    <set>
+      <if test="inWaterNo != null">
+        In_Water_NO = #{inWaterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="carLicense != null">
+        Car_License = #{carLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseType != null">
+        License_Type = #{licenseType,jdbcType=INTEGER},
+      </if>
+      <if test="carTypeId != null">
+        Car_Type_ID = #{carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="parkId != null">
+        Park_ID = #{parkId,jdbcType=INTEGER},
+      </if>
+      <if test="comeTime != null">
+        Come_Time = #{comeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        Pay_Time = #{payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="feeMny != null">
+        Fee_Mny = #{feeMny,jdbcType=INTEGER},
+      </if>
+      <if test="factMny != null">
+        Fact_Mny = #{factMny,jdbcType=INTEGER},
+      </if>
+      <if test="sumfreemny != null">
+        SumFreeMny = #{sumfreemny,jdbcType=INTEGER},
+      </if>
+      <if test="sumfreehour != null">
+        SumFreeHour = #{sumfreehour,jdbcType=INTEGER},
+      </if>
+      <if test="payMode != null">
+        Pay_Mode = #{payMode,jdbcType=INTEGER},
+      </if>
+      <if test="payFlag != null">
+        Pay_Flag = #{payFlag,jdbcType=INTEGER},
+      </if>
+      <if test="feeType != null">
+        Fee_Type = #{feeType,jdbcType=INTEGER},
+      </if>
+      <if test="feeTypeId != null">
+        Fee_Type_Id = #{feeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="goPicPath != null">
+        Go_Pic_Path = #{goPicPath,jdbcType=VARCHAR},
+      </if>
+      <if test="goPicName != null">
+        Go_Pic_Name = #{goPicName,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null">
+        Out_Trade_No = #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionId != null">
+        Transaction_Id = #{transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        Create_Time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTime != null">
+        Operate_Time = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keepField != null">
+        Keep_Field = #{keepField,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dtk.platform.bean.PayInfo">
+    update pay_info
+    set In_Water_NO = #{inWaterNo,jdbcType=VARCHAR},
+      Car_License = #{carLicense,jdbcType=VARCHAR},
+      License_Type = #{licenseType,jdbcType=INTEGER},
+      Car_Type_ID = #{carTypeId,jdbcType=INTEGER},
+      Park_ID = #{parkId,jdbcType=INTEGER},
+      Come_Time = #{comeTime,jdbcType=VARCHAR},
+      Pay_Time = #{payTime,jdbcType=VARCHAR},
+      Fee_Mny = #{feeMny,jdbcType=INTEGER},
+      Fact_Mny = #{factMny,jdbcType=INTEGER},
+      SumFreeMny = #{sumfreemny,jdbcType=INTEGER},
+      SumFreeHour = #{sumfreehour,jdbcType=INTEGER},
+      Pay_Mode = #{payMode,jdbcType=INTEGER},
+      Pay_Flag = #{payFlag,jdbcType=INTEGER},
+      Fee_Type = #{feeType,jdbcType=INTEGER},
+      Fee_Type_Id = #{feeTypeId,jdbcType=INTEGER},
+      Go_Pic_Path = #{goPicPath,jdbcType=VARCHAR},
+      Go_Pic_Name = #{goPicName,jdbcType=VARCHAR},
+      Out_Trade_No = #{outTradeNo,jdbcType=VARCHAR},
+      Transaction_Id = #{transactionId,jdbcType=VARCHAR},
+      State = #{state,jdbcType=INTEGER},
+      Create_Time = #{createTime,jdbcType=TIMESTAMP},
+      Operate_Time = #{operateTime,jdbcType=TIMESTAMP},
+      Keep_Field = #{keepField,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

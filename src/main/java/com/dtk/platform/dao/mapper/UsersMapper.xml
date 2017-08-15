@@ -398,4 +398,19 @@
       Keep_Field = #{keepField,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+  
+  <!-- 根据OpenId查询用户信息 -->
+  <select id="queryUsersByOpenId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      select <include refid="Base_Column_List" />
+		from users
+       where 
+       Open_Id = #{openId, jdbcType=VARCHAR}
+  </select>	
+  
+  
+  
+  
+  
+  
+  
 </mapper>

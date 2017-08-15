@@ -49,36 +49,7 @@
    <div class="paymentInfo">
        <div class="title"><span>场内停车记录</span></div>
        <div class="historyList">
-           <table>
-               <thead>
-                   <tr>
-                       <th>车牌号</th>
-                       <th>入场日期</th>
-                       <th>时长</th>
-                       <th>选此车</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr>
-                       <td><span class="number">苏A6U068</span></td>
-                       <td>2017-07-18 14:12:00</td>
-                       <td>3小时56分钟</td>
-                       <td><a class="littlebtn" onclick="confirmPay('temp.id')">确定缴费</a></td>
-                   </tr>
-                   <tr>
-                       <td><span class="number">苏AX0R22</span></td>
-                       <td>2017-07-18 14:12:00</td>
-                       <td>3小时38分钟</td>
-                       <td><a class="littlebtn" onclick="confirmPay(temp.id)">确定缴费</a></td>
-                   </tr>
-                   <tr>
-                       <td><span class="number">苏ALM677</span></td>
-                       <td>2017-07-18 14:12:00</td>
-                       <td>2小时49分钟</td>
-                       <td><a class="littlebtn" onclick="confirmPay(temp.id)">确定缴费</a></td>
-                   </tr>
-               </tbody>
-           </table>
+           <table id="positions"></table>
        </div>
    </div>
    <div class="openout"></div>       
@@ -91,13 +62,13 @@
            </h2>
            <div class="rulesBox">
 				<div class="rulesInner">
-				<p>停车场收费须知 :1、<span>8:00-20:00</span></p>
-				<p style="padding-left:120px;">4元/小时，6元封顶</p>
-				<p style="padding-left:100px;">2、<span>4元/小时，6元封顶</span></p>
-				<p style="padding-left:120px;">1元/小时，6元封顶</p>
-           </div>
-       </div>
-   </div>
+					<p>停车场收费须知 :1、<span>8:00-20:00</span></p>
+					<p style="padding-left:120px;">4元/小时，6元封顶</p>
+					<p style="padding-left:100px;">2、<span>4元/小时，6元封顶</span></p>
+					<p style="padding-left:120px;">1元/小时，6元封顶</p>
+	           </div>
+	       </div>
+	   </div>
    </div>
    <!-- 弹窗-选择车牌 -->
    <div class="fixcont" id="js-choose">
@@ -106,18 +77,8 @@
                <span>选择车牌</span>
                <a href="javascript:;" class="close">×</a>
            </h2>
-        <ul class="chooseList">
-        	<li> <span>苏A12345</span>   </li>
-        	<li> <span>苏A12346</span>   </li>
-        	<li> <span>苏A12347</span>   </li>
-        </ul> 
-      	<p class="chooseno">您尚未绑定车牌，请在“个人中心”中绑定车牌。</p>
        </div>
    </div> 
-   
-  
-   
-   
    
    <!-- 键盘 -->
 <div id="key-chinese" class="keybox">
@@ -224,11 +185,71 @@
 			$("#bindCar input").eq(i).val(plateNoPrefix[i]);
 		}
 	}
+	
+	//加载车牌与停车信息
+	$.ajax({
+		url:"loadCarInfo.do?t="+new Date().getTime(),
+		type:"POST",
+		dataType:"JSON",
+		async: false,
+		success:function(res){
+			if(res.code == '1'){
+				var carInfoList = res.carInfoList;
+				
+				if(carInfoList != null && carInfoList.length != 0){
+					$("#js-choose").find(".title").after("<ul class='chooseList'></ul>");
+					for(var i = 0 ; i< carInfoList.length; i++){
+						$(".chooseList").append("<li><span>" + carInfoList[i].carLicense + "</span></li>");
+					}
+				}else{
+					$("#js-choose").find(".title").after("<p class='chooseno'></p>");
+					$(".chooseno").append("您尚未绑定车牌，请在“个人中心”中绑定车牌。");
+				}
+				
+				var inParkList = res.inParkList;
+				$("#positions").html( 
+					"<thead>"+
+						"<tr>"+
+							"<th>车牌号</th>"+
+							"<th>入场日期</th>"+
+							"<th>时长</th>"+
+							"<th>选此车</th>"+
+						"</tr>"+
+					"</thead>");
+						
+				//加载数据
+				if(inParkList.length>0){
+					for(var i=0;i<inParkList.length;i++){
+						var temp=inParkList[i];
+						$("#positions").append(
+							"<tbody>"+
+								"<tr>"+
+									"<td><span class='number'>"+ temp.carLicense + "</span></td>" +
+									"<td>"+ temp.comeTime + "</td>"+
+									"<td>"+ minuteToHour(temp.stopTime) + "h</td>"+
+									"<td><a class='littlebtn' onclick='confirmPay(`" + temp.carLicense +"`," + temp.licenseType + ")'>确定缴费</a></td>" +
+								"</tr>"+
+							"<tbody>"
+						);
+					}
+				}else{
+					$("#positions").append("<tr>"+"</tr>");
+				}
+						
+			}else{
+				poptxt:'数据加载失败，请至岗亭缴费！';
+			}
+		}
+	});
+	
+	
+	
 
     //选择已绑定车牌
     var items = $(".chooseList").find("li");
     var ospan = $("#bindCar").find("input");
     $("#changeBrand").on("click", function(e){
+    	
         var str = '';
         for (var i = 0; i <= ospan.length - 1; i++) {
             str += $(ospan[i]).val();
@@ -288,17 +309,24 @@
                     poptxt:'请输入完整的车牌号',
                 });
                 return;
- 		   }
- 		   else {
+ 		   }else {
  			   str += $(ospan[i]).val();
  		   }
  	   	}
+ 	   	
+ 	   confirmPay(str, $("#licenceType").val());
+ 	   	
+ 	   	
+ 	   	/**
+ 	   	var data = {
+ 	   		carLicense:str,
+ 	   		licenseType:$("#licenceType").val()
+ 	   	}
  	    $.promptDialog_wait("请稍后....")
- 	   	$.post("${PATH}/weixin/main/isInPark.do",{carNo:str},function(data) {
+ 	   	$.post("${PATH}/weixin/main/isInPark.do"+new Date().getTime(),data,function(data) {
  	   		if(data.code == 200) {
  	   			window.location.href = "${PATH}/weixin/pay/init.do?carLicense=" + str;
- 	   		}
- 	   		else {
+ 	   		}else {
  	   			close_waitpop();
 	 	   		$.promptDialog({
 	                poptxt:data.msg
@@ -306,8 +334,43 @@
 	 	   		return;
  	   		}
  	   	});
+ 	   	
+ 	   	*/
     	
     });
+ 	
+ 	//确认支付
+ 	function confirmPay(carLicense, licenseType){
+ 		
+ 		var data = {
+ 	 	   		carLicense:carLicense,
+ 	 	   		licenseType:licenseType
+ 	 	   	}
+ 	 	    $.promptDialog_wait("请稍后....")
+ 	 	   	$.post("${PATH}/weixin/main/isInPark.do",data,function(data) {
+ 	 	   		if(data.code == 200) {
+ 	 	   			window.location.href = "${PATH}/weixin/pay/init.do?carLicense=" + carLicense + "&licenseType=" + licenseType;
+ 	 	   		}else {
+ 	 	   			close_waitpop();
+ 		 	   		$.promptDialog({
+ 		                poptxt:data.msg
+ 		            });
+ 		 	   		return;
+ 	 	   		}
+ 	 	   	});
+ 		
+ 	}
+ 	
+ 	//分钟转小时
+ 	function minuteToHour(minute){
+ 		var hour = 0.0;
+		if(minute != null && minute > 0){
+			hour = (parseFloat(minute)/60).toFixed(1);
+		}
+ 		return hour;
+ 	}
+ 	
+ 	
 </script>
 		<div class="footerMenu">
 	   		<a class="active" href="${PATH}/weixin/main/init.do">停车缴费</a>

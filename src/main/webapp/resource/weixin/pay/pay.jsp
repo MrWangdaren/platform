@@ -22,7 +22,11 @@
 	<div class="brand-wrap"></div>
 	<%  
 		String carLicense = request.getParameter("carLicense");  
+		int licenseType = Integer.parseInt(request.getParameter("licenseType"));  
     %>  
+    <input type="hidden" id="s_carLicense" value="<%out.print(carLicense); %>" />
+    <input type="hidden" id="s_licenseType" value="<%out.print(licenseType); %>" />
+    
 	<div class="payInfo">
 	    <h2 class="title">
             <i></i>
@@ -31,7 +35,10 @@
 	    <div class="con" style="padding-top:5px;">
 	        <ul class="info">
 	        	<li class="clearfix">
-	                <span>车牌号：</span><span id="carLicense"><%out.print(carLicense); %></span>
+	                <span>车牌号：</span><span id="carLicense"></span>
+	            </li>
+	            <li class="clearfix">
+	                <span>车牌类型：</span><span id="carLicense"></span>
 	            </li>
 	            <li class="clearfix">
 	                <span>停车场名称：</span><span>江苏迪泰柯停车场</span>
@@ -39,7 +46,6 @@
 	        	<li class="clearfix">
 	                <span>入场时间：</span><span id="inTimeSpan">2017-07-28 09:12:23</span>
 	            </li>
-	        
 	            <li class="clearfix">
 	                <span>计费开始时间：</span><span id="inTimeSpan">2017-07-28 09:12:23</span>
 	            </li>
@@ -98,6 +104,32 @@
 </div>
 <script type="text/javascript">
 //开始支付
+
+	var data = {
+		carLicense : $("#s_carLicense").val(),	
+		licenseType : $("#s_licenseType").val()
+	}
+	
+	$.ajax({
+		url:"loadPayInfo.do?t="+new Date().getTime(),
+		type:"POST",
+		data:data,
+		dataType:"JSON",
+		//async: false,
+		success:function(res){
+			if(res.code = 100){
+				
+				
+				
+			}else{
+				poptxt:'数据加载失败，请至岗亭缴费！';
+			}
+		}
+	});
+
+
+
+
 
 $("#payAction").on("click", function(e){
 	var totalFee = 2;//应付
