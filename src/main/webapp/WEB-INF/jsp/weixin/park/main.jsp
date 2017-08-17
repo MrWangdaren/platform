@@ -242,8 +242,6 @@
 		}
 	});
 	
-	
-	
 
     //选择已绑定车牌
     var items = $(".chooseList").find("li");
@@ -313,35 +311,11 @@
  			   str += $(ospan[i]).val();
  		   }
  	   	}
- 	   	
  	   confirmPay(str, $("#licenceType").val());
- 	   	
- 	   	
- 	   	/**
- 	   	var data = {
- 	   		carLicense:str,
- 	   		licenseType:$("#licenceType").val()
- 	   	}
- 	    $.promptDialog_wait("请稍后....")
- 	   	$.post("${PATH}/weixin/main/isInPark.do"+new Date().getTime(),data,function(data) {
- 	   		if(data.code == 200) {
- 	   			window.location.href = "${PATH}/weixin/pay/init.do?carLicense=" + str;
- 	   		}else {
- 	   			close_waitpop();
-	 	   		$.promptDialog({
-	                poptxt:data.msg
-	            });
-	 	   		return;
- 	   		}
- 	   	});
- 	   	
- 	   	*/
-    	
     });
  	
  	//确认支付
  	function confirmPay(carLicense, licenseType){
- 		
  		var data = {
  	 	   		carLicense:carLicense,
  	 	   		licenseType:licenseType
@@ -358,9 +332,7 @@
  		 	   		return;
  	 	   		}
  	 	   	});
- 		
  	}
- 	
  	//分钟转小时
  	function minuteToHour(minute){
  		var hour = 0.0;
@@ -369,7 +341,6 @@
 		}
  		return hour;
  	}
- 	
  	
 </script>
 		<div class="footerMenu">

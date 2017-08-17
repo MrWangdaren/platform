@@ -4,6 +4,7 @@ package com.dtk.weixin.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.dtk.platform.bean.InPark;
+import com.dtk.platform.bean.InParkExample;
+import com.dtk.platform.dao.InParkMapper;
 import com.dtk.platform.tools.PlatformConfig;
 import com.dtk.weixin.model.PayOrderParam;
 import com.dtk.weixin.model.PayOrderResult;
@@ -68,6 +73,8 @@ public class HtmlPayController {
 	//订单支付状态url
 	private String orderQueryUrl = PlatformConfig.getConfigItem("weixin", "orderQueryUrl");
 	
+	@Autowired
+	private InParkMapper inParkDao;
 	
 	/**
 	 * 
@@ -102,28 +109,23 @@ public class HtmlPayController {
 	@RequestMapping("loadPayInfo")
 	@ResponseBody
 	public Map<String, Object> loadPayInfo(HttpServletRequest request, String carLicense, Integer licenseType){
-		
 		Map<String, Object> res = new HashMap<String, Object>();
-		
-		
-		
-		
-		
-		
-		
+		InPark inPark = null;
+		try{
+			InParkExample inParkExample = new InParkExample();
+			InParkExample.Criteria inSql = inParkExample.createCriteria();
+			inSql.andCarLicenseEqualTo(carLicense).andLicenseTypeEqualTo(licenseType).andIsPayEqualTo(0);
+			List<InPark> ls = inParkDao.selectByExample(inParkExample);
+			inPark = ls.get(0);
+			
+			res.put("code", 200);
+			res.put("inPark", inPark);
+		}catch(Exception e){
+			e.printStackTrace();
+			logger.info("loadPayInfo is not correct");
+		}
 		return res;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * 
@@ -152,18 +154,15 @@ public class HtmlPayController {
 	    String strDate = DateUtil.format(new Date(), new SimpleDateFormat("yyyyMMddHHmmss"));
 	    //商户订单号
         String outTradeNo = "dtkparkfee" + strDate;
-		
         PayOrderParam param = new PayOrderParam();
         // 基本信息
         param.setAppid(appId);
         param.setMchId(mchId);
         param.setTradeType(tradeType); // 公众号支付
-        param.setOpenid(openId); // openId!!
+        param.setOpenid(openId); 
         param.setSpbillCreateIp(LocalIPUtil.getLocalAddr());
         //param.setLimitPay("no_credit"); // 禁止用信用卡
-
         param.setNotifyUrl(notifyUrl); // 支付成功回调url
-
         // 业务相关参数
         JSONObject atach = new JSONObject();
         atach.put("order_id", 11);
@@ -171,27 +170,23 @@ public class HtmlPayController {
         param.setBody("支付测试订单");
         param.setTotalFee(1);
         param.setOutTradeNo(outTradeNo); // 客户订单号
-
         //签名
         param.setNonceStr(EncryptUtil.random());
         Map<String, Object> data = BeanUtil.object2Map(param); // 参数列表
         param.setSign(SignUtil.sign(data, apiKey)); // 计算sign
         data.put(PayOrderField.SIGN.getField(), param.getSign()); // sign放到map中，为后续转xml
-
         // 校验参数是否齐全
         try {
             ValidateUtil.validate(PayOrderField.values(), data);
         } catch (Exception e) {
             return JsonUtil.getJson(1, e.getMessage());
         }
-
         // 转成xml格式
         String xml = XmlUtil.toXml(data);
         logger.info("post.xml=" + xml);
         // 发送支付请求
         String resultStr = WeixinUtil.postXml(unifiedOrder, xml);
         logger.info("result=" + resultStr);
-
         // 校验返回结果 签名
         Map<String, Object> resultMap = XmlUtil.parseXml(resultStr);
         String resultSign = SignUtil.sign(resultMap, apiKey);
@@ -199,9 +194,7 @@ public class HtmlPayController {
             logger.info("sign is not correct, " + resultMap.get("sign") + " " + resultSign);
             throw new RuntimeException("签名校验不通过");
         }
-
         PayOrderResult result = BeanUtil.map2Object(PayOrderResult.class, resultMap);
-
         PayResult payResult = new PayResult();
         if (ResultCode.SUCCESS.getCode().equals(result.getReturnCode())
                 && ResultCode.SUCCESS.getCode().equals(result.getResultCode())) {
@@ -214,13 +207,11 @@ public class HtmlPayController {
         payResult.setErrorMessage(result.getErrCodeDes());
         payResult.setPrepayId(result.getPrepayId());
         payResult.setCodeUrl(result.getCodeUrl());
-
         JSONObject ret = JsonUtil.getOkJson();
         ret.put("reslt", payResult);
         ret.put("param", genJsParam(payResult));
         ret.put("outTradeNo", outTradeNo);
         return ret;
-		
 	}
 	
 	/**
@@ -233,30 +224,24 @@ public class HtmlPayController {
 	@RequestMapping("queryOrder")
     @ResponseBody
     public PayQueryResult query(HttpServletRequest request, HttpServletResponse response, String outTradeNo) {
-		
         PayQueryParam param = new PayQueryParam();
         // 基本信息
         param.setAppid(appId);
         param.setMchId(mchId);
-
         param.setOutTradeNo(outTradeNo); // 客户订单号
-
         //签名
         param.setNonceStr(EncryptUtil.random());
         Map<String, Object> data = BeanUtil.object2Map(param); // 参数列表
         param.setSign(SignUtil.sign(data, apiKey)); // 计算sign
         data.put(PayOrderField.SIGN.getField(), param.getSign()); // sign放到map中，为后续转xml
-
         // 校验参数是否齐全
         ValidateUtil.validate(PayQueryField.values(), data);
-
         // 转成xml格式
         String xml = XmlUtil.toXml(data);
         logger.info("post.xml=" + xml);
         // 发送支付请求
         String resultStr = WeixinUtil.postXml(orderQueryUrl, xml);
         logger.info("result=" + resultStr);
-
         // 校验返回结果 签名
         Map<String, Object> resultMap = XmlUtil.parseXml(resultStr);
         String resultSign = SignUtil.sign(resultMap, apiKey);
@@ -264,9 +249,7 @@ public class HtmlPayController {
             logger.info("sign is not correct, " + resultMap.get("sign") + " " + resultSign);
             throw new RuntimeException("签名校验不通过");
         }
-
         PayQueryResult result = BeanUtil.map2Object(PayQueryResult.class, resultMap);
-
         return result;
     }
 
@@ -285,13 +268,9 @@ public class HtmlPayController {
         data.put("nonceStr", nonceStr);
         data.put("package", "prepay_id=" + payResult.getPrepayId());
         data.put("signType", "MD5");
-
         data.put("paySign", SignUtil.sign(data, apiKey)); // 计算sign
-
         JSONObject ret = JSONObject.parseObject(JSON.toJSONString(data));
         return ret;
     }
-	
-	
 	
 }

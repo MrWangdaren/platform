@@ -38,22 +38,22 @@
 	                <span>车牌号：</span><span id="carLicense"></span>
 	            </li>
 	            <li class="clearfix">
-	                <span>车牌类型：</span><span id="carLicense"></span>
+	                <span>车牌类型：</span><span id="licenseType"></span>
 	            </li>
 	            <li class="clearfix">
 	                <span>停车场名称：</span><span>江苏迪泰柯停车场</span>
 	            </li>
 	        	<li class="clearfix">
-	                <span>入场时间：</span><span id="inTimeSpan">2017-07-28 09:12:23</span>
+	                <span>入场时间：</span><span id="comeTime"></span>
 	            </li>
 	            <li class="clearfix">
-	                <span>计费开始时间：</span><span id="inTimeSpan">2017-07-28 09:12:23</span>
+	                <span>计费开始时间：</span><span id="payStartTime"></span>
 	            </li>
 	            <li class="clearfix">
-	                <span>计费结束时间：</span><span class="long">2017-07-28 09:12:23</span>
+	                <span>计费结束时间：</span><span class="long" id="payTime">2017-07-28 09:12:23</span>
 	            </li>
 	            <li class="clearfix">
-	                <span>停车时长：</span><span><i class="cost">2</i>小时</span>
+	                <span>停车时长：</span><span><i class="cost" id="stopTime">2</i>小时</span>
 	            </li>
 	            <li class="clearfix">
 	                <span>入场图片：</span><span class="red">
@@ -111,25 +111,25 @@
 	}
 	
 	$.ajax({
-		url:"loadPayInfo.do?t="+new Date().getTime(),
+		url:"/platform/weixin/pay/loadPayInfo.do?t="+new Date().getTime(),
 		type:"POST",
 		data:data,
 		dataType:"JSON",
 		//async: false,
 		success:function(res){
-			if(res.code = 100){
-				
-				
-				
+			if(res.code = 200){
+				var inPark = res.inPark;
+				if(inPark != null && inPark.length != 0){
+					$("#carLicense").append(inPark.carLicense);
+					$("#licenseType").append(inPark.licenseType);
+					$("#comeTime").append(inPark.comeTime);
+					$("#payStartTime").append(inPark.comeTime);
+				}
 			}else{
 				poptxt:'数据加载失败，请至岗亭缴费！';
 			}
 		}
 	});
-
-
-
-
 
 $("#payAction").on("click", function(e){
 	var totalFee = 2;//应付
