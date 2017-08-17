@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	<div class="row accountdiv">
-		<div class="col-xs-3 bd clickable" onclick="document.location='/memberAccount/balancePage?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJvZlFINnNwLXg1NXVid1lpWVgxVWUxYnhEXzRVIiwiZXhwIjoxNTAyOTUwOTE4OTE4fQ.aHHSFVE3v2eU8SILbHx8D4-v41PQnUsRB0sY2Q8QnLM';">
+		<div class="col-xs-3 bd clickable" onclick="document.location='/memberAccount/balancePage.do';">
 			<div class="account">
 				<div class="accountvalue">0元</div>
 				<div class="accountname">账户余额</div>
@@ -48,7 +48,7 @@
 				<div class="accountname">绑定车牌</div>
 			</div>
 		</div>
-		<div class="col-xs-3 bd clickable" onclick="document.location='/memberAccount/showAllTicket?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJvZlFINnNwLXg1NXVid1lpWVgxVWUxYnhEXzRVIiwiZXhwIjoxNTAyOTUwOTE4OTE4fQ.aHHSFVE3v2eU8SILbHx8D4-v41PQnUsRB0sY2Q8QnLM&DelFlag=0&status=0';">
+		<div class="col-xs-3 bd clickable" onclick="document.location='/memberAccount/showAllTicket.do';">
 			<div class="account">
 				<div class="accountvalue">1张</div>
 				<div class="accountname">优惠券</div>
@@ -62,28 +62,28 @@
 		</div>
 	</div>
 	<div class="row itemdiv clickable" onclick="document.location='/toBound/carList.do';">
-		<div class="icon"><img src="${PATH}/resource/weixin/img/center/car2.png" style="width:auto;height: 1.2em;"/></div>
+		<div class="icon"><img src="${PATH}/resource/weixin/img/center/car2.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">车辆设置</div>
 		<div class="rightIcon"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 		<div class="rightValue">苏A12345</div>
 	</div>
 	<div class="row itemdiv clickable" onclick="document.location='/wx/charge';">
-		<div class="icon"><img src="${PATH}/resource/weixin/img/center/phone.png" style="width:auto;height: 1.4em;"/></div>
+		<div class="icon"><img src="${PATH}/resource/weixin/img/center/phone.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">修改手机号码</div>
 		<div class="right"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 	</div>
 	<div class="row itemdiv clickable" onclick="document.location='/memberAccount/parkingListPage.do';">
-		<div class="icon"><img src="${PATH}/resource/weixin/img/center/advice.png" style="width:auto;height: 1.2em;"/></div>
+		<div class="icon"><img src="${PATH}/resource/weixin/img/center/advice.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">意见反馈</div>
 		<div class="right"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 	</div>
 	<div class="row itemdiv clickable" onclick="document.location='/memberAccount/parkingListPage.do';">
-		<div class="icon"><img src="${PATH}/resource/weixin/img/center/coupon.png" style="width:auto;height: 1.2em;"/></div>
+		<div class="icon"><img src="${PATH}/resource/weixin/img/center/coupon.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">优惠券</div>
 		<div class="right"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 	</div>
 	<div class="row itemdiv clickable" onclick="document.location='/wx/charge';">
-		<div class="icon"><img src="${PATH}/resource/weixin/img/center/dollar.png" style="width:auto;height: 1.4em;"/></div>
+		<div class="icon"><img src="${PATH}/resource/weixin/img/center/dollar.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">我的钱包</div>
 		<div class="right"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 	</div>
@@ -104,7 +104,7 @@
 				$("userId").val(res.id);
 				var vipHeaderIcon = res.vipHeaderIcon;
 				if(vipHeaderIcon != null && vipHeaderIcon != ''){
-					$("#portrait").append("<img src='" + vipHeaderIcon + "' style='width:auto;height: 5em;'/>");
+					$("#portrait").append("<img id='icon' src='" + vipHeaderIcon + "' style='width:auto;height: 7em;'/>");
 				}else{
 					$("#portrait").append("<i class='fa fa-user fa-5x white'></i>");
 				}
