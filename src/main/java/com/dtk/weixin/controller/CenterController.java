@@ -1,13 +1,19 @@
 package com.dtk.weixin.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dtk.platform.bean.CarInfo;
 import com.dtk.platform.bean.Users;
 import com.dtk.platform.service.UsersService;
 import com.dtk.platform.tools.PlatformConfig;
@@ -77,5 +83,24 @@ public class CenterController {
 		}
 		return user;
 	}
+	
+	
+	
+	@RequestMapping("toBoundCar")
+	public String toBoundCar(HttpServletRequest request, Model model){
+		List<CarInfo> carList = new ArrayList<CarInfo>();
+		try {
+			String openId = CookieUtil.getOpenId(request);
+			Users user = usersService.queryUsersByOpenId(openId);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.info("getCarInfo is error carList=" + carList);
+		}
+		return "weixin/center/license";
+	}
+	
+	
+	
 	
 }

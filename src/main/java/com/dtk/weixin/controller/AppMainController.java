@@ -163,12 +163,6 @@ public class AppMainController {
     	return res;
     }
     
-    /**
-     * 
-     * @description 计算停车时长
-     * @param  
-     * @author wy
-     * @date 2017年8月15日 上午10:04:59
-     */
+ 
 	
 }

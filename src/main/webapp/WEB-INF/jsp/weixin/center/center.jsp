@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="${PATH}/resource/weixin/css/center.css">
 </head>
 <body>
+<div class="page whitepage">
 <div id="content" class="container con">
 	<input type="hidden" id="userId" value="">
 	<div>
@@ -61,11 +62,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="row itemdiv clickable" onclick="document.location='/toBound/carList.do';">
+	<div class="row itemdiv clickable" onclick="document.location='/platform/weixin/center/toBoundCar.do';">
 		<div class="icon"><img src="${PATH}/resource/weixin/img/center/car2.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">车辆设置</div>
 		<div class="rightIcon"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
-		<div class="rightValue">苏A12345</div>
+		<div class="rightValue"></div>
 	</div>
 	<div class="row itemdiv clickable" onclick="document.location='/wx/charge';">
 		<div class="icon"><img src="${PATH}/resource/weixin/img/center/phone.png" style="width:auto;height: 2em;"/></div>
@@ -89,12 +90,12 @@
 	</div>
 </div>
 
-<div class="footerMenu">
-  		<a  href="${PATH}/weixin/main/init.do">停车缴费</a>
-  		<a  href="${PATH}/weixin/record/init.do">记录查询</a>
-  		<a class="active" href="${PATH}/weixin/center/init.do">个人中心</a>
+	<div class="footerMenu">
+	  		<a  href="${PATH}/weixin/main/init.do">停车缴费</a>
+	  		<a  href="${PATH}/weixin/record/init.do">记录查询</a>
+	  		<a class="active" href="${PATH}/weixin/center/init.do">个人中心</a>
+	</div>
 </div>
-
 <script type="text/javascript">
 	$(function () {
 		//加载页面数据
@@ -104,7 +105,7 @@
 				$("userId").val(res.id);
 				var vipHeaderIcon = res.vipHeaderIcon;
 				if(vipHeaderIcon != null && vipHeaderIcon != ''){
-					$("#portrait").append("<img id='icon' src='" + vipHeaderIcon + "' style='width:auto;height: 7em;'/>");
+					$("#portrait").append("<img id='icon' src='" + vipHeaderIcon + "' style='width:auto;height: 8em;'/>");
 				}else{
 					$("#portrait").append("<i class='fa fa-user fa-5x white'></i>");
 				}

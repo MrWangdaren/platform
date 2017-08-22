@@ -37,11 +37,11 @@ html{width: 100%}
 .littlebtn{display:block;width:60px;line-height:2.8rem;text-align:center;margin:0 auto;color:#450064;font-size:1.4rem;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#f4b373;}
 .greybtn{display:block;width:112px;line-height:2.8rem;text-align:center;margin:0 auto;color:#450064;font-size:1.5rem;border:2px solid #450064;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);background:#d0d8e2;}
 .page{background: url(../img/main_bg.png) top center no-repeat;background-size: cover;box-sizing: border-box;}
-.opacitypage{background: url(../img/bg1.jpg) top center no-repeat;background-size: cover;}
-.whitepage{background: url(../img/bg1.jpg) top center no-repeat;background-size: cover;}
+.opacitypage{background: url(../img/bg1.png) top center no-repeat;background-size: cover;}
+.whitepage{background: url(../img/bg1.png) top center no-repeat;background-size: cover;}
 .h2-tit{text-align: center;font-weight: normal;font-size: 1.8rem;padding:10px 0 15px;}
 
-.brand{display:inline-block;border:2px solid #64c4f6;border-radius: 5px;box-shadow: 2px 2px 0px rgba(0,0,0,.16);padding:2px;background:#f9f9f9;}
+.brand{display:inline-block;border:2px solid #64c4f6;border-radius: 5px;/*box-shadow: 2px 2px 0px rgba(0,0,0,.16);*/padding:2px;background:#f9f9f9;}
 .t_choosetxt{width:150px;font-size: 1.5rem; color:#000000; border:1px solid #bababa; height:32px; background:url(../img/select_down.png) no-repeat right center;background-size: 15%;background-color: white;border-radius:5px; }
 
 .brand .inner{padding:6px 9px;border:1px solid #450064;border-radius: 5px;background:#64c4f6;color:#fff;font-family: "Microsoft Yahei",sans-serif;}
@@ -223,7 +223,7 @@ text-shadow:#450064 1px 0 0,#450064 0 1px 0,#450064 -1px 0 0,#450064 0 -1px 0;
 
 .addBrand{width:85%;margin:0 auto;padding-top: 5%;}
 .addBrand span{font-size: 1.4rem;color:#888;float: left;padding-top: 2%;}
-.addBrand a{float: right;width: 3rem;height: 3rem;background: url(../img/add.png) left center no-repeat;background-size: 100%;}
+.addBrand a{float: right;width: 3rem;height: 3rem;background: url(../img/center/add.png) left center no-repeat;background-size: 100%;}
 .addBrand a img{width: 100%;}
 .brandList{width:100%;padding:0 11% 7%;margin:0 auto;}
 .brandList li{margin-top: 1.5rem;}
@@ -231,14 +231,14 @@ text-shadow:#450064 1px 0 0,#450064 0 1px 0,#450064 -1px 0 0,#450064 0 -1px 0;
 .brandList .yet{background: url(../img/icon1.png) left center no-repeat;background-size: 100%;}
 .brandList .has{background: url(../img/icon2.png) left center no-repeat;background-size: 100%;}
 .brandList .wait{background: url(../img/icon3.png) left center no-repeat;background-size: 100%;}
-.brandList .brand{float: left;width: 81%;position: relative;z-index: 2;}
+.brandList .brand{float: left;width: 60%; position: relative;z-index: 2;}
 .brandList .brand .inner{padding:10px 0;text-align: center;}
-.brandList .brand .inner span{font-size: 3rem;}
-.brandList .delete{display:block;float: left;width: 3.8rem;height:3.5rem;text-align: center; padding:3% 0 2%;border-top-right-radius:5px;border-bottom-right-radius: 5px;border:2px solid #450064;box-shadow: 2px 2px 0px rgba(0,0,0,.16);position: relative;left:-1px;top:13px;z-index: 1;background: #f4b373 url(../img/delete.png) center center no-repeat;background-size: 44%;}
+.brandList .brand .inner span{font-size: 2rem;}
+.brandList .delete{display:block;float: left;width: 3.8rem;height:3.5rem;text-align: center; padding:3% 0 2%;border-radius:5px;border-bottom-right-radius: 5px;border:2px solid #450064;box-shadow: 2px 2px 0px rgba(0,0,0,.16);position: relative;left:10px;top:10px;z-index: 1;background: #f4b373 url(../img/delete.png) center center no-repeat;background-size: 44%;}
 .brandList .delete img{display:inline;width: 49%;}
 .enterWrap{display: none;padding-top: 10%;width: 100%;}
 .enterWrap .brand{width: 100%;border-radius: 0;padding:0 7%;margin:0 auto;background: none;border:none;}
-.enterWrap .btns{width: 100%;margin:0 auto;padding:10% 12%;background: #fff;}
+.enterWrap .btns{width: 100%;margin:0 auto;padding:5% 12%;}
 .enter{background: rgba(255,255,255,.15);padding:10px 1% 10px 6%;margin-bottom: 10%;}
 .enter input{width:100%;border:0;background: transparent;padding:8px 0;color:#fff;font-size: 1.6rem;}
 .enter input::-webkit-input-placeholder{color: #fff; } 

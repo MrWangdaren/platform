@@ -343,12 +343,12 @@
  	}
  	
 </script>
-		<div class="footerMenu">
-	   		<a class="active" href="${PATH}/weixin/main/init.do">停车缴费</a>
-	   		<a  href="${PATH}/weixin/record/init.do">记录查询</a>
-	   		<a  href="${PATH}/weixin/center/init.do">个人中心</a>
-		</div>
+	<div class="footerMenu">
+   		<a class="active" href="${PATH}/weixin/main/init.do">停车缴费</a>
+   		<a  href="${PATH}/weixin/record/init.do">记录查询</a>
+   		<a  href="${PATH}/weixin/center/init.do">个人中心</a>
 	</div>
+</div>
 </body>
 <script type="text/javascript">
 	var contextPath = platform_URL + platform_basePath;

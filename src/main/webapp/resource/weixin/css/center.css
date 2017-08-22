@@ -15,6 +15,7 @@ div.memberinfo{height: 13em;z-index: 1;color: #fff;}
 #membername{font-size:17px;}
 #memberphone{font-size:17px;}
 .con{padding : 0px;width: 100%;	}
+.whitepage{background: url(../img/bg1.png) top center no-repeat;background-size: cover;}
 .ct{text-align:center;margin: 0px;	background-color: #fff;}
 .bd{padding: 0px;}
 .itemdiv{margin: 0.5em 0em;height: 3.5em;background-color: #fff;}
