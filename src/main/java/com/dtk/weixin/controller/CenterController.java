@@ -85,7 +85,13 @@ public class CenterController {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @description 调转车辆绑定页面
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月23日 上午9:18:19
+	 */
 	@RequestMapping("toBoundCar")
 	public String toBoundCar(HttpServletRequest request, Model model){
 		List<CarInfo> carList = new ArrayList<CarInfo>();

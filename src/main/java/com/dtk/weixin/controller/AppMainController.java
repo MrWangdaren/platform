@@ -85,6 +85,8 @@ public class AppMainController {
 		List<InPark> ls = inParkDao.selectByExample(inParkExample);
 		if(ls != null && ls.size() ==  1){
 			res.put("code", "200");
+		}else{
+			res.put("msg", "该车不再场内！");
 		}
 		return res;
 	}

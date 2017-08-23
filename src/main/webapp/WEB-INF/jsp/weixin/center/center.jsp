@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
 	<title>个人中心</title>
 	<meta http-equiv="Expires" CONTENT="-1">
     <meta http-equiv="Pragma" CONTENT="no-cache">
@@ -68,22 +67,22 @@
 		<div class="rightIcon"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 		<div class="rightValue"></div>
 	</div>
-	<div class="row itemdiv clickable" onclick="document.location='/wx/charge';">
+	<div class="row itemdiv clickable" onclick="document.location='/platform/weixin/center/charge';">
 		<div class="icon"><img src="${PATH}/resource/weixin/img/center/phone.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">修改手机号码</div>
 		<div class="right"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 	</div>
-	<div class="row itemdiv clickable" onclick="document.location='/memberAccount/parkingListPage.do';">
+	<div class="row itemdiv clickable" onclick="document.location='/platform/weixin/center/parkingListPage.do';">
 		<div class="icon"><img src="${PATH}/resource/weixin/img/center/advice.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">意见反馈</div>
 		<div class="right"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 	</div>
-	<div class="row itemdiv clickable" onclick="document.location='/memberAccount/parkingListPage.do';">
+	<div class="row itemdiv clickable" onclick="document.location='/platform/weixin/center/parkingListPage.do';">
 		<div class="icon"><img src="${PATH}/resource/weixin/img/center/coupon.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">优惠券</div>
 		<div class="right"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
 	</div>
-	<div class="row itemdiv clickable" onclick="document.location='/wx/charge';">
+	<div class="row itemdiv clickable" onclick="document.location='/platform/weixin/center/charge';">
 		<div class="icon"><img src="${PATH}/resource/weixin/img/center/dollar.png" style="width:auto;height: 2em;"/></div>
 		<div class="item">我的钱包</div>
 		<div class="right"><img src="${PATH}/resource/weixin/img/center/arrow.png" style="width:auto;height: 1.2em;"/></div>
@@ -114,8 +113,5 @@
 		});
 	});
 </script>
-<div style="display: none;">
-	<script src="https://s22.cnzz.com/z_stat.php?id=1262225622&web_id=1262225622" language="JavaScript"></script>
-</div>
 </body>
 </html>

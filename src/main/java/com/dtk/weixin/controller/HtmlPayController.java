@@ -253,6 +253,13 @@ public class HtmlPayController {
         return result;
     }
 
+	/**
+	 * 
+	 * @description 支付成功跳转
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月23日 上午9:19:23
+	 */
 	@RequestMapping("payOk")
 	public String payOk(String outTradeNo, Model model){
 		model.addAttribute("outTradeNo", outTradeNo);

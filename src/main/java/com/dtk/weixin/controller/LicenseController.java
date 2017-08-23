@@ -69,6 +69,13 @@ public class LicenseController {
 		return res;
 	}
 	
+	/**
+	 * 
+	 * @description 绑定
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月23日 上午9:20:07
+	 */
 	@RequestMapping("addLicense")
 	@ResponseBody
 	public Map<String, Object> addLicense(HttpServletRequest request, String carLicense, Integer licenseType){
@@ -110,6 +117,13 @@ public class LicenseController {
 		return res;
 	}
 	
+	/**
+	 * 
+	 * @description 解绑
+	 * @param  
+	 * @author wy
+	 * @date 2017年8月23日 上午9:20:21
+	 */
 	@RequestMapping("deleteLicense")
 	@ResponseBody
 	public Map<String, Object> deleteLicense(Integer id){

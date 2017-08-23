@@ -15,7 +15,6 @@
      <link rel="stylesheet" href="${PATH}/resource/weixin/css/css.css">
 	 <script type="text/javascript" src="${PATH}/resource/common/js/jquery-1.12.3.min.js"></script>
 	 <script type="text/javascript" src="${PATH}/resource/common/js/content.js"></script>
-	 
 </head>
 <body>
 <div class="page">
@@ -57,7 +56,7 @@
 	            </li>
 	            <li class="clearfix">
 	                <span>入场图片：</span><span class="red">
-	                	<img class="fresh" src="http://res.mallshow.net/wx/img/MicroParking/white/fresh.png">
+	                	<img class="fresh" src="">
 	                </span>
 	            </li>
 	        </ul>
@@ -96,12 +95,6 @@
 	<div class="footerTips"><a href="javascript:void(0);">对此停车记录有疑问？</a></div>
 
 
-<!-- 弹窗-大图 -->
-<div class="fixcont" id="js-big">
-    <div class="fiximg">
-        	<img class="bigImg" src="http://res.mallshow.net/wx/img/MicroParking/white/defaultImg.jpg">
-    </div>
-</div>
 <script type="text/javascript">
 //开始支付
 
@@ -194,6 +187,5 @@ function isDisabled(btn,tag){
 </script>
 <script type="text/javascript" src="${PATH}/resource/weixin/js/pay/pay.js?verson=0123"></script> 
 <script type="text/javascript" src="${PATH}/resource/weixin/js/main/dialog.js?verson=0119"></script>
-<script type="text/javascript" src="${PATH}/resource/weixin/js/main/main.js?verson=0119"></script>
 <script type="text/javascript" src="${PATH}/resource/common/js/fastclick.js"></script>
 </html>

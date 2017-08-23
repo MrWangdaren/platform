@@ -13,7 +13,7 @@ $.promptDialog = function(settings){
 		},
 		creatElementDiv:function(){
 			if(settings.img==true){
-				var creatDiv = $("<div class='sentdiv'><img src='http://s.demo.shangquanquan.com/wx/img/happycandy/yellowright.png' style='width: 17%;display: block;margin: -5% auto 12px;'>"+settings.poptxt+"</div>");
+				var creatDiv = $("<div class='sentdiv'><img src='../../img/yellowright.png' style='width: 17%;display: block;margin: -5% auto 12px;'>"+settings.poptxt+"</div>");
 			}
 			else{
 				var creatDiv = $("<div class='sentdiv'>"+settings.poptxt+"</div>");

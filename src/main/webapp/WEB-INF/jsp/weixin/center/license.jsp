@@ -180,7 +180,6 @@
 	}); 
 </script>
 <script src="${PATH}/resource/weixin/js/main/dialog.js" type="text/javascript"></script>
-<script src="${PATH}/resource/weixin/js/main/main.js" type="text/javascript"></script>
 <script src="${PATH}/resource/common/js/fastclick.js" type="text/javascript"></script>
 </html>
 <script type="text/javascript">
